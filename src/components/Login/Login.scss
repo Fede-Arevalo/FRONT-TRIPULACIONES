@@ -1,0 +1,36 @@
+.login {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10em;
+  .login-form {
+    text-align: center;
+    width: 220px;
+
+    .ant-btn {
+      background-color: rgb(129, 196, 213);
+
+      &:hover {
+        background-color: rgb(154, 121, 185);
+      }
+    }
+    .ant-input-affix-wrapper {
+      color: rgb(154, 121, 185);
+    }
+  }
+
+  .logo {
+    height: 95px;
+    margin-bottom: 30px;
+    padding-right: 25px;
+  }
+  a {
+    text-decoration: none;
+    font-size: medium;
+    color: rgb(154, 121, 185);
+    &:hover {
+      font-weight: 600;
+    }
+  }
+}

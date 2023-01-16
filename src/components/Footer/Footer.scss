@@ -1,0 +1,26 @@
+.footer {
+  border-radius: 10px 10px 0px 0px;
+  background-color: #D9AFD9;
+  background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+  box-shadow: 0px -6px 19px -2px rgba(161, 89, 155, 0.581);
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  height: 3.5em;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  nav {
+    a {
+      all: unset;
+      cursor: pointer;
+      color: rgb(255, 255, 255);
+      font-size: 20px;
+      &:hover {
+        color: rgba(137, 85, 185);
+      }
+    }
+    display: flex;
+    justify-content: space-around;
+  }
+}
