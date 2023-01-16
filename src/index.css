@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+  font-family: "Quicksand", sans-serif;
+  color: rgb(101, 101, 101);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+p {
+  font-weight: 500;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
