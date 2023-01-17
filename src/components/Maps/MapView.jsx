@@ -12,7 +12,7 @@ const MapView = () => {
         const newMap = new mapboxgl.Map({
           container: 'map', 
           style: 'mapbox://styles/mapbox/streets-v12', 
-          zoom: 15, 
+          zoom: 5, 
           maxBounds: bounds 
         });
         setMap(newMap);
