@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { login, reset } from "../../features/auth/authSlice";
+import { login, logout, reset } from "../../features/auth/authSlice";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { notification, Button, Form, Input } from "antd";
 import Logo from "../../assets/isologo-g-free-celeste.png";
@@ -24,8 +24,14 @@ const Login = () => {
       notification.success({ message: "Login Success!", description: message });
       setTimeout(() => {
         navigate("/");
+        setTimeout(() => {
+          dispatch(logout());
+          localStorage.removeItem("user");
+          navigate("/login");
+        }, 10000);
       }, 2000);
     }
+    //10,000 = 10s   600,000 = 10min   24h = 86400000  48h= 172800000 3días = 259200000  7 días = 604800000
 
     if (isError) {
       notification.error({
@@ -57,8 +63,7 @@ const Login = () => {
         initialValues={{
           remember: true,
         }}
-        onFinish={onFinish}
-      >
+        onFinish={onFinish}>
         <Form.Item
           name="email"
           rules={[
@@ -66,8 +71,7 @@ const Login = () => {
               required: true,
               message: "Please input your email!",
             },
-          ]}
-        >
+          ]}>
           <Input
             prefix={<UserOutlined className="site-form-item-icon" />}
             type="email"
@@ -85,8 +89,7 @@ const Login = () => {
               required: true,
               message: "Please input your Password!",
             },
-          ]}
-        >
+          ]}>
           <Input
             prefix={<LockOutlined className="site-form-item-icon" />}
             type="password"
@@ -101,14 +104,15 @@ const Login = () => {
             type="primary"
             block
             htmlType="submit"
-            className="login-form-button"
-          >
+            className="login-form-button">
             Log in
           </Button>
         </Form.Item>
       </Form>
       <p>You don't have an account?</p>
-      <Link to="/register"><span>Sign up!</span></Link>
+      <Link to="/register">
+        <span>Sign up!</span>
+      </Link>
     </div>
   );
 };

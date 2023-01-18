@@ -14,6 +14,7 @@ import AddComment from "./components/AddComment/AddComment";
 import Footer from "./components/Footer/Footer";
 import UpdateUser from "./components/UpdateUser/UpdateUser";
 import UpdatePost from "./components/UpdatePost/UpdatePost";
+import Maps from "./components/Maps/Maps";
 
 
 function App() {
@@ -33,11 +34,12 @@ function App() {
           <Route path="/addComment/:_id" element={<AddComment />} />
           <Route path="/UpdateUser/:_id" element={<UpdateUser />} />
           <Route path="/UpdatePost/:_id" element={<UpdatePost />} />
+          <Route path="/maps" element={<Maps/>} />
         </Routes>
         <Footer />
       </BrowserRouter>
     </div>
   );
 }
-
+//v12
 export default App;
