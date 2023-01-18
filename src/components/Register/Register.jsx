@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { register, reset } from "../../features/auth/authSlice";
-import Logo from "../../assets/isologo-g-free-celeste.png";
+import Logo from "../../assets/Logo.png";
 import { Button, notification } from "antd";
 import { CloudUploadOutlined } from "@ant-design/icons";
 import "./Register.scss";

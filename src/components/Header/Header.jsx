@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Logo from "../../assets/isologo-g-free.png";
+import Logo from "../../assets/Logo.png";
 import "./Header.scss";
 import { Input } from "antd";
 import { LeftOutlined } from "@ant-design/icons";
