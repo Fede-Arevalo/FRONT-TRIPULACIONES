@@ -1,14 +1,11 @@
-import React, { useEffect, useState } from "react";
+mport React, { useEffect, useState } from "react";
 import mapboxgl from "mapbox-gl";
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
-
 
 const MapView = () => {
   const [map, setMap] = useState(null);
   const [geocoder, setGeocoder] = useState(null);
-
-
-
+  
   useEffect(() => {
     if (!map) {
       const bounds = new mapboxgl.LngLatBounds();
@@ -29,18 +26,7 @@ const MapView = () => {
       });
       newMap.addControl(newGeocoder);
       setGeocoder(newGeocoder);
-    }
-  }, [map]);
 
-  useEffect(() => {
-    if (geocoder) {
-      geocoder.on("result", (e) => {
-        map.flyTo({ center: e.result.center });
-      });
-    }
-  }, [geocoder, map]);
-
-  return <div id="map" style={{ height: "75vh", width: "100vw" }}></div>;
-};
+      
 
 export default MapView;
