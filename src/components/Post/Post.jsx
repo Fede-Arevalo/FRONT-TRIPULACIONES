@@ -51,6 +51,7 @@ const Post = () => {
             />,
           ]}
         >
+        <Link to={"/post/" + post._id}>
           <Meta
             avatar={
               <Avatar
@@ -65,6 +66,7 @@ const Post = () => {
               <span> | {post.commentIds?.length} Comments</span>
             </div>
           />
+          </Link>
         </Card>
       </div>
     );
