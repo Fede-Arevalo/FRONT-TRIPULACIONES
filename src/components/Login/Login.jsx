@@ -28,10 +28,10 @@ const Login = () => {
           dispatch(logout());
           localStorage.removeItem("user");
           navigate("/login");
-        }, 10000);
+        }, 172800000);
       }, 2000);
     }
-    //10,000 = 10s   600,000 = 10min   24h = 86400000  3días = 259200000  7 días = 604800000
+    //10,000 = 10s   600,000 = 10min   24h = 86400000  48h= 172800000 3días = 259200000  7 días = 604800000
 
     if (isError) {
       notification.error({
