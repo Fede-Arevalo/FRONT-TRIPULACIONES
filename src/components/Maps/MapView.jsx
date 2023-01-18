@@ -2,9 +2,12 @@ import React, { useEffect, useState } from "react";
 import mapboxgl from "mapbox-gl";
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 
+
 const MapView = () => {
   const [map, setMap] = useState(null);
   const [geocoder, setGeocoder] = useState(null);
+
+
 
   useEffect(() => {
     if (!map) {

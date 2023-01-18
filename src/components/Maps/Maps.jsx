@@ -9,6 +9,7 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoic2lmMGRldiIsImEiOiJjbGQwZGdhb3kxNmpnM3J0Z281Z
 const Maps = () => {
   return (
     <div><MapView/></div>
+    
   )
 }
 
