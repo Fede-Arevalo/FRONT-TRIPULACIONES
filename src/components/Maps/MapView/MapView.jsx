@@ -12,9 +12,9 @@ const MapView = () => {
 
   const handleSearch = (searchResult) => {
     console.log("Número: " + searchResult.address);
-    console.log("Calle: " + searchResult.place_name)
-    console.log(searchResult.center[0])
-    console.log(searchResult.center[1])
+    console.log("Calle: " + searchResult.place_name);
+    console.log(searchResult.center[0]);
+    console.log(searchResult.center[1]);
     dispatch(addPlace(searchResult));
   };
 
@@ -26,13 +26,12 @@ const MapView = () => {
       const newMap = new mapboxgl.Map({
         container: "map",
         style: "mapbox://styles/mapbox/outdoors-v12",
-        zoom: 3,
-        maxBounds: bounds,
+        zoom: 20,
+        
         logoPosition: "bottom-left",
         attributionControl: false,
       });
 
-      // Agregamos el control de geolocalización
       newMap.addControl(
         new mapboxgl.GeolocateControl({
           positionOptions: {
@@ -57,24 +56,23 @@ const MapView = () => {
         map?.flyTo({ center: e.result.center });
         setSearchResult(e.result);
         handleSearch(e.result);
+        const marker = document.querySelector("#map div.mapboxgl-marker");
+marker.parentNode.removeChild(marker);
+
       });
     }
   }, [geocoder, map]);
 
   useEffect(() => {
     if (geocoder) {
-      geocoder.on("result", (e) => {
-        map?.flyTo({ center: e.result.center });
-        setSearchResult(e.result);
-        handleSearch(e.result);
-      });
+      
     }
   }, [geocoder, map]);
 
   useEffect(() => {
     console.log(searchResult);
   }, [searchResult]);
-  return <div id="map" style={{ height: "50vh", width: "50vw" }}></div>;
+  return <div id="map"></div>;
 };
 
 export default MapView;
