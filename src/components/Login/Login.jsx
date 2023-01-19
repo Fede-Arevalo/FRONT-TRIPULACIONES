@@ -77,7 +77,7 @@ const Login = () => {
             type="email"
             name="email"
             value={email}
-            placeholder="email"
+            placeholder="E-MAIL"
             onChange={onChange}
           />
         </Form.Item>
@@ -95,7 +95,7 @@ const Login = () => {
             type="password"
             name="password"
             value={password}
-            placeholder="password"
+            placeholder="CONTRASEÑA"
             onChange={onChange}
           />
         </Form.Item>
@@ -105,13 +105,13 @@ const Login = () => {
             block
             htmlType="submit"
             className="login-form-button">
-            Log in
+            Ingresar
           </Button>
         </Form.Item>
       </Form>
-      <p>You don't have an account?</p>
+      <p>¿No tienes una cuenta?</p>
       <Link to="/register">
-        <span>Sign up!</span>
+        <span>Regístrate!</span>
       </Link>
     </div>
   );

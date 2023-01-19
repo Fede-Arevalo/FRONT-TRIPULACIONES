@@ -1,22 +1,32 @@
+@import "../../colors.scss";
+
 .login {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   margin-top: 10em;
+
   .login-form {
     text-align: center;
     width: 220px;
 
     .ant-btn {
-      background-color: rgb(129, 196, 213);
+      background-color: $terciario1;
+      font-family: "Archivo", sans-serif;
+      font-weight: 200;
 
       &:hover {
-        background-color: rgb(154, 121, 185);
+        background-color: $secundario;
       }
     }
     .ant-input-affix-wrapper {
-      color: rgb(154, 121, 185);
+      color: $terciario1;
+      font-size: 13px;
+      padding-top: 6px;
+    }
+    span {
+      padding-bottom: 1.5px;
     }
   }
 
@@ -28,9 +38,13 @@
   a {
     text-decoration: none;
     font-size: medium;
-    color: rgb(154, 121, 185);
+    color: $terciario1;
     &:hover {
-      font-weight: 600;
+      color: $secundario;
     }
   }
+}
+
+.ant-input {
+  font-family: "Archivo", sans-serif;
 }

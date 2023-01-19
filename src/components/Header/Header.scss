@@ -1,10 +1,12 @@
+@import "../../colors.scss";
+
 .header {
-  background-color: #F28517;  
+  background-color: $primario;
   position: sticky;
   width: 100%;
   top: 0;
   z-index: 999;
-  height: 4em;
+  height: 2.5em;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -12,22 +14,21 @@
 
   nav {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
+    margin-left: 16px;
+    margin-top: 20px;    
+    font-size: 20px;
 
     .back{
-      color: white;
+      color: $textos;
       &:hover{
-        color: rgb(154, 121, 185);
+        color: $terciario1;
       }
 
     }
 
-    .logo {
-      height: 40px;
-      margin-top: 5px;
-      box-shadow: #0a0a09;
-    }
+    
   }
 
 }

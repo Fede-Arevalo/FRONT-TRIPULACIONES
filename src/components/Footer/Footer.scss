@@ -1,24 +1,62 @@
+@import "../../colors.scss";
+
 .footer {
-  border-radius: 10px 10px 0px 0px;
-  background-color: #F28517;  
+  background-color: $primario;
   bottom: 0;
   position: fixed;
   width: 100%;
-  height: 3.5em;
+  height: 4em;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  padding-bottom: 5px;
+  
   nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 500;
     a {
       all: unset;
       cursor: pointer;
-      color: rgb(255, 255, 255);
+      color: $textos;
       font-size: 20px;
       &:hover {
-        color: rgba(137, 85, 185);
+        color: $terciario1;
       }
     }
-    display: flex;
-    justify-content: space-around;
+    .inicio {      
+      display: flex;
+      justify-content: flex-end;
+      flex-direction: column;
+      align-items: center;
+      height: 50px;
+      font-size: 12px;
+    }
+    .habito {      
+      display: flex;
+      justify-content: flex-end;
+      flex-direction: column;
+      align-items: center;
+      height: 50px;
+      font-size: 12px;
+    }
+    .perfil {      
+      display: flex;
+      justify-content: flex-end;
+      flex-direction: column;
+      align-items: center;
+      height: 50px;
+      font-size: 12px;
+    }
+    .admin {      
+      display: flex;
+      justify-content: flex-end;
+      flex-direction: column;
+      align-items: center;
+      height: 50px;
+      font-size: 12px;
+    }
   }
 }
