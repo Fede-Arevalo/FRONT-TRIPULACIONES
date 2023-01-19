@@ -57,6 +57,9 @@ const MapView = () => {
     }
   }, [geocoder, map]);
 
+  useEffect(() => {
+    console.log(searchResult);
+  }, [searchResult]);
   return <div id="map" style={{ height: "50vh", width: "50vw" }}></div>;
 };
 
