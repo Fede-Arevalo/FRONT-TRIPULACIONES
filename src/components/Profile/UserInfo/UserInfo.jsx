@@ -3,13 +3,13 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import {
-  FormOutlined, 
+  FormOutlined,
   CommentOutlined,
   MoreOutlined,
   EditOutlined,
   LogoutOutlined,
 } from "@ant-design/icons";
-import { Avatar, Divider, Spin, Dropdown, Space } from "antd";
+import { Avatar, Spin, Dropdown, Space } from "antd";
 import "./UserInfo.scss";
 import { logout } from "../../../features/auth/authSlice";
 
@@ -21,7 +21,6 @@ const UserInfo = () => {
 
   const posts = userInfo.postIds;
   const comments = userInfo.commentIds;
-  
 
   if (!userInfo) {
     return (
@@ -80,7 +79,6 @@ const UserInfo = () => {
         </Link>
         <h1>{userInfo.name}</h1>
         <div className="icons">
-          
           <p>
             <FormOutlined /> {posts?.length}
           </p>
@@ -89,7 +87,6 @@ const UserInfo = () => {
           </p>
         </div>
       </div>
-      <Divider />
     </div>
   );
 };

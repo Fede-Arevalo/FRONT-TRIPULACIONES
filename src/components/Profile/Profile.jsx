@@ -1,29 +1,18 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { loggedIn } from "../../features/auth/authSlice";
-import {
-  dislike,
-  getAllPosts,
-  like,
-  reset,
-} from "../../features/posts/postsSlice";
-import {
-  CommentOutlined,
-  HeartTwoTone,
-  HeartOutlined,
-} from "@ant-design/icons";
-import { Avatar, Card, Spin } from "antd";
+import { getAllPosts, reset } from "../../features/posts/postsSlice";
+import { EnvironmentOutlined } from "@ant-design/icons";
+import { Avatar, Divider, Spin } from "antd";
 import "./Profile.scss";
 import UserInfo from "./UserInfo/UserInfo";
 
 const Profile = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { user, userInfo } = useSelector((state) => state.auth);
+  const { userInfo } = useSelector((state) => state.auth);
   const { posts, isLoading } = useSelector((state) => state.posts);
-  const { Meta } = Card;
 
   async function getAllPostsAndReset() {
     await dispatch(getAllPosts());
@@ -45,54 +34,45 @@ const Profile = () => {
   }
 
   const userPost = posts?.map((post) => {
-    const isAlreadyLiked = post.likes_post?.includes(user?.user._id);
-
     if (userInfo?._id === post?.userId?._id) {
       return (
-        <div key={post._id}>
-          <Card
-            hoverable
-            style={{ width: 340 }}
-            cover={
-              <Link to={"/post/" + post._id}>
-                <img
-                  src={"http://localhost:8080/" + post.image}
-                  alt={post.title}
-                  width="340"
-                />
-              </Link>
-            }
-            actions={[
-              <>
-                {isAlreadyLiked ? (
-                  <HeartTwoTone
-                    twoToneColor="#eb2f96"
-                    onClick={() => dispatch(dislike(post._id))}
-                  />
-                ) : (
-                  <HeartOutlined onClick={() => dispatch(like(post._id))} />
-                )}
-              </>,
-              <CommentOutlined
-                onClick={() => navigate(`/addComment/${post._id}`)}
-              />,
-            ]}
-          >
-            <Meta
-              avatar={
-                <Avatar
-                  size={40}
-                  src={"http://localhost:8080/" + userInfo?.imageUser}
-                  alt={userInfo.name}
-                />
-              }
-              title={post.title}
-              description=<div className="like">
-                <strong>{post.likes_post?.length} Grateful people</strong>
-                <span> | {post.commentIds?.length} Comments</span>
+        <div className="card" key={post._id}>
+          <div className="top-container">
+            <div className="estado-container">
+              <div className="estado-incidencia">
+                Estado:<span>Enviado AYTO</span>
               </div>
-            />
-          </Card>
+            </div>
+            <div className="usuario">
+              <Avatar
+                size={70}
+                src={"http://localhost:8080/" + post.userId?.imageUser}
+                alt={post.userId?.name}
+              />
+              <div className="nombre">{post.userId?.name}</div>
+            </div>
+
+            <div className="ubicacion-incidencia">
+              <EnvironmentOutlined />
+              <span> Calle camino nuevo 6</span>
+            </div>
+
+            <p>{post.body}</p>
+
+            <div className="fecha">
+              <span>02/03/2023 22:52</span>
+            </div>
+          </div>
+
+          <div className="imagen-incidencia">
+            <Link to={"/post/" + post._id}>
+              <img
+                src={"http://localhost:8080/" + post.image}
+                alt={post.title}
+                width="100%"
+              />
+            </Link>
+          </div>
         </div>
       );
     }
@@ -102,7 +82,11 @@ const Profile = () => {
   return (
     <div className="profile">
       <UserInfo />
-      <div className="userPost">{userPost}</div>
+      <Divider />
+      <div className="userPost">
+        {userPost}
+        <h1>Mis Incidencias</h1>
+      </div>
     </div>
   );
 };

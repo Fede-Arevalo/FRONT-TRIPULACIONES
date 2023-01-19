@@ -15,6 +15,7 @@ import Footer from "./components/Footer/Footer";
 import UpdateUser from "./components/UpdateUser/UpdateUser";
 import UpdatePost from "./components/UpdatePost/UpdatePost";
 import Maps from "./components/Maps/Maps";
+import Incidents from "./components/Incidents/Incidents";
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
           <Route path="/UpdateUser/:_id" element={<UpdateUser />} />
           <Route path="/UpdatePost/:_id" element={<UpdatePost />} />
           <Route path="/maps" element={<Maps/>} />
+          <Route path="/incidents" element={<Incidents />} />
         </Routes>
         <Footer />
       </BrowserRouter>

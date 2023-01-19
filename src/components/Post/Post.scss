@@ -10,9 +10,8 @@
   .card {
     font-family: "Archivo", sans-serif;
     background-color: white;
-    
+
     .top-container {
-      
       margin: 15px 18px 8px 18px;
       .estado-container {
         display: flex;
@@ -25,7 +24,7 @@
           border-color: rgba(128, 128, 128, 0.5);
           border-radius: 6px;
           padding: 3px 6px 2px 7px;
-          font-size: 12px;
+          font-size: 13px;
           font-weight: 700;
           span {
             color: $secundario;
@@ -56,11 +55,9 @@
         display: flex;
         justify-content: flex-end;
         font-size: 12px;
-        
       }
-
     }
-    .imagen-incidencia{
+    .imagen-incidencia {
       background-color: $primario;
     }
   }

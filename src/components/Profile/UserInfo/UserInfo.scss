@@ -1,5 +1,6 @@
+@import "../../../colors.scss";
+
 .userInfo {
-  margin-bottom: 2em;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -19,9 +20,9 @@
     align-items: center;
 
     .ant-avatar:hover {
-      background-color: #8040ff;
-      outline: 0.5px solid #8040ff;
-      box-shadow: 0px 0px 15px rgba(56, 169, 240, 0.75);
+      background-color: $terciario1;
+      outline: 0.5px solid $terciario1;
+      box-shadow: 0px 0px 15px $terciario1;
     }
 
     h1 {
