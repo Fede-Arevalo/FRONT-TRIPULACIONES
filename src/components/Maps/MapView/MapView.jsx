@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
 import mapboxgl from "mapbox-gl";
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
-import "./MapView.scss";
-import placesService from "../../../features/places/placesService";
+import { useDispatch } from "react-redux";
+import { addPlace } from "../../../features/places/placesService";
 
 const MapView = () => {
   const [map, setMap] = useState(null);
   const [geocoder, setGeocoder] = useState(null);
   const [searchResult, setSearchResult] = useState(null);
+  const dispatch = useDispatch();
 
   const handleSearch = (searchResult) => {
     console.log(searchResult.address);
-    placesService.addPlace(searchResult);
+    dispatch(addPlace(searchResult));
   };
 
   useEffect(() => {
@@ -46,6 +47,16 @@ const MapView = () => {
       setGeocoder(newGeocoder);
     }
   }, [map]);
+
+  useEffect(() => {
+    if (geocoder) {
+      geocoder.on("result", (e) => {
+        map?.flyTo({ center: e.result.center });
+        setSearchResult(e.result);
+        handleSearch(e.result);
+      });
+    }
+  }, [geocoder, map]);
 
   useEffect(() => {
     if (geocoder) {

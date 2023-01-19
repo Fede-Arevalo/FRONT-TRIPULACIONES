@@ -1,18 +1,26 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { addPlace } from "./placesService";
 
-export const placesSlice = createSlice({
+const initialState = {
+  places: [],
+};
+
+const placesSlice = createSlice({
   name: "places",
-  initialState: [],
+  initialState,
   reducers: {
     setPlaces: (state, action) => {
-      state = action.payload;
+      state.places = action.payload;
     },
-    addPlace: (state, action) => {
-      state.push(action.payload);
-    }
-  }
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(addPlace.fulfilled, (state, action) => {
+        state.places.push(action.payload);
+      });
+  },
 });
 
-export const { setPlaces, addPlace } = placesSlice.actions;
+export const { setPlaces } = placesSlice.actions;
 
 export default placesSlice.reducer;
