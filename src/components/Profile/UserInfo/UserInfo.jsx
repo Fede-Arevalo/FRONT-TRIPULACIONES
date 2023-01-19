@@ -3,9 +3,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import {
-  FormOutlined,
-  UsergroupAddOutlined,
-  TeamOutlined,
+  FormOutlined, 
   CommentOutlined,
   MoreOutlined,
   EditOutlined,
@@ -23,8 +21,7 @@ const UserInfo = () => {
 
   const posts = userInfo.postIds;
   const comments = userInfo.commentIds;
-  const followers = userInfo.followerIds;
-  const following = userInfo.followingIds;
+  
 
   if (!userInfo) {
     return (
@@ -76,19 +73,14 @@ const UserInfo = () => {
       <div className="user">
         <Link to={"/UpdateUser/" + userInfo._id}>
           <Avatar
-            size={80}
+            size={180}
             src={"http://localhost:8080/" + userInfo?.imageUser}
             alt={userInfo.name}
           />
         </Link>
         <h1>{userInfo.name}</h1>
         <div className="icons">
-          <p>
-            <UsergroupAddOutlined /> {followers?.length}
-          </p>
-          <p>
-            <TeamOutlined /> {following?.length}
-          </p>
+          
           <p>
             <FormOutlined /> {posts?.length}
           </p>

@@ -28,10 +28,9 @@ const Login = () => {
           dispatch(logout());
           localStorage.removeItem("user");
           navigate("/login");
-        }, 10000);
+        }, 86400000); //10,000 = 10s   600,000 = 10min   24h = 86400000  48h= 172800000 3días = 259200000  7 días = 604800000
       }, 2000);
     }
-    //10,000 = 10s   600,000 = 10min   24h = 86400000  48h= 172800000 3días = 259200000  7 días = 604800000
 
     if (isError) {
       notification.error({
@@ -63,7 +62,8 @@ const Login = () => {
         initialValues={{
           remember: true,
         }}
-        onFinish={onFinish}>
+        onFinish={onFinish}
+      >
         <Form.Item
           name="email"
           rules={[
@@ -71,7 +71,8 @@ const Login = () => {
               required: true,
               message: "Please input your email!",
             },
-          ]}>
+          ]}
+        >
           <Input
             prefix={<UserOutlined className="site-form-item-icon" />}
             type="email"
@@ -89,7 +90,8 @@ const Login = () => {
               required: true,
               message: "Please input your Password!",
             },
-          ]}>
+          ]}
+        >
           <Input
             prefix={<LockOutlined className="site-form-item-icon" />}
             type="password"
@@ -104,7 +106,8 @@ const Login = () => {
             type="primary"
             block
             htmlType="submit"
-            className="login-form-button">
+            className="login-form-button"
+          >
             Ingresar
           </Button>
         </Form.Item>
