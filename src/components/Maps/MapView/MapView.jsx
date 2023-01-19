@@ -11,7 +11,10 @@ const MapView = () => {
   const dispatch = useDispatch();
 
   const handleSearch = (searchResult) => {
-    console.log(searchResult.address);
+    console.log("Número: " + searchResult.address);
+    console.log("Calle: " + searchResult.place_name)
+    console.log(searchResult.center[0])
+    console.log(searchResult.center[1])
     dispatch(addPlace(searchResult));
   };
 
