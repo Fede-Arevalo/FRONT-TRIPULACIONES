@@ -3,6 +3,8 @@ import mapboxgl from "mapbox-gl";
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 import { useDispatch } from "react-redux";
 import { addPlace } from "../../../features/places/placesService";
+import "./MapView.scss"
+import 'mapbox-gl/dist/mapbox-gl.css'; 
 
 const MapView = () => {
   const [map, setMap] = useState(null);
@@ -23,11 +25,13 @@ const MapView = () => {
       const bounds = new mapboxgl.LngLatBounds();
       bounds.extend([-0.3810545927, 39.4822317431]);
       bounds.extend([-0.3772029387, 39.4772260915]);
+
+
       const newMap = new mapboxgl.Map({
         container: "map",
         style: "mapbox://styles/mapbox/outdoors-v12",
-        zoom: 20,
-        
+        zoom: 15,
+        maxBounds: bounds,
         logoPosition: "bottom-left",
         attributionControl: false,
       });
@@ -56,9 +60,6 @@ const MapView = () => {
         map?.flyTo({ center: e.result.center });
         setSearchResult(e.result);
         handleSearch(e.result);
-        const marker = document.querySelector("#map div.mapboxgl-marker");
-marker.parentNode.removeChild(marker);
-
       });
     }
   }, [geocoder, map]);
