@@ -10,12 +10,12 @@ import PostDetail from "./components/PostDetail/PostDetail";
 import Search from "./components/Search/Search";
 import Admin from "./components/Admin/Admin";
 import AddPost from "./components/AddPost/AddPost";
-import AddComment from "./components/AddComment/AddComment";
 import Footer from "./components/Footer/Footer";
 import UpdateUser from "./components/UpdateUser/UpdateUser";
 import UpdatePost from "./components/UpdatePost/UpdatePost";
 import Maps from "./components/Maps/Maps";
 import Incidents from "./components/Incidents/Incidents";
+import Wellcome from "./components/Wellcome/Wellcome";
 
 
 function App() {
@@ -25,6 +25,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/wellcome" element={<Wellcome />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
@@ -32,7 +33,6 @@ function App() {
           <Route path="/search/:postName" element={<Search />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/addPost" element={<AddPost />} />
-          <Route path="/addComment/:_id" element={<AddComment />} />
           <Route path="/UpdateUser/:_id" element={<UpdateUser />} />
           <Route path="/UpdatePost/:_id" element={<UpdatePost />} />
           <Route path="/maps" element={<Maps/>} />

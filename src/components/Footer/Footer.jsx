@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./Footer.scss";
 import {
   UserOutlined,
@@ -11,53 +11,60 @@ import { useSelector } from "react-redux";
 
 const Footer = () => {
   const { user } = useSelector((state) => state.auth);
+
+  let location = useLocation();
+
   return (
     <div className="footer">
-      <nav>
-        <div className="inicio">
-          <Link to="/">
-            <HomeOutlined />
-          </Link>
-          inicio
-        </div>
-        <>
-          {user ? (
-            <>
-              <div className="habito">
-                <Link to="/addPost">
-                  <CommentOutlined />
-                </Link>
-                Habito
-              </div>
-              <div className="perfil">
-                <Link to="/profile">
-                  <UserOutlined />
-                </Link>
-                Perfil
-              </div>
-              {user.user.role === "admin" ? (
-                <div className="admin">
-                  <Link to="/admin">
-                    <DeleteOutlined />
+      {location.pathname !== "/login" && location.pathname !== "/register" && location.pathname !== "/" ? (
+        <nav>
+          <div className="inicio">
+            <Link to="/wellcome">
+              <HomeOutlined />
+            </Link>
+            inicio
+          </div>
+          <>
+            {user ? (
+              <>
+                <div className="habito">
+                  <Link to="/addPost">
+                    <CommentOutlined />
                   </Link>
-                  Admin
+                  Habito
                 </div>
-              ) : (
-                ""
-              )}
-            </>
-          ) : (
-            <>
-              <div className="perfil">
-                <Link to="/login">
-                  <UserOutlined />
-                </Link>
-                Perfil
-              </div>
-            </>
-          )}
-        </>
-      </nav>
+                <div className="perfil">
+                  <Link to="/profile">
+                    <UserOutlined />
+                  </Link>
+                  Perfil
+                </div>
+                {user.user.role === "admin" ? (
+                  <div className="admin">
+                    <Link to="/admin">
+                      <DeleteOutlined />
+                    </Link>
+                    Admin
+                  </div>
+                ) : (
+                  ""
+                )}
+              </>
+            ) : (
+              <>
+                <div className="perfil">
+                  <Link to="/login">
+                    <UserOutlined />
+                  </Link>
+                  Perfil
+                </div>
+              </>
+            )}
+          </>
+        </nav>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

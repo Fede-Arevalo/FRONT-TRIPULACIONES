@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { register, reset } from "../../features/auth/authSlice";
-import Logo from "../../assets/Logo.png";
+import Logo from "../../assets/Logotipo.png";
 import { Button, notification } from "antd";
 import { CloudUploadOutlined } from "@ant-design/icons";
 import "./Register.scss";
@@ -28,8 +28,8 @@ const Register = () => {
   useEffect(() => {
     if (isSuccess) {
       notification.success({
-        message: `Welcome! ${name}`,
-        description: "Successfully registered",
+        message: `Bienvenido! ${name}`,
+        description: "Tu registro ha sido exitoso!",
       });
       navigate("/login");
     }

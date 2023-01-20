@@ -33,7 +33,7 @@ const UserInfo = () => {
   const onLogout = (e) => {
     e.preventDefault();
     dispatch(logout());
-    navigate("/");
+    navigate("/login");
   };
 
   const items = [

@@ -4,8 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { dislike, getPostById, like } from "../../features/posts/postsSlice";
 import {
-  EditOutlined,
-  MessageTwoTone,
+  EditOutlined,  
   HeartTwoTone,
   HeartOutlined,
 } from "@ant-design/icons";
@@ -23,27 +22,14 @@ const PostDetail = () => {
     // eslint-disable-next-line
   }, []);
 
-  if (!post.commentIds) {
+  if (!post) {
     return (
       <div className="spiner">
         <Spin size="large" />
       </div>
     );
   }
-
-  const comments = post.commentIds.map((comment) => {
-    return (
-      <div classkey={comment._id}>
-        <Avatar
-          size={20}
-          src={"http://localhost:8080/" + comment.userId?.imageUser}
-          alt={comment.userId?.name}
-        />{" "}
-        <span>{comment.userId?.name}</span>
-        <p>{comment.comment}</p>
-      </div>
-    );
-  });
+  
 
   const isAlreadyLiked = post.likes_post?.includes(user?.user._id);
 
@@ -99,11 +85,7 @@ const PostDetail = () => {
               <HeartOutlined onClick={() => likePost()} />
             )}
           </div>
-          <div className="icon-2">
-            <Link to={"/addComment/" + _id}>
-              <MessageTwoTone />
-            </Link>
-          </div>
+          
         </div>
 
         <div className="body">
@@ -111,10 +93,7 @@ const PostDetail = () => {
           <p>{post.body}</p>
         </div>
         <Divider />
-        <div className="comments">
-          <h2>Comments</h2>
-          {comments}
-        </div>
+        
       </div>
     </div>
   );

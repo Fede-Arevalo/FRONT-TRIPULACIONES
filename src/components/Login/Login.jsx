@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { login, logout, reset } from "../../features/auth/authSlice";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { notification, Button, Form, Input } from "antd";
-import Logo from "../../assets/Logo.png";
+import Logo from "../../assets/Logotipo.png";
 import "./Login.scss";
 
 const Login = () => {
@@ -21,9 +21,9 @@ const Login = () => {
 
   useEffect(() => {
     if (isSuccess) {
-      notification.success({ message: "Login Success!", description: message });
+      notification.success({ message: "Hola Vecino!", description: message });
       setTimeout(() => {
-        navigate("/");
+        navigate("/wellcome");
         setTimeout(() => {
           dispatch(logout());
           localStorage.removeItem("user");
@@ -34,7 +34,7 @@ const Login = () => {
 
     if (isError) {
       notification.error({
-        message: "Wrong email or password",
+        message: "Tu email o password es incorrecto",
         description: message,
       });
     }
@@ -55,7 +55,7 @@ const Login = () => {
 
   return (
     <div className="login">
-      <img src={Logo} alt="Logo-G-free" className="logo" />
+      <img src={Logo} alt="Logo" className="logo" />
       <Form
         name="normal_login"
         className="login-form"
