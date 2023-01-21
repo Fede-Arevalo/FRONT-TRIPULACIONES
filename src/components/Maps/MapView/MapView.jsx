@@ -3,8 +3,9 @@ import mapboxgl from "mapbox-gl";
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 import { useDispatch } from "react-redux";
 import { addPlace } from "../../../features/places/placesService";
-import "./MapView.scss"
-import 'mapbox-gl/dist/mapbox-gl.css'; 
+import "./MapView.scss";
+import "mapbox-gl/dist/mapbox-gl.css";
+import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
 
 const MapView = () => {
   const [map, setMap] = useState(null);
@@ -26,7 +27,6 @@ const MapView = () => {
       bounds.extend([-0.3810545927, 39.4822317431]);
       bounds.extend([-0.3772029387, 39.4772260915]);
 
-
       const newMap = new mapboxgl.Map({
         container: "map",
         style: "mapbox://styles/mapbox/outdoors-v12",
@@ -35,6 +35,7 @@ const MapView = () => {
         logoPosition: "bottom-left",
         attributionControl: false,
       });
+      setMap(newMap);
 
       newMap.addControl(
         new mapboxgl.GeolocateControl({
@@ -42,9 +43,17 @@ const MapView = () => {
             enableHighAccuracy: true,
           },
           trackUserLocation: true,
+          fitBoundsOptions: {
+            maxZoom: 15,
+            bounds: bounds,
+          },
         })
       );
-
+      newMap.on("moveend", () => {
+        if (!bounds.contains(newMap.getCenter())) {
+          console.log("Te encuentras fuera del barrio del Campanar");
+        }
+      });
       const newGeocoder = new MapboxGeocoder({
         accessToken: mapboxgl.accessToken,
         mapboxgl: mapboxgl,
@@ -66,13 +75,22 @@ const MapView = () => {
 
   useEffect(() => {
     if (geocoder) {
-      
     }
   }, [geocoder, map]);
 
   useEffect(() => {
-    console.log(searchResult);
-  }, [searchResult]);
+    if (searchResult) {
+      const marker = new mapboxgl.Marker()
+        .setLngLat(searchResult.center)
+        .setPopup(
+          new mapboxgl.Popup({ offset: 25 }).setHTML(searchResult.place_name)
+        )
+        .addTo(map);
+
+      marker.getElement().addEventListener("click", () => {});
+    }
+  }, [searchResult, map]);
+
   return <div id="map"></div>;
 };
 
