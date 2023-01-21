@@ -28,10 +28,10 @@ const Footer = () => {
             {user ? (
               <>
                 <div className="habito">
-                  <Link to="/addPost">
+                  <Link to="/wellcome">
                     <CommentOutlined />
                   </Link>
-                  Habito
+                  Chat
                 </div>
                 <div className="perfil">
                   <Link to="/profile">

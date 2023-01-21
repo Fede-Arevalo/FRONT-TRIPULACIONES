@@ -16,6 +16,7 @@ import UpdatePost from "./components/UpdatePost/UpdatePost";
 import Maps from "./components/Maps/Maps";
 import Incidents from "./components/Incidents/Incidents";
 import Wellcome from "./components/Wellcome/Wellcome";
+import AddIncident from "./components/AddIncident/AddIncident";
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
           <Route path="/search/:postName" element={<Search />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/addPost" element={<AddPost />} />
+          <Route path="/addIncident" element={<AddIncident />} />
           <Route path="/UpdateUser/:_id" element={<UpdateUser />} />
           <Route path="/UpdatePost/:_id" element={<UpdatePost />} />
           <Route path="/maps" element={<Maps/>} />
