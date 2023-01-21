@@ -80,7 +80,15 @@ const MapView = () => {
 
   useEffect(() => {
     if (searchResult) {
-      const marker = new mapboxgl.Marker()
+      const marker = new mapboxgl.Marker({
+        color: "#FFA500",
+        // Rojo: #FF0000,
+        // Naranja: #FFA500
+        // Amarillo: #FFFF00
+        // Verde: #00FF00
+        draggable: true,
+      })
+
         .setLngLat(searchResult.center)
         .setPopup(
           new mapboxgl.Popup({ offset: 25 }).setHTML(searchResult.place_name)
@@ -91,7 +99,11 @@ const MapView = () => {
     }
   }, [searchResult, map]);
 
-  return <div id="map"></div>;
+  return (
+    <>
+      <div id="map"></div>
+    </>
+  );
 };
 
 export default MapView;
