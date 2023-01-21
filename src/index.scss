@@ -1,7 +1,10 @@
+@import "./colors.scss";
+
 body {
+  background-color: $primario;
   margin: 0;
-  font-family: "Quicksand", sans-serif;
-  color: rgb(101, 101, 101);
+  font-family: 'Archivo', sans-serif;
+  color: $textos;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { register, reset } from "../../features/auth/authSlice";
-import Logo from "../../assets/isologo-g-free-celeste.png";
+import Logo from "../../assets/Logotipo.png";
 import { Button, notification } from "antd";
 import { CloudUploadOutlined } from "@ant-design/icons";
 import "./Register.scss";
@@ -28,8 +28,8 @@ const Register = () => {
   useEffect(() => {
     if (isSuccess) {
       notification.success({
-        message: `Welcome! ${name}`,
-        description: "Successfully registered",
+        message: `Bienvenido! ${name}`,
+        description: "Tu registro ha sido exitoso!",
       });
       navigate("/login");
     }
@@ -60,7 +60,7 @@ const Register = () => {
         formData.set("imageUser", e.target.imageUser.files[0]);
       formData.set("name", e.target.name.value);
       formData.set("email", e.target.email.value);
-      formData.set("password", e.target.password.value);      
+      formData.set("password", e.target.password.value);
       dispatch(register(formData));
       setFormData(initialState);
     }
@@ -70,39 +70,6 @@ const Register = () => {
     <div className="register">
       <img src={Logo} alt="Logo-G-free" className="logo" />
       <form className="register-form" onSubmit={onSubmit}>
-        <input
-          type="text"
-          name="name"
-          value={name}
-          placeholder="Name"
-          onChange={onChange}
-          required
-        />
-        <input
-          type="email"
-          name="email"
-          value={email}
-          placeholder="E-mail"
-          onChange={onChange}
-          required
-        />
-
-        <input
-          type="password"
-          name="password"
-          value={password}
-          placeholder="Password"
-          onChange={onChange}
-          required
-        />
-        <input
-          type="password"
-          name="password2"
-          value={password2}
-          placeholder="Confirm password"
-          onChange={onChange}
-          required
-        />
         <div className="custom-input-file">
           <input
             className="input-file"
@@ -111,21 +78,55 @@ const Register = () => {
             value={imageUser}
             onChange={onChange}
           />
-          <CloudUploadOutlined /> Image User
+          <CloudUploadOutlined /> FOTO DE PERFIL
         </div>
+        <input
+          type="text"
+          name="name"
+          value={name}
+          placeholder="NOMBRE"
+          onChange={onChange}
+          required
+        />
+        <input
+          type="email"
+          name="email"
+          value={email}
+          placeholder="E-MAIL"
+          onChange={onChange}
+          required
+        />
+
+        <input
+          type="password"
+          name="password"
+          value={password}
+          placeholder="CONSTRASEÑA"
+          onChange={onChange}
+          required
+        />
+        <input
+          type="password"
+          name="password2"
+          value={password2}
+          placeholder="CONFIRMAR CONTRASEÑA"
+          onChange={onChange}
+          required
+        />
+
         <Button
           type="primary"
           block
           htmlType="submit"
           className="register-form-button"
         >
-          Register
+          Registrarse
         </Button>
       </form>
 
-      <p>You have an account?</p>
+      <p>¿Ya tienes cuenta?</p>
       <Link to="/login">
-        <span>Log in!</span>
+        <span>Ingresa!</span>
       </Link>
     </div>
   );

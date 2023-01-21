@@ -4,14 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import {
   FormOutlined,
-  UsergroupAddOutlined,
-  TeamOutlined,
   CommentOutlined,
   MoreOutlined,
   EditOutlined,
   LogoutOutlined,
 } from "@ant-design/icons";
-import { Avatar, Divider, Spin, Dropdown, Space } from "antd";
+import { Avatar, Spin, Dropdown, Space } from "antd";
 import "./UserInfo.scss";
 import { logout } from "../../../features/auth/authSlice";
 
@@ -23,8 +21,6 @@ const UserInfo = () => {
 
   const posts = userInfo.postIds;
   const comments = userInfo.commentIds;
-  const followers = userInfo.followerIds;
-  const following = userInfo.followingIds;
 
   if (!userInfo) {
     return (
@@ -37,7 +33,7 @@ const UserInfo = () => {
   const onLogout = (e) => {
     e.preventDefault();
     dispatch(logout());
-    navigate("/");
+    navigate("/login");
   };
 
   const items = [
@@ -76,19 +72,13 @@ const UserInfo = () => {
       <div className="user">
         <Link to={"/UpdateUser/" + userInfo._id}>
           <Avatar
-            size={80}
+            size={180}
             src={"http://localhost:8080/" + userInfo?.imageUser}
             alt={userInfo.name}
           />
         </Link>
         <h1>{userInfo.name}</h1>
         <div className="icons">
-          <p>
-            <UsergroupAddOutlined /> {followers?.length}
-          </p>
-          <p>
-            <TeamOutlined /> {following?.length}
-          </p>
           <p>
             <FormOutlined /> {posts?.length}
           </p>
@@ -97,7 +87,6 @@ const UserInfo = () => {
           </p>
         </div>
       </div>
-      <Divider />
     </div>
   );
 };

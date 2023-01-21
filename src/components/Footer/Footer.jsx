@@ -1,48 +1,70 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./Footer.scss";
 import {
   UserOutlined,
   HomeOutlined,
-  PlusSquareOutlined,
+  CommentOutlined,
   DeleteOutlined,
 } from "@ant-design/icons";
 import { useSelector } from "react-redux";
 
 const Footer = () => {
   const { user } = useSelector((state) => state.auth);
+
+  let location = useLocation();
+
   return (
     <div className="footer">
-      <nav>
-        <Link to="/">
-          <HomeOutlined />
-        </Link>
-        <>
-          {user ? (
-            <>
-              <Link to="/addPost">
-                <PlusSquareOutlined />
-              </Link>
-              <Link to="/profile">
-                <UserOutlined />
-              </Link>
-              {user.user.role === "admin" ? (
-                <Link to="/admin">
-                  <DeleteOutlined />
-                </Link>
-              ) : (
-                ""
-              )}
-            </>
-          ) : (
-            <>
-              <Link to="/login">
-                <UserOutlined />
-              </Link>
-            </>
-          )}
-        </>
-      </nav>
+      {location.pathname !== "/login" && location.pathname !== "/register" && location.pathname !== "/" ? (
+        <nav>
+          <div className="inicio">
+            <Link to="/wellcome">
+              <HomeOutlined />
+            </Link>
+            inicio
+          </div>
+          <>
+            {user ? (
+              <>
+                <div className="habito">
+                  <Link to="/wellcome">
+                    <CommentOutlined />
+                  </Link>
+                  Chat
+                </div>
+                <div className="perfil">
+                  <Link to="/profile">
+                    <UserOutlined />
+                  </Link>
+                  Perfil
+                </div>
+                {user.user.role === "admin" ? (
+                  <div className="admin">
+                    <Link to="/admin">
+                      <DeleteOutlined />
+                    </Link>
+                    Admin
+                  </div>
+                ) : (
+                  ""
+                )}
+              </>
+            ) : (
+              <>
+                <div className="perfil">
+                  <Link to="/login">
+                    <UserOutlined />
+                  </Link>
+                  Perfil
+                </div>
+              </>
+            )}
+          </>
+        </nav>
+      ) : (
+        ""
+      )}
     </div>
   );
 };
