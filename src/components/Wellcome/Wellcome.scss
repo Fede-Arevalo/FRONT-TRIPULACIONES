@@ -13,6 +13,7 @@
   .saludo {
     margin-top: 80px;
     margin-bottom: 65px;
+    width: 280px;
     span.nombre {
       text-transform: uppercase;
       color: $terciario1;
@@ -23,7 +24,7 @@
     p {
       color: $textos;
       font-weight: 800;
-      font-size: 18px;
+      font-size: 17px;
     }
   }
 

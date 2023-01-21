@@ -112,7 +112,7 @@ const Login = () => {
           </Button>
         </Form.Item>
       </Form>
-      <p>¿No tienes una cuenta?</p>
+      <p>¿No tienes cuenta?</p>
       <Link to="/register">
         <span>Regístrate!</span>
       </Link>

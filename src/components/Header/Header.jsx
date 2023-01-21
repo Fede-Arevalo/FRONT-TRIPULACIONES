@@ -11,7 +11,10 @@ const Header = () => {
   return (
     <div className="header">
       <nav>
-        {location.pathname !== "/" && location.pathname !== "/login" && location.pathname !== "/register"? (
+        {location.pathname !== "/" &&
+        location.pathname !== "/login" &&
+        location.pathname !== "/wellcome" &&
+        location.pathname !== "/register" ? (
           <LeftOutlined className="back" onClick={() => navigate(-1)} />
         ) : (
           ""
