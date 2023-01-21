@@ -18,7 +18,6 @@ import Incidents from "./components/Incidents/Incidents";
 import Wellcome from "./components/Wellcome/Wellcome";
 import AddIncident from "./components/AddIncident/AddIncident";
 import Chatbot from "./components/Chatbot/Chatbot";
-import { applyMiddleware } from "@reduxjs/toolkit";
 
 
 
