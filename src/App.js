@@ -17,6 +17,9 @@ import Maps from "./components/Maps/Maps";
 import Incidents from "./components/Incidents/Incidents";
 import Wellcome from "./components/Wellcome/Wellcome";
 import AddIncident from "./components/AddIncident/AddIncident";
+import Chatbot from "./components/Chatbot/Chatbot";
+import { applyMiddleware } from "@reduxjs/toolkit";
+
 
 
 function App() {
@@ -39,6 +42,7 @@ function App() {
           <Route path="/UpdatePost/:_id" element={<UpdatePost />} />
           <Route path="/maps" element={<Maps/>} />
           <Route path="/incidents" element={<Incidents />} />
+          <Route path="/chatbot" element={<Chatbot />} />
         </Routes>
         <Footer />
       </BrowserRouter>
