@@ -1,24 +1,15 @@
-import React, { useEffect } from "react";
-import "./Wellcome.scss";
-import { useDispatch, useSelector } from "react-redux";
-import { loggedIn } from "../../features/auth/authSlice";
+import React from "react";
 import incidencias from "../../assets/Incidencias.png";
 import eventos from "../../assets/Eventos.png";
-
+import "./Wellcome.scss";
 
 const Wellcome = () => {
-  const dispatch = useDispatch();
-  const { userInfo } = useSelector((state) => state.auth);
-  
-  useEffect(() => {
-    dispatch(loggedIn());
-    // eslint-disable-next-line
-  }, []);
+  const user = JSON.parse(localStorage.getItem("user"));
 
   return (
     <div className="wellcome">
       <div className="saludo">
-        <span className="nombre">Hola {userInfo?.name} !</span>
+        <span className="nombre">Hola {user.user.name} !</span>
         <p>¿QUÉ QUIERES HACER AHORA?</p>
       </div>
 
@@ -36,7 +27,7 @@ const Wellcome = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Wellcome
+export default Wellcome;

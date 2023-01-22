@@ -3,14 +3,16 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { EnvironmentOutlined } from "@ant-design/icons";
 import { Avatar } from "antd";
-import "./Post.scss";
+import "./Incident.scss";
 
 const Post = () => {
-  const { posts } = useSelector((state) => state.posts);
+  const { incidents } = useSelector((state) => state.incidents);
 
-  const post = posts?.map((post) => {
+  
+  
+  const incident = incidents?.map((incident) => {
     return (
-      <div className="card" key={post._id}>
+      <div className="card" key={incident._id}>
         <div className="top-container">
           <div className="estado-container">
             <div className="estado-incidencia">
@@ -20,10 +22,10 @@ const Post = () => {
           <div className="usuario">
             <Avatar
               size={70}
-              src={"http://localhost:8080/" + post.userId?.imageUser}
-              alt={post.userId?.name}
+              src={"http://localhost:8080/" + incident.userId?.imageUser}
+              alt={incident.userId?.name}
             />
-            <div className="nombre">{post.userId?.name}</div>
+            <div className="nombre">{incident.userId?.name}</div>
           </div>
 
           <div className="ubicacion-incidencia">
@@ -31,7 +33,7 @@ const Post = () => {
             <span> Calle camino nuevo 6</span>
           </div>
 
-          <p>{post.body}</p>
+          <p>{incident.description}</p>
 
           <div className="fecha">
             <span>02/03/2023 22:52</span>
@@ -39,10 +41,10 @@ const Post = () => {
         </div>
 
         <div className="imagen-incidencia">
-          <Link to={"/post/" + post._id}>
+          <Link to={"/post/" + incident._id}>
             <img
-              src={"http://localhost:8080/" + post.image}
-              alt={post.title}
+              src={"http://localhost:8080/" + incident.imageIncident}
+              alt="img"
               width="100%"
             />
           </Link>
@@ -51,7 +53,7 @@ const Post = () => {
     );
   });
 
-  return <div className="post">{post}</div>;
+  return <div className="incident">{incident}</div>;
 };
 
 export default Post;

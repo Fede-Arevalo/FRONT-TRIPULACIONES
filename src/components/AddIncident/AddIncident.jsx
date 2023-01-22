@@ -37,9 +37,8 @@ const AddIncident = () => {
     formData.set("body", e.target.body.value);
 
     dispatch(createIncident(formData));
-
     setTimeout(() => {
-      navigate("/");
+      navigate("/incidents");
     }, 2000);
   };
 

@@ -11,7 +11,7 @@ export const createIncident = createAsyncThunk(
   "incidents/createIncident",
   async (incidentData) => {
     try {
-      return await incidentsService.createPost(incidentData);
+      return await incidentsService.createIncident(incidentData);
     } catch (error) {
       console.error(error);
     }

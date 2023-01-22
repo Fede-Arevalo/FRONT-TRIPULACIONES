@@ -29,7 +29,7 @@ const getPostByName = async (postTitle) => {
 
 
 const updatePostById = async (data) => {
-  console.log(data)
+
   const user = JSON.parse(localStorage.getItem("user"));
   const res = await axios.put(API_URL + "/posts/updatePostById/" + data._id, data, {
     headers: {
