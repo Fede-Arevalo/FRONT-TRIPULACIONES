@@ -50,13 +50,13 @@ export const getAllUsers = createAsyncThunk("auth/getAllUsers", async () => {
   }
 });
 
-export const loggedIn = createAsyncThunk("auth/loggedIn", async () => {
-  try {
-    return await authService.loggedIn();
-  } catch (error) {
-    console.error(error);
-  }
-});
+// export const loggedIn = createAsyncThunk("auth/loggedIn", async () => {
+//   try {
+//     return await authService.loggedIn();
+//   } catch (error) {
+//     console.error(error);
+//   }
+// });
 
 export const deleteUserById = createAsyncThunk(
   "auth/deleteUserById",
@@ -128,13 +128,13 @@ export const authSlice = createSlice({
         state.isLoading = true;
       })
 
-      .addCase(loggedIn.fulfilled, (state, action) => {
-        state.userInfo = action.payload;
-      })
+      // .addCase(loggedIn.fulfilled, (state, action) => {
+      //   state.userInfo = action.payload;
+      // })
 
-      .addCase(loggedIn.pending, (state) => {
-        state.isLoading = true;
-      })
+      // .addCase(loggedIn.pending, (state) => {
+      //   state.isLoading = true;
+      // })
 
       .addCase(deleteUserById.fulfilled, (state, action) => {
         state.users = state.users.filter(

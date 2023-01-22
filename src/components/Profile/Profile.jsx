@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { loggedIn } from "../../features/auth/authSlice";
+// import { loggedIn } from "../../features/auth/authSlice";
 import { getAllPosts, reset } from "../../features/posts/postsSlice";
 import { EnvironmentOutlined } from "@ant-design/icons";
 import { Avatar, Divider, Spin } from "antd";
@@ -20,7 +20,7 @@ const Profile = () => {
   }
 
   useEffect(() => {
-    dispatch(loggedIn());
+    // dispatch(loggedIn());
     getAllPostsAndReset();
     // eslint-disable-next-line
   }, []);

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./Wellcome.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { loggedIn } from "../../features/auth/authSlice";
+// import { loggedIn } from "../../features/auth/authSlice";
 import incidencias from "../../assets/Incidencias.png";
 import eventos from "../../assets/Eventos.png";
 
@@ -10,10 +10,10 @@ const Wellcome = () => {
   const dispatch = useDispatch();
   const { userInfo } = useSelector((state) => state.auth);
   
-  useEffect(() => {
-    dispatch(loggedIn());
-    // eslint-disable-next-line
-  }, []);
+  // useEffect(() => {
+  //   dispatch(loggedIn());
+  //   // eslint-disable-next-line
+  // }, []);
 
   return (
     <div className="wellcome">
