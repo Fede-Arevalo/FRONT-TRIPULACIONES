@@ -30,7 +30,13 @@ const deleteIncidentById = async (_id) => {
 };
 
 const getAllIncidents = async () => {
-  const res = await axios.get(API_URL + "/incidents/getAllIncidents");
+  const user = JSON.parse(localStorage.getItem("user"));
+  const res = await axios.get(API_URL + "/incidents/getAllIncidents",
+  {
+    headers: {
+      authorization: user?.token,
+    },
+  });
   return res.data;
 };
 
@@ -40,7 +46,7 @@ const getIncidentById = async (_id) => {
 };
 
 const updateIncidentById = async (data) => {
-  console.log(data);
+  
   const user = JSON.parse(localStorage.getItem("user"));
   const res = await axios.put(
     API_URL + "/incidents/updateIncidentById/" + data._id,

@@ -13,7 +13,7 @@ const UpdateUser = () => {
   const { user } = useSelector((state) => state.auth);
   const { _id } = useParams();
   
-  console.log(user)
+  
   const initialState = {
     name: `${user.user.name}`,
     email: `${user.user.email}`,

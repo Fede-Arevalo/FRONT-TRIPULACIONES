@@ -70,7 +70,7 @@ const MapView = () => {
         setSearchResult(e.result);
         handleSearch(e.result);
       });
-    }
+    }// eslint-disable-next-line
   }, [geocoder, map]);
 
   useEffect(() => {
