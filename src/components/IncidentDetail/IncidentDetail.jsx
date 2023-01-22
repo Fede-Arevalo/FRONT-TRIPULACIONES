@@ -35,7 +35,7 @@ const IncidentDetail = () => {
   return (
     <>
       <SelectMenu />
-      <div className="card" key={incident?._id}>
+      <div className="cardDetail" key={incident?._id}>
         <div className="top-container">
           <div className="usuario">
             <Avatar

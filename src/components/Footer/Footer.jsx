@@ -27,8 +27,8 @@ const Footer = () => {
           <>
             {user ? (
               <>
-                <div className="habito">
-                  <Link to="/wellcome">
+                <div className="chat">
+                  <Link to="/chatbot">
                     <CommentOutlined />
                   </Link>
                   Chat
