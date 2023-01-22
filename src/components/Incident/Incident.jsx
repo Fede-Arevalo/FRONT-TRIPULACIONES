@@ -5,11 +5,15 @@ import { EnvironmentOutlined } from "@ant-design/icons";
 import { Avatar } from "antd";
 import "./Incident.scss";
 
-const Post = () => {
+const Incident = () => {
   const { incidents } = useSelector((state) => state.incidents);
 
   const incident = incidents?.map((incident) => {
     console.log(incident);
+
+    const date = incident.createdAt.slice(0, 10);
+    const time = incident.createdAt.slice(11, 16);
+
     return (
       <div className="card" key={incident._id}>
         <div className="top-container">
@@ -28,7 +32,8 @@ const Post = () => {
             </div>
 
             <div className="fecha">
-              <span>02/03/2023 22:52</span>
+              <span>{date} |</span>
+              <span> {time} hs</span>
             </div>
           </div>
         </div>
@@ -43,24 +48,23 @@ const Post = () => {
           </div>
         </div>
 
+        <Link to={"/incident/" + incident._id}>
         <div className="bottom-container">
-
           <div className="imagen-incidencia">
-            <Link to={"/post/" + incident._id}>
-              <img
-                src={"http://localhost:8080/" + incident.imageIncident}
-                alt="img"
-                width="100%"
-              />
-            </Link>
+            <img
+              src={"http://localhost:8080/" + incident.imageIncident}
+              alt="img"
+              width="100%"
+            />
           </div>
 
           <div className="descripcion-incidencia">
             <h1>{incident.title}</h1>
             <p>{incident.description}</p>
           </div>
-          
         </div>
+        </Link>
+        
       </div>
     );
   });
@@ -68,4 +72,4 @@ const Post = () => {
   return <div className="incident">{incident}</div>;
 };
 
-export default Post;
+export default Incident;
