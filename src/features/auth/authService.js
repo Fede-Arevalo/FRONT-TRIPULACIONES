@@ -46,15 +46,15 @@ const getAllUsers = async () => {
   return res.data;
 };
 
-const loggedIn = async () => {
-  const user = JSON.parse(localStorage.getItem("user"));
-  const res = await axios.get(API_URL + "/users/loggedIn", {
-    headers: {
-      authorization: user.token,
-    },
-  });
-  return res.data;
-};
+// const loggedIn = async () => {
+//   const user = JSON.parse(localStorage.getItem("user"));
+//   const res = await axios.get(API_URL + "/users/loggedIn", {
+//     headers: {
+//       authorization: user.token,
+//     },
+//   });
+//   return res.data;
+// };
 
 const updateUserById = async (myObj) => {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -76,7 +76,7 @@ const authService = {
   login,
   logout,
   deleteUserById,
-  loggedIn,
+  // loggedIn,
   updateUserById,
   getAllUsers,
 };
