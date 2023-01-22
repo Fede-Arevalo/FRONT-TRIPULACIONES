@@ -15,9 +15,8 @@ import { logout } from "../../../features/auth/authSlice";
 const UserInfo = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  
+
   const user = JSON.parse(localStorage.getItem("user"));
-  console.log(user)
 
   if (!user) {
     return (

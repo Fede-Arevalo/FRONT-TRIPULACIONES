@@ -18,12 +18,12 @@ const AddIncident = () => {
         message: "Incidencia agregada",
         description: "Successfully posted",
       });
-      navigate("/incidents");
     }
     if (isError) {
       notification.error({ message: "Error", description: message });
     }
     dispatch(reset());
+
     // eslint-disable-next-line
   }, [isSuccess, isError, message]);
 
@@ -35,12 +35,13 @@ const AddIncident = () => {
       formData.set("imageIncident", e.target.imageIncident.files[0]);
     formData.set("category", e.target.category.value);
     formData.set("locationIncident", e.target.locationIncident.value);
-    formData.set("description", e.target.description.value);    
+    formData.set("title", e.target.title.value);
+    formData.set("description", e.target.description.value);
 
     dispatch(createIncident(formData));
-    // setTimeout(() => {
-    //   navigate("/incidents");
-    // }, 2000);
+    setTimeout(() => {
+      navigate("/incidents");
+    }, 2000);
   };
 
   return (
@@ -74,6 +75,8 @@ const AddIncident = () => {
           </div>
 
           <input type="text" name="locationIncident" placeholder="Ubicación" />
+
+          <input type="text" name="title" placeholder="Título" />
 
           <textarea
             name="description"

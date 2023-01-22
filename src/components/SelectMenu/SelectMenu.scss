@@ -25,10 +25,12 @@
 
   .add {
     display: flex;
-    justify-content: center;
+    justify-content: center;    
     margin-top: 20px;
+    
 
     .add-incident {
+      max-width: 600px;
       background-color: $terciario1;
       border-color: $primario;
       color: white;
