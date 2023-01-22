@@ -1,3 +1,5 @@
+@import "../../colors.scss";
+
 .register {
   display: flex;
   justify-content: center;
@@ -5,14 +7,15 @@
   align-items: center;
   align-content: center;
   text-align: center;
-  margin-top: 7em;
+  margin-top: 5em;
   margin-bottom: 7em;
+  font-size: 16px;
 
   .register-form {
     width: 220px;
 
     input {
-      font-family: "Quicksand", sans-serif;
+      font-family: "Archivo", sans-serif;
       height: 21px;
       width: 200px;
       padding: 4px 11px;
@@ -38,17 +41,17 @@
     }
 
     .custom-input-file {
-      // background-color: #ffffff;
-      color: rgb(175, 175, 175);
+      background-color: #ffffff;
+      color: rgb(181, 181, 181);
       font-size: 13px;
-      font-family: "Quicksand", sans-serif;
+      font-family: "Archivo", sans-serif;
       cursor: pointer;
       width: 205px;
       border-radius: 6px;
-      margin: 5px 0px 25px 0px;
+      margin: 5px 0px 20px 0px;
       height: 21px;
       overflow: hidden;
-      padding: 6px 6px 3px 12px;
+      padding: 11px 6px 3px 12px;
       position: relative;
       text-align: left;
       border-width: 1px;
@@ -74,43 +77,26 @@
     }
 
     .ant-btn {
-      background-color: rgb(129, 196, 213);
-
+      background-color: $terciario1;      
+      font-family: "Archivo", sans-serif;
+      font-weight: 200;
       &:hover {
-        background-color: rgb(154, 121, 185);
+        background-color: $secundario;
       }
     }
   }
 
   .logo {
-    height: 95px;
+    height: 140px;
     margin-bottom: 30px;
-    padding-right: 25px;
   }
 
   a {
     text-decoration: none;
     font-size: medium;
-    color: rgb(154, 121, 185);
+    color: $terciario1;
     &:hover {
-      font-weight: 600;
+      color: $secundario;
     }
   }
 }
-
-// button {
-//   background-color: rgb(129, 196, 213);
-//   color: white;
-//   border-width: 1px;
-//   border-style: solid;
-//   border-color: #d9d9d9;
-//   height: 33px;
-//   width: 225px;
-//   border-radius: 6px;
-//   margin-bottom: 20px;
-//   font-size: 14px;
-
-//   &:hover {
-//     background-color: rgb(154, 121, 185);
-//   }
-// }

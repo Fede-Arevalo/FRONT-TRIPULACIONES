@@ -6,7 +6,6 @@ const user = JSON.parse(localStorage.getItem("user"));
 const initialState = {
   user: user ? user : null,
   users:[],
-  userInfo: {},
   isLoading: false,
   isSuccess: false,
   isError: false,
@@ -45,14 +44,6 @@ export const logout = createAsyncThunk("auth/logout", async () => {
 export const getAllUsers = createAsyncThunk("auth/getAllUsers", async () => {
   try {
     return await authService.getAllUsers();
-  } catch (error) {
-    console.error(error);
-  }
-});
-
-export const loggedIn = createAsyncThunk("auth/loggedIn", async () => {
-  try {
-    return await authService.loggedIn();
   } catch (error) {
     console.error(error);
   }
@@ -128,14 +119,6 @@ export const authSlice = createSlice({
         state.isLoading = true;
       })
 
-      .addCase(loggedIn.fulfilled, (state, action) => {
-        state.userInfo = action.payload;
-      })
-
-      .addCase(loggedIn.pending, (state) => {
-        state.isLoading = true;
-      })
-
       .addCase(deleteUserById.fulfilled, (state, action) => {
         state.users = state.users.filter(
           (user) => user._id !== action.payload.user._id
@@ -145,7 +128,7 @@ export const authSlice = createSlice({
       })
 
       .addCase(updateUserById.fulfilled, (state, action) => {
-        state.userInfo = action.payload.user;
+        state.user = action.payload.user;
         
       });
   },

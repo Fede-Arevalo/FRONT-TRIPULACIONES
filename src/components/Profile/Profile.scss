@@ -1,14 +1,78 @@
+@import "../../colors.scss";
+
 .profile {
-  margin-top: 4em;
+  margin-top: 1em;
   margin-bottom: 6em;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  .userPost {
+
+  h1 {
+    font-size: 22px;
+    font-weight: 600;
+    color: $terciario1;
+  }
+  .userIncident {
     gap: 20px;
     display: flex;
+    align-items: center;
     flex-direction: column-reverse;
+
+    .card {
+      font-family: "Archivo", sans-serif;
+      background-color: white;
+
+      .top-container {
+        margin: 15px 18px 8px 18px;
+        .estado-container {
+          display: flex;
+          justify-content: flex-end;
+          .estado-incidencia {
+            display: flex;
+            justify-content: center;
+            border-width: 1px;
+            border-style: solid;
+            border-color: rgba(128, 128, 128, 0.5);
+            border-radius: 6px;
+            padding: 3px 6px 2px 7px;
+            font-size: 13px;
+            font-weight: 700;
+            span {
+              color: $secundario;
+              margin-left: 3px;
+            }
+          }
+        }
+
+        .usuario {
+          display: flex;
+          align-items: center;
+          .nombre {
+            margin-left: 20px;
+            font-size: 19px;
+            font-weight: 300;
+          }
+        }
+
+        .ubicacion-incidencia {
+          margin-top: 15px;
+          span {
+            font-weight: 700;
+          }
+        }
+
+        .fecha {
+          color: rgba(128, 128, 128, 0.5);
+          display: flex;
+          justify-content: flex-end;
+          font-size: 12px;
+        }
+      }
+      .imagen-incidencia {
+        background-color: $primario;
+      }
+    }
   }
 }
 

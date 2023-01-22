@@ -1,17 +1,14 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import {
   FormOutlined,
-  UsergroupAddOutlined,
-  TeamOutlined,
-  CommentOutlined,
   MoreOutlined,
   EditOutlined,
   LogoutOutlined,
 } from "@ant-design/icons";
-import { Avatar, Divider, Spin, Dropdown, Space } from "antd";
+import { Avatar, Spin, Dropdown, Space } from "antd";
 import "./UserInfo.scss";
 import { logout } from "../../../features/auth/authSlice";
 
@@ -19,14 +16,9 @@ const UserInfo = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { userInfo } = useSelector((state) => state.auth);
+  const user = JSON.parse(localStorage.getItem("user"));
 
-  const posts = userInfo.postIds;
-  const comments = userInfo.commentIds;
-  const followers = userInfo.followerIds;
-  const following = userInfo.followingIds;
-
-  if (!userInfo) {
+  if (!user) {
     return (
       <div className="spiner">
         <Spin size="large" />
@@ -37,13 +29,13 @@ const UserInfo = () => {
   const onLogout = (e) => {
     e.preventDefault();
     dispatch(logout());
-    navigate("/");
+    navigate("/login");
   };
 
   const items = [
     {
       label: (
-        <a href={"/UpdateUser/" + userInfo._id}>
+        <a href={"/UpdateUser/" + user._id}>
           <EditOutlined /> Edit profile
         </a>
       ),
@@ -74,30 +66,20 @@ const UserInfo = () => {
       </div>
 
       <div className="user">
-        <Link to={"/UpdateUser/" + userInfo._id}>
+        <Link to={"/UpdateUser/" + user._id}>
           <Avatar
-            size={80}
-            src={"http://localhost:8080/" + userInfo?.imageUser}
-            alt={userInfo.name}
+            size={180}
+            src={"http://localhost:8080/" + user.user.imageUser}
+            alt={user.user.name}
           />
         </Link>
-        <h1>{userInfo.name}</h1>
+        <h1>{user.user.name}</h1>
         <div className="icons">
           <p>
-            <UsergroupAddOutlined /> {followers?.length}
-          </p>
-          <p>
-            <TeamOutlined /> {following?.length}
-          </p>
-          <p>
-            <FormOutlined /> {posts?.length}
-          </p>
-          <p>
-            <CommentOutlined /> {comments?.length}
+            <FormOutlined /> {user.incidents?.length}
           </p>
         </div>
       </div>
-      <Divider />
     </div>
   );
 };

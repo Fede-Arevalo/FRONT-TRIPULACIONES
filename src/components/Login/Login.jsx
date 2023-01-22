@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { login, logout, reset } from "../../features/auth/authSlice";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { notification, Button, Form, Input } from "antd";
-import Logo from "../../assets/isologo-g-free-celeste.png";
+import Logo from "../../assets/Logotipo.png";
 import "./Login.scss";
 
 const Login = () => {
@@ -21,21 +21,20 @@ const Login = () => {
 
   useEffect(() => {
     if (isSuccess) {
-      notification.success({ message: "Login Success!", description: message });
+      notification.success({ message: "Hola Vecino!", description: message });
       setTimeout(() => {
-        navigate("/");
+        navigate("/wellcome");
         setTimeout(() => {
           dispatch(logout());
           localStorage.removeItem("user");
           navigate("/login");
-        }, 10000);
+        }, 86400000); //10,000 = 10s   600,000 = 10min   24h = 86400000  48h= 172800000 3días = 259200000  7 días = 604800000
       }, 2000);
     }
-    //10,000 = 10s   600,000 = 10min   24h = 86400000  48h= 172800000 3días = 259200000  7 días = 604800000
 
     if (isError) {
       notification.error({
-        message: "Wrong email or password",
+        message: "Tu email o password es incorrecto",
         description: message,
       });
     }
@@ -56,14 +55,15 @@ const Login = () => {
 
   return (
     <div className="login">
-      <img src={Logo} alt="Logo-G-free" className="logo" />
+      <img src={Logo} alt="Logo" className="logo" />
       <Form
         name="normal_login"
         className="login-form"
         initialValues={{
           remember: true,
         }}
-        onFinish={onFinish}>
+        onFinish={onFinish}
+      >
         <Form.Item
           name="email"
           rules={[
@@ -71,13 +71,14 @@ const Login = () => {
               required: true,
               message: "Please input your email!",
             },
-          ]}>
+          ]}
+        >
           <Input
             prefix={<UserOutlined className="site-form-item-icon" />}
             type="email"
             name="email"
             value={email}
-            placeholder="email"
+            placeholder="E-MAIL"
             onChange={onChange}
           />
         </Form.Item>
@@ -89,13 +90,14 @@ const Login = () => {
               required: true,
               message: "Please input your Password!",
             },
-          ]}>
+          ]}
+        >
           <Input
             prefix={<LockOutlined className="site-form-item-icon" />}
             type="password"
             name="password"
             value={password}
-            placeholder="password"
+            placeholder="CONTRASEÑA"
             onChange={onChange}
           />
         </Form.Item>
@@ -104,14 +106,15 @@ const Login = () => {
             type="primary"
             block
             htmlType="submit"
-            className="login-form-button">
-            Log in
+            className="login-form-button"
+          >
+            Ingresar
           </Button>
         </Form.Item>
       </Form>
-      <p>You don't have an account?</p>
+      <p>¿No tienes cuenta?</p>
       <Link to="/register">
-        <span>Sign up!</span>
+        <span>Regístrate!</span>
       </Link>
     </div>
   );
