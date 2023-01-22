@@ -1,27 +1,24 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-// import { loggedIn } from "../../features/auth/authSlice";
-import { getAllPosts, reset } from "../../features/posts/postsSlice";
+import { getAllIncidents, reset } from "../../features/incidents/incidentsSlice";
 import { EnvironmentOutlined } from "@ant-design/icons";
 import { Avatar, Divider, Spin } from "antd";
 import "./Profile.scss";
 import UserInfo from "./UserInfo/UserInfo";
 
 const Profile = () => {
+  const user = JSON.parse(localStorage.getItem("user"));
   const dispatch = useDispatch();
+  const { incidents, isLoading } = useSelector((state) => state.incidents);
 
-  const { userInfo } = useSelector((state) => state.auth);
-  const { posts, isLoading } = useSelector((state) => state.posts);
-
-  async function getAllPostsAndReset() {
-    await dispatch(getAllPosts());
+  async function getAllIncidentsAndReset() {
+    await dispatch(getAllIncidents());
     dispatch(reset());
   }
 
-  useEffect(() => {
-    // dispatch(loggedIn());
-    getAllPostsAndReset();
+  useEffect(() => {    
+    getAllIncidentsAndReset();
     // eslint-disable-next-line
   }, []);
 
@@ -33,10 +30,10 @@ const Profile = () => {
     );
   }
 
-  const userPost = posts?.map((post) => {
-    if (userInfo?._id === post?.userId?._id) {
+  const userIncident = incidents?.map((incident) => {
+    if (user?._id === incident?.userId?._id) {
       return (
-        <div className="card" key={post._id}>
+        <div className="card" key={incident._id}>
           <div className="top-container">
             <div className="estado-container">
               <div className="estado-incidencia">
@@ -46,10 +43,10 @@ const Profile = () => {
             <div className="usuario">
               <Avatar
                 size={70}
-                src={"http://localhost:8080/" + post.userId?.imageUser}
-                alt={post.userId?.name}
+                src={"http://localhost:8080/" + incident.userId?.imageUser}
+                alt={incident.userId?.name}
               />
-              <div className="nombre">{post.userId?.name}</div>
+              <div className="nombre">{incident.userId?.name}</div>
             </div>
 
             <div className="ubicacion-incidencia">
@@ -57,7 +54,7 @@ const Profile = () => {
               <span> Calle camino nuevo 6</span>
             </div>
 
-            <p>{post.body}</p>
+            <p>{incident.body}</p>
 
             <div className="fecha">
               <span>02/03/2023 22:52</span>
@@ -65,10 +62,10 @@ const Profile = () => {
           </div>
 
           <div className="imagen-incidencia">
-            <Link to={"/post/" + post._id}>
+            <Link to={"/post/" + incident._id}>
               <img
-                src={"http://localhost:8080/" + post.image}
-                alt={post.title}
+                src={"http://localhost:8080/" + incident.image}
+                alt={incident.title}
                 width="100%"
               />
             </Link>
@@ -76,7 +73,7 @@ const Profile = () => {
         </div>
       );
     }
-    return <div key={post._id}></div>;
+    return <div key={incident._id}></div>;
   });
 
   return (
@@ -84,7 +81,7 @@ const Profile = () => {
       <UserInfo />
       <Divider />
       <div className="userPost">
-        {userPost}
+        {userIncident}
         <h1>Mis Incidencias</h1>
       </div>
     </div>
