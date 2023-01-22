@@ -1,13 +1,20 @@
 #map {
   display: flex;
-    margin-left: 20%;
-    margin-top: 2%;
+    margin-left: 10%;
+    margin-top: 20%;
 }
 
 #map {
-  width: 700px;
-  height: 700px;
+  width: 300px;
+  height: 200px;
   border-radius: 2%;
 }
 
+.mapboxgl-ctrl-geocoder{
+  display: flex;
+  position: relative;
+  bottom: 60px;
+}
 
+
+// class="mapboxgl-ctrl-geocoder mapboxgl-ctrl"
