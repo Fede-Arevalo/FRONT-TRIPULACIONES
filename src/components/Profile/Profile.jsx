@@ -12,6 +12,7 @@ const Profile = () => {
   const dispatch = useDispatch();
   const { incidents, isLoading } = useSelector((state) => state.incidents);
 
+
   async function getAllIncidentsAndReset() {
     await dispatch(getAllIncidents());
     dispatch(reset());
@@ -31,7 +32,8 @@ const Profile = () => {
   }
 
   const userIncident = incidents?.map((incident) => {
-    if (user?._id === incident?.userId?._id) {
+    
+    if (user?._id === incident?.userId._id) {
       return (
         <div className="card" key={incident._id}>
           <div className="top-container">
@@ -54,7 +56,7 @@ const Profile = () => {
               <span> Calle camino nuevo 6</span>
             </div>
 
-            <p>{incident.body}</p>
+            <p>{incident.description}</p>
 
             <div className="fecha">
               <span>02/03/2023 22:52</span>
@@ -62,9 +64,9 @@ const Profile = () => {
           </div>
 
           <div className="imagen-incidencia">
-            <Link to={"/post/" + incident._id}>
+            <Link to={"/incident/" + incident._id}>
               <img
-                src={"http://localhost:8080/" + incident.image}
+                src={"http://localhost:8080/" + incident.imageIncident}
                 alt={incident.title}
                 width="100%"
               />
@@ -80,7 +82,7 @@ const Profile = () => {
     <div className="profile">
       <UserInfo />
       <Divider />
-      <div className="userPost">
+      <div className="userIncident">
         {userIncident}
         <h1>Mis Incidencias</h1>
       </div>

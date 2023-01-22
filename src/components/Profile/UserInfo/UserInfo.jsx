@@ -70,11 +70,11 @@ const UserInfo = () => {
         <Link to={"/UpdateUser/" + user._id}>
           <Avatar
             size={180}
-            src={"http://localhost:8080/" + user.imageUser}
-            alt={user.name}
+            src={"http://localhost:8080/" + user.user.imageUser}
+            alt={user.user.name}
           />
         </Link>
-        <h1>{user.name}</h1>
+        <h1>{user.user.name}</h1>
         <div className="icons">
           <p>
             <FormOutlined /> {user.incidents?.length}
