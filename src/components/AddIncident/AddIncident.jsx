@@ -18,7 +18,7 @@ const AddIncident = () => {
         message: "Incidencia agregada",
         description: "Successfully posted",
       });
-      navigate("/");
+      navigate("/incidents");
     }
     if (isError) {
       notification.error({ message: "Error", description: message });
@@ -31,15 +31,16 @@ const AddIncident = () => {
     e.preventDefault();
     const formData = new FormData();
 
-    if (e.target.imagePost.files[0])
-      formData.set("image", e.target.imagePost.files[0]);
-    formData.set("title", e.target.title.value);
-    formData.set("body", e.target.body.value);
+    if (e.target.imageIncident.files[0])
+      formData.set("imageIncident", e.target.imageIncident.files[0]);
+    formData.set("category", e.target.category.value);
+    formData.set("locationIncident", e.target.locationIncident.value);
+    formData.set("description", e.target.description.value);    
 
     dispatch(createIncident(formData));
-    setTimeout(() => {
-      navigate("/incidents");
-    }, 2000);
+    // setTimeout(() => {
+    //   navigate("/incidents");
+    // }, 2000);
   };
 
   return (
@@ -48,30 +49,34 @@ const AddIncident = () => {
         <form className="addIncident-form" onSubmit={onSubmit}>
           <h1>RELLENE LOS DATOS PARA PODER PUBLICAR</h1>
 
-          <select name="category">
-            <option value="selecciona">Seleccionar Categoría</option>
-            <option value="jardineria">Jardineria</option>
-            <option value="movilidad-sostenible">Movilidad Sostenible</option>
-            <option value="sanidad">Sanidad</option>
-            <option value="alumbrado">Alumbrado</option>
-            <option value="residuos-limpieza">Residuos Urbanos Y Limpieza</option>
-            <option value="otros">Otro tipo de indicencias en via publica</option>
-          </select>
+          <div className="category">
+            <label>Categoría: </label>
+            <select name="category">
+              <option value="jardineria">Jardinería</option>
+              <option value="movilidad-sostenible">Movilidad Sostenible</option>
+              <option value="sanidad">Sanidad</option>
+              <option value="alumbrado">Alumbrado</option>
+              <option value="residuos-limpieza">
+                Residuos Urbanos y Limpieza
+              </option>
+              <option value="otros">Otros</option>
+            </select>
+          </div>
 
           <div className="custom-input-file">
             <input
               className="input-file"
               type="file"
-              name="imagePost"
+              name="imageIncident"
               placeholder="image"
             />
             <CloudUploadOutlined /> Subir imágen
           </div>
 
-          <input type="text" name="location" placeholder="Ubicación" />
+          <input type="text" name="locationIncident" placeholder="Ubicación" />
 
           <textarea
-            name="body"
+            name="description"
             rows="20"
             cols="26"
             placeholder="Descripción del reporte"
@@ -81,7 +86,7 @@ const AddIncident = () => {
             type="primary"
             block
             htmlType="submit"
-            className="addPost-form-button"
+            className="addincident-form-button"
           >
             Publicar
           </Button>

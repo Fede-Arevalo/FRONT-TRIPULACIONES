@@ -10,11 +10,23 @@
 
   .addIncident-form {
     width: 280px;
+
     h1 {
       display: flex;
       font-size: 18px;
       color: $terciario1;
       margin-bottom: 30px;
+    }
+
+    .category{
+      margin-bottom: 20px;
+      
+      label{
+        font-size: 14px;        
+      }
+      select{
+        width: 75%;
+      }
     }
 
     input {
