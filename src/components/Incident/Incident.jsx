@@ -9,8 +9,6 @@ const Incident = () => {
   const { incidents } = useSelector((state) => state.incidents);
 
   const incident = incidents?.map((incident) => {
-    console.log(incident);
-
     const date = incident.createdAt.slice(0, 10);
     const time = incident.createdAt.slice(11, 16);
 

@@ -11,8 +11,6 @@ import MapView from "../Maps/MapView/MapView";
 const IncidentDetail = () => {
   const { _id } = useParams();
   const { incident } = useSelector((state) => state.incidents);
-  // const { user } = useSelector((state) => state.auth);
-  console.log(incident);
 
   const dispatch = useDispatch();
 

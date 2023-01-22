@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { CloudUploadOutlined } from "@ant-design/icons";
 import "./AddEvent.scss";
-import { createIncident, reset } from "../../features/incidents/incidentsSlice";
+import { createEvent, reset } from "../../features/events/eventsSlice";
 
 const AddEvent = () => {
   const dispatch = useDispatch();
@@ -31,14 +31,15 @@ const AddEvent = () => {
     e.preventDefault();
     const formData = new FormData();
 
-    if (e.target.image.files[0]) formData.set("image", e.target.image.files[0]);
+    if (e.target.imageEvent.files[0])
+      formData.set("imageEvent", e.target.imageEvent.files[0]);
     formData.set("title", e.target.title.value);
     formData.set("eventDate", e.target.eventDate.value);
     formData.set("timeEvent", e.target.timeEvent.value);
-    formData.set("location", e.target.locationIncident.value);
-    formData.set("content", e.target.description.value);
+    formData.set("location", e.target.location.value);
+    formData.set("content", e.target.content.value);
 
-    dispatch(createIncident(formData));
+    dispatch(createEvent(formData));
     setTimeout(() => {
       navigate("/events");
     }, 2000);
@@ -54,7 +55,7 @@ const AddEvent = () => {
             <input
               className="input-file"
               type="file"
-              name="image"
+              name="imageEvent"
               placeholder="image"
             />
             <CloudUploadOutlined /> Subir imágen
@@ -62,7 +63,7 @@ const AddEvent = () => {
 
           <input type="text" name="title" placeholder="Título Evento" />
           <input type="date" name="eventDate" placeholder="Fecha"></input>
-          <input type="time" name="timeEvent" placeholder="Horario"></input>
+          <input type="text" name="timeEvent" placeholder="Horario"></input>
           <input type="text" name="location" placeholder="Ubicación" />
 
           <textarea
@@ -72,11 +73,7 @@ const AddEvent = () => {
             placeholder="Detalles del Evento"
           />
 
-          <Button
-            type="primary"
-            block
-            htmlType="submit"            
-          >
+          <Button type="primary" block htmlType="submit">
             Publicar
           </Button>
         </form>
