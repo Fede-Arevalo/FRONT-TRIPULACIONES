@@ -49,22 +49,21 @@ const Incident = () => {
         </div>
 
         <Link to={"/incident/" + incident._id}>
-        <div className="bottom-container">
-          <div className="imagen-incidencia">
-            <img
-              src={"http://localhost:8080/" + incident.imageIncident}
-              alt="img"
-              width="100%"
-            />
-          </div>
+          <div className="bottom-container">
+            <div className="imagen-incidencia">
+              <img
+                src={"http://localhost:8080/" + incident.imageIncident}
+                alt="img"
+                width="100%"
+              />
+            </div>
 
-          <div className="descripcion-incidencia">
-            <h1>{incident.title}</h1>
-            <p>{incident.description}</p>
+            <div className="descripcion-incidencia">
+              <h1>{incident.title}</h1>
+              <p>{incident.description}</p>
+            </div>
           </div>
-        </div>
         </Link>
-        
       </div>
     );
   });
