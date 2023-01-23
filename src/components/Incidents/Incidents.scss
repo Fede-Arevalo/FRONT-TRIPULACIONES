@@ -11,13 +11,15 @@
     
 
     .add-incident {
+      min-width: 304px;
       max-width: 600px;
+      height: 38px;
       background-color: $terciario1;
       border-color: $primario;
-      color: white;
-      width: 80%;
-      font-weight: 300;
+      color: white;      
+      font-weight: 500;
       font-size: 16px;
+      padding-top: 5px;
       font-family: "Archivo", sans-serif;
       &:hover {
         background-color: $secundario;

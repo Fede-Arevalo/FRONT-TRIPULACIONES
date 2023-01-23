@@ -2,11 +2,8 @@ import React, { useEffect } from "react";
 import SelectMenu from "../SelectMenu/SelectMenu";
 import Event from "../Event/Event";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getAllEvents,
-  reset,
-} from "../../features/events/eventsSlice";
-import { Spin } from "antd";
+import { getAllEvents, reset } from "../../features/events/eventsSlice";
+import { Button, Spin } from "antd";
 import "./Events.scss";
 
 const Events = () => {
@@ -33,8 +30,13 @@ const Events = () => {
   }
 
   return (
-    <div className="incidents">
+    <div className="events">
       <SelectMenu />
+      <div className="add">
+        <Button className="add-event" href="/addEvent">
+          Publicar evento
+        </Button>
+      </div>
       <Event />
     </div>
   );
