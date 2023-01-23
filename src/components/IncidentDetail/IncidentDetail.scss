@@ -9,7 +9,6 @@
   font-family: "Archivo", sans-serif;
   border-top: 1px solid rgba(128, 128, 128, 0.239);
   margin-top: 19px;
-  margin-bottom: 7em;
   a {
     all: unset;
     cursor: pointer;
@@ -79,7 +78,7 @@
   }
 
   .descripcion-incidencia {
-    padding: 20px 16px;
+    padding: 20px 16px 10px 16px;
 
     .category {
       font-size: 15px;
@@ -100,7 +99,7 @@
 
   .map-detail{
     width: 100%;
-    height: 176px;
+    height: 190px;
     background-color: rgb(180, 178, 178);
   }
 }

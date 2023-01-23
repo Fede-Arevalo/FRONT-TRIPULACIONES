@@ -6,7 +6,6 @@ import { EnvironmentOutlined } from "@ant-design/icons";
 import "./IncidentDetail.scss";
 import { getIncidentById } from "../../features/incidents/incidentsSlice";
 import SelectMenu from "../SelectMenu/SelectMenu";
-import MapView from "../Maps/MapView/MapView";
 
 const IncidentDetail = () => {
   const { _id } = useParams();
@@ -91,9 +90,7 @@ const IncidentDetail = () => {
           <p>{incident?.description}</p>
         </div>
 
-        <div className="map-detail">
-          Espacio para el mapa
-        </div>
+        <div className="map-detail">Espacio para el mapa</div>
       </div>
     </>
   );
