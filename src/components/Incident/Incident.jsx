@@ -9,13 +9,11 @@ const Incident = () => {
   const { incidents } = useSelector((state) => state.incidents);
 
   const incident = incidents?.map((incident) => {
-    console.log(incident);
-
-    const date = incident.createdAt.slice(0, 10);
-    const time = incident.createdAt.slice(11, 16);
+    const date = incident.createdAt?.slice(0, 10);
+    const time = incident.createdAt?.slice(11, 16);
 
     return (
-      <div className="card" key={incident._id}>
+      <div className="card" key={incident?._id}>
         <div className="top-container">
           <div className="usuario">
             <Avatar
@@ -40,27 +38,27 @@ const Incident = () => {
 
         <div className="mid-container">
           <div className="category">
-            <span>{incident.category}</span>
+            <span>{incident?.category}</span>
           </div>
           <div className="ubicacion">
             <EnvironmentOutlined />
-            <span> {incident.locationIncident}</span>
+            <span> {incident?.locationIncident}</span>
           </div>
         </div>
 
-        <Link to={"/incident/" + incident._id}>
+        <Link to={"/incident/" + incident?._id}>
           <div className="bottom-container">
             <div className="imagen-incidencia">
               <img
-                src={"http://localhost:8080/" + incident.imageIncident}
+                src={"http://localhost:8080/" + incident?.imageIncident}
                 alt="img"
                 width="100%"
               />
             </div>
 
             <div className="descripcion-incidencia">
-              <h1>{incident.title}</h1>
-              <p>{incident.description}</p>
+              <h1>{incident?.title}</h1>
+              <p>{incident?.description}</p>
             </div>
           </div>
         </Link>

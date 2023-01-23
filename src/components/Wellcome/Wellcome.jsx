@@ -21,10 +21,12 @@ const Wellcome = () => {
           </div>
         </a>
 
-        <div className="btn-eventos">
-          <p>Ver Eventos</p>
-          <img src={eventos} alt="Incidencias" />
-        </div>
+        <a href="/events/">
+          <div className="btn-eventos">
+            <p>Ver Eventos</p>
+            <img src={eventos} alt="Incidencias" />
+          </div>
+        </a>
       </div>
     </div>
   );

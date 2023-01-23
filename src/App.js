@@ -18,6 +18,9 @@ import Incidents from "./components/Incidents/Incidents";
 import Wellcome from "./components/Wellcome/Wellcome";
 import AddIncident from "./components/AddIncident/AddIncident";
 import Chatbot from "./components/Chatbot/Chatbot";
+import IncidentDetail from "./components/IncidentDetail/IncidentDetail";
+import AddEvent from "./components/AddEvent/AddEvent";
+import Events from "./components/Events/Events";
 
 
 
@@ -28,19 +31,22 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/wellcome" element={<Wellcome />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/post/:_id" element={<PostDetail />} />
+          <Route path="/UpdateUser/:_id" element={<UpdateUser />} />
+          <Route path="/wellcome" element={<Wellcome />} />
           <Route path="/search/:postName" element={<Search />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/addPost" element={<AddPost />} />
-          <Route path="/addIncident" element={<AddIncident />} />
-          <Route path="/UpdateUser/:_id" element={<UpdateUser />} />
+          <Route path="/post/:_id" element={<PostDetail />} />
           <Route path="/UpdatePost/:_id" element={<UpdatePost />} />
-          <Route path="/maps" element={<Maps/>} />
+          <Route path="/addIncident" element={<AddIncident />} />
+          <Route path="/addEvent" element={<AddEvent />} />
+          <Route path="/incident/:_id" element={<IncidentDetail />} />
           <Route path="/incidents" element={<Incidents />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/maps" element={<Maps/>} />
           <Route path="/chatbot" element={<Chatbot />} />
         </Routes>
         <Footer />

@@ -6,7 +6,7 @@ import {
   getAllIncidents,
   reset,
 } from "../../features/incidents/incidentsSlice";
-import { Spin } from "antd";
+import { Button, Spin } from "antd";
 import "./Incidents.scss";
 
 const Incidents = () => {
@@ -35,6 +35,11 @@ const Incidents = () => {
   return (
     <div className="incidents">
       <SelectMenu />
+      <div className="add">
+        <Button className="add-incident" href="/addIncident">
+          Publicar Incidencia
+        </Button>
+      </div>
       <Incident />
     </div>
   );

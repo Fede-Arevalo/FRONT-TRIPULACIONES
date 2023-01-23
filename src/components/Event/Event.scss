@@ -1,0 +1,61 @@
+@import "../../colors.scss";
+
+.event {
+  margin-top: 1em;
+  max-width: 600px;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  flex-wrap: wrap-reverse;
+  gap: 20px;
+
+  .card-event {
+    font-family: "Archivo", sans-serif;
+    border-top: 1px solid rgba(128, 128, 128, 0.5);
+
+    a {
+      all: unset;
+      cursor: pointer;
+    }
+
+    .top-container {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-top: 10px;
+      h1 {
+        font-size: 16px;
+      }
+      .share{
+        font-size: 19px;
+      }
+    }
+
+    .mid-container {
+      height: 40px;
+      display: flex;
+      flex-direction: column;   
+      justify-content: space-around;        
+
+      .ubicacion {       
+        font-size: 12px;
+        font-weight: 700;        
+      }
+
+      .fecha {       
+        font-size: 12px;        
+      }
+    }
+
+    .imagen-container {
+      width: 100%;
+      .imagen-event {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        
+        margin-top: 5px;
+      }
+    }
+  }
+}

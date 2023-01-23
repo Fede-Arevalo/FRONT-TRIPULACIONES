@@ -2,11 +2,11 @@ import axios from "axios";
 
 const API_URL = "http://localhost:8080";
 
-const createIncident = async (incidentData) => {
+const createEvent = async (eventData) => {
   const user = JSON.parse(localStorage.getItem("user"));
   const res = await axios.post(
-    API_URL + "/incidents/createIncident/",
-    incidentData,
+    API_URL + "/events/createEvent/",
+    eventData,
     {
       headers: {
         authorization: user?.token,
@@ -16,10 +16,10 @@ const createIncident = async (incidentData) => {
   return res.data;
 };
 
-const deleteIncidentById = async (_id) => {
+const deleteEventById = async (_id) => {
   const user = JSON.parse(localStorage.getItem("user"));
   const res = await axios.delete(
-    API_URL + "/incidents/deleteIncidentById/" + _id,
+    API_URL + "/events/deleteEventById/" + _id,
     {
       headers: {
         authorization: user?.token,
@@ -29,9 +29,9 @@ const deleteIncidentById = async (_id) => {
   return res.data;
 };
 
-const getAllIncidents = async () => {
+const getAllEvents = async () => {
   const user = JSON.parse(localStorage.getItem("user"));
-  const res = await axios.get(API_URL + "/incidents/getAllIncidents", {
+  const res = await axios.get(API_URL + "/events/getAllEvents", {
     headers: {
       authorization: user?.token,
     },
@@ -39,9 +39,9 @@ const getAllIncidents = async () => {
   return res.data;
 };
 
-const getIncidentById = async (_id) => {
+const getEventById = async (_id) => {
   const user = JSON.parse(localStorage.getItem("user"));
-  const res = await axios.get(API_URL + "/incidents/getIncidentById/" + _id, {
+  const res = await axios.get(API_URL + "/events/getEventById/" + _id, {
     headers: {
       authorization: user?.token,
     },
@@ -49,10 +49,10 @@ const getIncidentById = async (_id) => {
   return res.data;
 };
 
-const updateIncidentById = async (data) => {
+const updateEventById = async (data) => {
   const user = JSON.parse(localStorage.getItem("user"));
   const res = await axios.put(
-    API_URL + "/incidents/updateIncidentById/" + data._id,
+    API_URL + "/events/updateEventById/" + data._id,
     data,
     {
       headers: {
@@ -64,11 +64,11 @@ const updateIncidentById = async (data) => {
 };
 
 const incidentsService = {
-  createIncident,
-  deleteIncidentById,
-  getAllIncidents,
-  updateIncidentById,
-  getIncidentById,
+  createEvent,
+  deleteEventById,
+  getAllEvents,
+  updateEventById,
+  getEventById,
 };
 
 export default incidentsService;
