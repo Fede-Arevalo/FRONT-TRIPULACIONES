@@ -33,7 +33,13 @@ const Incident = () => {
               src={"http://localhost:8080/" + incident.userId?.imageUser}
               alt={incident.userId?.name}
             />
-            <div className="nombre">{incident.userId?.name}</div>
+            <div className="nombre">
+              {incident.userId?.name}
+              <div className="ubicacion">
+                <EnvironmentOutlined />
+                <span> {incident?.locationIncident}</span>
+              </div>
+            </div>
           </div>
 
           <div className="estado-container">
@@ -42,16 +48,6 @@ const Incident = () => {
             </div>
 
             <div className="fecha">{getDateDetail(incident.createdAt)}</div>
-          </div>
-        </div>
-
-        <div className="mid-container">
-          <div className="category">
-            <span>{incident?.category}</span>
-          </div>
-          <div className="ubicacion">
-            <EnvironmentOutlined />
-            <span> {incident?.locationIncident}</span>
           </div>
         </div>
 
@@ -69,7 +65,10 @@ const Incident = () => {
             </div>
 
             <div className="descripcion-incidencia">
-              <h1>{incident?.title}</h1>
+              <div className="category">
+                <span>{incident?.category}</span>
+              </div>
+              <h1>Descripción</h1>
               <p>{incident?.description}</p>
             </div>
           </div>

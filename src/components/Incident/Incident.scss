@@ -3,7 +3,6 @@
 .incident {
   margin-top: 1em;
   max-width: 600px;
-
   display: flex;
   justify-content: center;
   align-self: center;
@@ -13,7 +12,7 @@
     font-family: "Archivo", sans-serif;
     border-top: 1px solid rgba(128, 128, 128, 0.5);
     height: 292px;
-    width: 100%;
+    width: 391px;
 
     a {
       all: unset;
@@ -21,18 +20,28 @@
     }
 
     .top-container {
-      margin: 20px 18px 8px 18px;
+      margin: 10px 16px;
       display: flex;
+      justify-content: space-between;
 
       .usuario {
         display: flex;
-        align-items: center;
-        width: 70%;
+        margin-top: 10px;
+        width: 60%;
 
         .nombre {
+          display: flex;
+          flex-direction: column;
+          margin-top: 5px;
           margin-left: 20px;
-          font-size: 19px;
-          font-weight: 300;
+          font-size: 17.42px;
+          font-weight: 400;
+          gap: 5px;
+
+          .ubicacion {
+            font-size: 12px;
+            font-weight: 700;
+          }
         }
       }
 
@@ -40,16 +49,21 @@
         display: flex;
         justify-content: space-between;
         flex-direction: column;
-        margin-top: 5px;
+        margin-top: 16px;
+        margin-bottom: 30px;
+
         .estado-incidencia {
+          width: 122px;
+          height: 33px;
           display: flex;
           justify-content: center;
+          align-items: center;
           border-width: 1px;
           border-style: solid;
-          border-color: rgba(128, 128, 128, 0.5);
-          border-radius: 6px;
-          padding: 7px;
-          font-size: 13px;
+          border: 1px solid rgba(15, 23, 42, 0.5);
+
+          border-radius: 5px;
+          font-size: 11px;
           font-weight: 700;
           margin-bottom: 10px;
           span {
@@ -58,56 +72,40 @@
           }
         }
         .fecha {
-          color: rgba(128, 128, 128, 0.5);
           display: flex;
           justify-content: flex-end;
-          font-size: 12px;
+          font-size: 10px;
+          font-weight: 300;
           width: auto;
         }
       }
     }
 
-    .mid-container {
-      height: 20px;
-      display: flex;
-      align-items: center;
-      margin-top: 15px;
-      .category {
-        width: 42%;
-        text-align: center;
-        font-size: 13px;
-        text-transform: capitalize;
-      }
-      .ubicacion {
-        width: 60%;
-        font-size: 12px;
-        font-weight: 700;
-        padding-left: 12px;
-      }
-    }
-
     .bottom-container {
       display: flex;
-
       .imagen-incidencia {
-        .img-container{
+        .img-container {
           width: 138px;
           height: 133px;
-          background-size: cover ;
+          background-size: cover;
+          background-position: center;
         }
-        
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        margin-top: 5px;
       }
 
       .descripcion-incidencia {
         width: 60%;
         padding: 0px 15px 0px 15px;
-
+        .category {
+          font-size: 12px;
+          font-weight: 700;
+          text-transform: capitalize;
+        }
         h1 {
-          font-size: 14px;
+          font-size: 12px;
+          font-weight: 400;
         }
         p {
           font-size: 12px;
