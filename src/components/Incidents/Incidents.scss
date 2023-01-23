@@ -4,4 +4,24 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+  .add {
+    display: flex;
+    justify-content: center;    
+    margin-top: 20px;
+    
+
+    .add-incident {
+      max-width: 600px;
+      background-color: $terciario1;
+      border-color: $primario;
+      color: white;
+      width: 80%;
+      font-weight: 300;
+      font-size: 16px;
+      font-family: "Archivo", sans-serif;
+      &:hover {
+        background-color: $secundario;
+      }
+    }
+  }
 }

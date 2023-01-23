@@ -1,26 +1,26 @@
 import React, { useEffect } from "react";
 import SelectMenu from "../SelectMenu/SelectMenu";
-import Incident from "../Incident/Incident";
+import Event from "../Event/Event";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  getAllIncidents,
+  getAllEvents,
   reset,
-} from "../../features/incidents/incidentsSlice";
+} from "../../features/events/eventsSlice";
 import { Spin } from "antd";
 import "./Events.scss";
 
 const Events = () => {
-  const { isLoading } = useSelector((state) => state.incidents);
+  const { isLoading } = useSelector((state) => state.events);
   const dispatch = useDispatch();
 
   // Función para evitar warning en useEffect
-  async function getAllIncidentsAndReset() {
-    dispatch(getAllIncidents());
+  async function getAllEventsAndReset() {
+    dispatch(getAllEvents());
     dispatch(reset());
   }
 
   useEffect(() => {
-    getAllIncidentsAndReset();
+    getAllEventsAndReset();
     // eslint-disable-next-line
   }, []);
 
@@ -35,7 +35,7 @@ const Events = () => {
   return (
     <div className="incidents">
       <SelectMenu />
-      <Incident />
+      <Event />
     </div>
   );
 };

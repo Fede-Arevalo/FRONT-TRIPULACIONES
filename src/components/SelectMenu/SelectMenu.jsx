@@ -9,14 +9,10 @@ const SelectMenu = () => {
         <Button className="select" href="/incidents">
           Incidencias
         </Button>
-        <Button className="select">Eventos</Button>
+        <Button className="select" href="/events">Eventos</Button>
       </div>
 
-      <div className="add">
-        <Button className="add-incident" href="/addIncident">
-          Publicar Incidencia
-        </Button>
-      </div>
+      
     </div>
   );
 };
