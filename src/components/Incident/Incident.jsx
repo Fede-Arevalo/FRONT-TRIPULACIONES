@@ -9,8 +9,20 @@ const Incident = () => {
   const { incidents } = useSelector((state) => state.incidents);
 
   const incident = incidents?.map((incident) => {
-    const date = incident.createdAt?.slice(0, 10);
-    const time = incident.createdAt?.slice(11, 16);
+    const getDateDetail = (date) => {
+      const dateDetail = new Date(date);
+      const hours =
+        dateDetail.getHours() > 10
+          ? `${dateDetail.getHours()}`
+          : `0${dateDetail.getHours()}`;
+      const minutes =
+        dateDetail.getMinutes() > 10
+          ? `${dateDetail.getMinutes()}`
+          : `0${dateDetail.getMinutes()}`;
+      return `${dateDetail.getDate()} ${dateDetail
+        .toLocaleString("es-ES", { month: "short" })
+        .toLowerCase()}. ${dateDetail.getFullYear()} - ${hours}:${minutes}`;
+    };
 
     return (
       <div className="card" key={incident?._id}>
@@ -30,8 +42,8 @@ const Incident = () => {
             </div>
 
             <div className="fecha">
-              <span>{date} |</span>
-              <span> {time} hs</span>
+              {getDateDetail(incident.createdAt)}
+              {incident.createdAt !== incident.updatedAt ? " (Editado)" : null}
             </div>
           </div>
         </div>
