@@ -5,26 +5,25 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  margin: 25px;
-  height: 70vh;
-
-  
+  padding: 16px;
 
   .saludo {
-    margin-top: 80px;
-    margin-bottom: 65px;
-    width: 280px;
+    height: 179px;
+    width: 100%;
     span.nombre {
       text-transform: uppercase;
       color: $terciario1;
-      font-weight: 800;
-      font-size: 15px;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 24px;
     }
-
     p {
       color: $textos;
-      font-weight: 800;
-      font-size: 17px;
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 28px;
+      margin-block-start: 10px;
+      margin-block-end: 0em;
     }
   }
 
@@ -33,7 +32,7 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    gap: 30px;
+    gap: 52px;
 
     a {
       text-decoration: none;
@@ -44,25 +43,24 @@
       border-width: 2px;
       border-color: rgb(185, 185, 185);
       border-radius: 6px;
-      width: 280px;
-      height: 80px;
+      width: 358px;
+      height: 124px;
       display: flex;
-      justify-content: center;
-      &:hover {
-        box-shadow: 11px 11px $terciario1;
-      }
+      align-items: center;
+
       p {
-        // background-color: aqua;
-        font-size: 19px;
-        font-weight: 700;
         color: rgb(86, 86, 86);
-        width: 30%;
-        padding: 0px 40px 0px 30px;
+        width: 167px;
+        font-weight: 700;
+        font-size: 25.5px;
+        line-height: 29px;
+        padding-left: 27px;
       }
       img {
-        height: 90px;
+        height: 125px;
         display: flex;
         justify-content: flex-end;
+        margin-top: 22px;
       }
     }
 
@@ -71,26 +69,26 @@
       border-width: 2px;
       border-color: rgb(185, 185, 185);
       border-radius: 6px;
-      width: 280px;
-      height: 80px;
+      width: 358px;
+      height: 124px;
       display: flex;
-      justify-content: center;
-      &:hover {
-        box-shadow: 11px 11px $secundario;
-      }
+      align-items: center;
+
       p {
-        font-size: 19px;
-        font-weight: 700;
         color: rgb(86, 86, 86);
-        width: 30%;
-        padding: 0px 40px 0px 30px;
+        width: 125px;
+        font-weight: 700;
+        font-size: 25.5px;
+        line-height: 29px;
+        padding-left: 27px;
       }
       img {
-        height: 90px;
+        height: 116px;
         display: flex;
         justify-content: flex-end;
+        margin-top: 14px;
+        margin-left: 60px;
       }
     }
   }
 }
-
