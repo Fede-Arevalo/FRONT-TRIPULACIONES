@@ -65,7 +65,7 @@ const IncidentDetail = () => {
 
           <div className="estado-container">
             <div className="estado-incidencia">
-              Estado:<span>Enviado</span>
+            Estado: <span> {incident?.send_incident.length > 1 ? " PENDIENTE" : "ENVIADO"} </span>
             </div>
 
             <div className="fecha">{getDateDetail(incident.createdAt)}</div>

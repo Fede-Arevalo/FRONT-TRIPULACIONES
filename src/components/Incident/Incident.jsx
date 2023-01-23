@@ -44,7 +44,7 @@ const Incident = () => {
 
           <div className="estado-container">
             <div className="estado-incidencia">
-              Estado:<span>Enviado</span>
+             Estado:<span> {incident?.send_incident.length === 1 ? "ENVIADO" : "PENDIENTE"} </span>{console.log(incident)}
             </div>
 
             <div className="fecha">{getDateDetail(incident.createdAt)}</div>

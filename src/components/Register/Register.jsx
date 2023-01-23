@@ -128,6 +128,7 @@ const Register = () => {
       <Link to="/login">
         <span>Ingresa!</span>
       </Link>
+
     </div>
   );
 };
