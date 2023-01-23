@@ -29,7 +29,7 @@ const Incident = () => {
         <div className="top-container">
           <div className="usuario">
             <Avatar
-              size={52}
+              size={54}
               src={"http://localhost:8080/" + incident.userId?.imageUser}
               alt={incident.userId?.name}
             />
