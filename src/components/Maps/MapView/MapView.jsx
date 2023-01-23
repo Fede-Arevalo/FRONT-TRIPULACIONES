@@ -31,7 +31,6 @@ const MapView = () => {
         container: "map",
         style: "mapbox://styles/mapbox/outdoors-v12",
         zoom: 15,
-        maxBounds: bounds,
         logoPosition: "bottom-left",
         attributionControl: false,
       });
@@ -81,7 +80,7 @@ const MapView = () => {
   useEffect(() => {
     if (searchResult) {
       const marker = new mapboxgl.Marker({
-        color: "#FFA500",
+        color: "#00FF00",
         // Rojo: #FF0000,
         // Naranja: #FFA500
         // Amarillo: #FFFF00

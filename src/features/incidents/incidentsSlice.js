@@ -87,13 +87,11 @@ export const incidentsSlice = createSlice({
       .addCase(getIncidentById.fulfilled, (state, action) => {
         state.incident = action.payload;
       })
-
       .addCase(deleteIncidentById.fulfilled, (state, action) => {
         state.incidents = state.incidents.filter(
           (incident) => incident._id !== action.payload.incident._id
         );
       })
-
       .addCase(updateIncidentById.fulfilled, (state, action) => {
         state.incident = action.payload.incident;
       });

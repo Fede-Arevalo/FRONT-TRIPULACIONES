@@ -5,7 +5,7 @@ const API_URL = "http://localhost:8080";
 const createIncident = async (incidentData) => {
   const user = JSON.parse(localStorage.getItem("user"));
   const res = await axios.post(
-    API_URL + "/incidents/createIncident/",
+    API_URL + "/incidents/createIncident",
     incidentData,
     {
       headers: {
