@@ -15,7 +15,7 @@ const CategoriesNav = ({ selectedCategory, setSelectedCategory }) => {
   
   const selectOption = categories?.map((category) => {
       return (
-        <Option key={category?._id} value={category?._id} >
+        <Option key={category?._id} value={category?.name} >
           {category?.name}
         </Option>
       );
