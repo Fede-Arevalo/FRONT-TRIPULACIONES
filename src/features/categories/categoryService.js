@@ -1,14 +1,15 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8000";
+const API_URL = "http://localhost:8080";
 
-const getAllGenres = async () => {
-  const res = await axios.get(API_URL + "/genres/getAllGenres");
+const getAllCategories = async () => {
+  const res = await axios.get(API_URL + "/categories/getAllCategory");
   return res.data;
+
 };
 
-const genresService = {
-  getAllGenres
+const categoryService = {
+    getAllCategories
 };
 
-export default genresService;
+export default categoryService

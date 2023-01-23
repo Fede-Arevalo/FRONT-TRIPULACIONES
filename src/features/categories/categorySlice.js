@@ -2,26 +2,25 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import categoryService from "./categoryService";
 
 const initialState = {
-  genres: [],
+    categories: [],
 };
 
-export const getAllCategories = createAsyncThunk("categories/getAllGenres", async () => {
+export const getAllCategories = createAsyncThunk("categories/getAllCategories", async () => {
   try {
-    return await categoryService.getAllGenres();
+    return await categoryService.getAllCategories();
   } catch (error) {
     console.error(error);
   }
 });
 
-export const genresSlice = createSlice({
-    name: "genres",
+export const categorySlice = createSlice({
+    name: "categories",
     initialState,
     reducers: {},
     extraReducers: (builder) => {
-      builder.addCase(getAllGenres.fulfilled, (state, action) => {
-        state.genres = action.payload.genres;
+      builder.addCase(getAllCategories.fulfilled, (state, action) => {
+        state.categories = action.payload.categories;
       });
     },
   });
-  
-  export default genresSlice.reducer;
+  export default categorySlice.reducer;

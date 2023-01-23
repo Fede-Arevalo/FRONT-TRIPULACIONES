@@ -1,12 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, notification } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { CloudUploadOutlined } from "@ant-design/icons";
 import "./AddIncident.scss";
 import { createIncident, reset } from "../../features/incidents/incidentsSlice";
+import CategoriesNav from "../CategoriesNav/CategoriesNav";
 
 const AddIncident = () => {
+  const [selectedCategory, setSelectedCategory] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -33,8 +35,8 @@ const AddIncident = () => {
 
     if (e.target.imageIncident.files[0])
       formData.set("imageIncident", e.target.imageIncident.files[0]);
-    formData.set("category", e.target.category.value);
-    formData.set("locationIncident", e.target.locationIncident.value);
+      formData.set("category", selectedCategory);
+      formData.set("locationIncident", e.target.locationIncident.value);
     formData.set("title", e.target.title.value);
     formData.set("description", e.target.description.value);
 
@@ -52,16 +54,7 @@ const AddIncident = () => {
 
           <div className="category">
             <label>Categoría: </label>
-            <select name="category">
-              <option value="jardineria">Jardinería</option>
-              <option value="movilidad-sostenible">Movilidad Sostenible</option>
-              <option value="sanidad">Sanidad</option>
-              <option value="alumbrado">Alumbrado</option>
-              <option value="residuos-limpieza">
-                Residuos Urbanos y Limpieza
-              </option>
-              <option value="otros">Otros</option>
-            </select>
+            <CategoriesNav selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
           </div>
 
           <div className="custom-input-file">

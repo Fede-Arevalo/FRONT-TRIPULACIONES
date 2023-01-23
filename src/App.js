@@ -21,6 +21,7 @@ import Chatbot from "./components/Chatbot/Chatbot";
 import IncidentDetail from "./components/IncidentDetail/IncidentDetail";
 import AddEvent from "./components/AddEvent/AddEvent";
 import Events from "./components/Events/Events";
+import CategoriesNav from "./components/CategoriesNav/CategoriesNav";
 
 
 
@@ -48,6 +49,7 @@ function App() {
           <Route path="/events" element={<Events />} />
           <Route path="/maps" element={<Maps/>} />
           <Route path="/chatbot" element={<Chatbot />} />
+          <Route path="/cate" element={<CategoriesNav />} />
         </Routes>
         <Footer />
       </BrowserRouter>
