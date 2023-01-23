@@ -3,15 +3,17 @@
 .incident {
   margin-top: 1em;
   max-width: 600px;
+
   display: flex;
   justify-content: center;
   align-self: center;
   flex-wrap: wrap-reverse;
-  gap: 20px;
 
   .card {
     font-family: "Archivo", sans-serif;
     border-top: 1px solid rgba(128, 128, 128, 0.5);
+    height: 292px;
+    width: 100%;
 
     a {
       all: unset;
@@ -26,9 +28,6 @@
         display: flex;
         align-items: center;
         width: 70%;
-        .ant-avatar {
-          box-shadow: 0em 0.2em 0.5em rgba(0, 0, 0, 0.3);
-        }
 
         .nombre {
           margin-left: 20px;
@@ -91,7 +90,11 @@
       display: flex;
 
       .imagen-incidencia {
-        width: 45%;
+        .img-container{
+          width: 138px;
+          height: 133px;
+        }
+        
         display: flex;
         flex-direction: column;
         justify-content: flex-start;

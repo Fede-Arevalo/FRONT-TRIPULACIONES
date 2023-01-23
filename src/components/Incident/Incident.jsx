@@ -58,11 +58,20 @@ const Incident = () => {
         <Link to={"/incident/" + incident?._id}>
           <div className="bottom-container">
             <div className="imagen-incidencia">
-              <img
+
+              <div className="img-container"
+                style={{
+                  backgroundImage: `url(${"http://localhost:8080/" + incident?.imageIncident})`,
+                }}
+              >
+                Hello World
+              </div>
+
+              {/* <img
                 src={"http://localhost:8080/" + incident?.imageIncident}
                 alt="img"
                 width="100%"
-              />
+              /> */}
             </div>
 
             <div className="descripcion-incidencia">
