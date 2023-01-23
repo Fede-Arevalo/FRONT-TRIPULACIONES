@@ -7,7 +7,10 @@ import "./MapView.scss";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
 
-const MapView = () => {
+mapboxgl.accessToken = 'pk.eyJ1Ijoic2lmMGRldiIsImEiOiJjbGQwZGdhb3kxNmpnM3J0Z281ZGpwaDNiIn0.4mwFz3BiXuYINpuclHGmIg';
+
+
+const MapView = ({address}) => {
   const [map, setMap] = useState(null);
   const [geocoder, setGeocoder] = useState(null);
   const [searchResult, setSearchResult] = useState(null);
@@ -63,6 +66,17 @@ const MapView = () => {
   }, [map]);
 
   useEffect(() => {
+    if(address && map){
+      mapboxgl.geocode({address}, (err, res) => {
+        if(err) return console.log(err);
+        const {center} = res.features[0];
+        map.flyTo({center});
+        new mapboxgl.Marker().setLngLat(center).addTo(map);
+      });
+    }
+  }, [address, map]);
+
+  useEffect(() => {
     if (geocoder) {
       geocoder.on("result", (e) => {
         map?.flyTo({ center: e.result.center });
@@ -97,6 +111,8 @@ const MapView = () => {
       marker.getElement().addEventListener("click", () => {});
     }
   }, [searchResult, map]);
+
+  
 
   return (
     <>

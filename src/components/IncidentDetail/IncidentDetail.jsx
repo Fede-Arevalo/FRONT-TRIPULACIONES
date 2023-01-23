@@ -89,7 +89,7 @@ const IncidentDetail = () => {
           <span> {incident?.locationIncident}</span>
         </div>
 
-        <MapView />
+        <MapView address={incident?.locationIncident} />
       </div>
     </>
   );

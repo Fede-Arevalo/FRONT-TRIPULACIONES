@@ -63,7 +63,7 @@ const AddIncident = () => {
               <option value="otros">Otros</option>
             </select>
           </div>
-
+    
           <div className="custom-input-file">
             <input
               className="input-file"
