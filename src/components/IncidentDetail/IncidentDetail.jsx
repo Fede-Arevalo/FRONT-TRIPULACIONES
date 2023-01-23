@@ -49,17 +49,25 @@ const IncidentDetail = () => {
         <div className="top-container">
           <div className="usuario">
             <Avatar
-              size={50}
+              size={54}
               src={"http://localhost:8080/" + incident.userId?.imageUser}
               alt={incident.userId?.name}
             />
-            <div className="nombre">{incident.userId?.name}</div>
+            <div className="nombre">
+              {incident.userId?.name}
+              <div className="ubicacion">
+                <EnvironmentOutlined />
+                <span> {incident?.locationIncident}</span>
+              </div>
+            </div>
           </div>
 
           <div className="estado-container">
             <div className="estado-incidencia">
               Estado:<span>Enviado</span>
             </div>
+
+            <div className="fecha">{getDateDetail(incident.createdAt)}</div>
           </div>
         </div>
 

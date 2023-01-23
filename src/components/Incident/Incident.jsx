@@ -29,11 +29,17 @@ const Incident = () => {
         <div className="top-container">
           <div className="usuario">
             <Avatar
-              size={50}
+              size={54}
               src={"http://localhost:8080/" + incident.userId?.imageUser}
               alt={incident.userId?.name}
             />
-            <div className="nombre">{incident.userId?.name}</div>
+            <div className="nombre">
+              {incident.userId?.name}
+              <div className="ubicacion">
+                <EnvironmentOutlined />
+                <span> {incident?.locationIncident}</span>
+              </div>
+            </div>
           </div>
 
           <div className="estado-container">
@@ -45,28 +51,24 @@ const Incident = () => {
           </div>
         </div>
 
-        <div className="mid-container">
-          <div className="category">
-            <span>{incident?.category}</span>
-          </div>
-          <div className="ubicacion">
-            <EnvironmentOutlined />
-            <span> {incident?.locationIncident}</span>
-          </div>
-        </div>
-
         <Link to={"/incident/" + incident?._id}>
           <div className="bottom-container">
             <div className="imagen-incidencia">
-              <img
-                src={"http://localhost:8080/" + incident?.imageIncident}
-                alt="img"
-                width="100%"
+              <div
+                className="img-container"
+                style={{
+                  backgroundImage: `url(${
+                    "http://localhost:8080/" + incident?.imageIncident
+                  })`,
+                }}
               />
             </div>
 
             <div className="descripcion-incidencia">
-              <h1>{incident?.title}</h1>
+              <div className="category">
+                <span>{incident?.category}</span>
+              </div>
+              <h1>Descripción</h1>
               <p>{incident?.description}</p>
             </div>
           </div>
