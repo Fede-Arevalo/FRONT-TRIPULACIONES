@@ -29,7 +29,7 @@ const Incident = () => {
         <div className="top-container">
           <div className="usuario">
             <Avatar
-              size={50}
+              size={52}
               src={"http://localhost:8080/" + incident.userId?.imageUser}
               alt={incident.userId?.name}
             />
@@ -58,20 +58,14 @@ const Incident = () => {
         <Link to={"/incident/" + incident?._id}>
           <div className="bottom-container">
             <div className="imagen-incidencia">
-
-              <div className="img-container"
+              <div
+                className="img-container"
                 style={{
-                  backgroundImage: `url(${"http://localhost:8080/" + incident?.imageIncident})`,
+                  backgroundImage: `url(${
+                    "http://localhost:8080/" + incident?.imageIncident
+                  })`,
                 }}
-              >
-                Hello World
-              </div>
-
-              {/* <img
-                src={"http://localhost:8080/" + incident?.imageIncident}
-                alt="img"
-                width="100%"
-              /> */}
+              />
             </div>
 
             <div className="descripcion-incidencia">
