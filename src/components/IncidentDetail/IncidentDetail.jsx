@@ -68,10 +68,7 @@ const IncidentDetail = () => {
             <span>{incident?.category}</span>
           </div>
 
-          <div className="fecha">
-          {getDateDetail(incident.createdAt)}
-                {incident.createdAt !== incident.updatedAt ? " (Editado)" : null}
-          </div>
+          <div className="fecha">{getDateDetail(incident.createdAt)}</div>
         </div>
 
         <div className="imagen-incidencia">

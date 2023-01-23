@@ -41,10 +41,7 @@ const Incident = () => {
               Estado:<span>Enviado</span>
             </div>
 
-            <div className="fecha">
-              {getDateDetail(incident.createdAt)}
-              {incident.createdAt !== incident.updatedAt ? " (Editado)" : null}
-            </div>
+            <div className="fecha">{getDateDetail(incident.createdAt)}</div>
           </div>
         </div>
 
