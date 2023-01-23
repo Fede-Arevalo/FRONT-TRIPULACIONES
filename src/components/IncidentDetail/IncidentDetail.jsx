@@ -6,7 +6,6 @@ import { EnvironmentOutlined } from "@ant-design/icons";
 import "./IncidentDetail.scss";
 import { getIncidentById } from "../../features/incidents/incidentsSlice";
 import SelectMenu from "../SelectMenu/SelectMenu";
-import MapView from "../Maps/MapView/MapView";
 
 const IncidentDetail = () => {
   const { _id } = useParams();
@@ -49,28 +48,27 @@ const IncidentDetail = () => {
         <div className="top-container">
           <div className="usuario">
             <Avatar
-              size={50}
+              size={54}
               src={"http://localhost:8080/" + incident.userId?.imageUser}
               alt={incident.userId?.name}
             />
-            <div className="nombre">{incident.userId?.name}</div>
+
+            <div className="nombre">
+              {incident.userId?.name}
+
+              <div className="ubicacion">
+                <EnvironmentOutlined />
+                <span> {incident?.locationIncident}</span>
+              </div>
+            </div>
           </div>
 
           <div className="estado-container">
             <div className="estado-incidencia">
               Estado:<span>Enviado</span>
             </div>
-          </div>
-        </div>
 
-        <div className="mid-container">
-          <div className="category">
-            <span>{incident?.category}</span>
-          </div>
-
-          <div className="fecha">
-          {getDateDetail(incident.createdAt)}
-                {incident.createdAt !== incident.updatedAt ? " (Editado)" : null}
+            <div className="fecha">{getDateDetail(incident.createdAt)}</div>
           </div>
         </div>
 
@@ -83,16 +81,16 @@ const IncidentDetail = () => {
         </div>
 
         <div className="descripcion-incidencia">
-          <h1>{incident?.title}</h1>
+          <div className="category">
+            <span>{incident?.category}</span>
+          </div>
+
+          <h1>Descripción</h1>
+
           <p>{incident?.description}</p>
         </div>
 
-        <div className="ubicacion">
-          <EnvironmentOutlined />
-          <span> {incident?.locationIncident}</span>
-        </div>
-
-        <MapView />
+        <div className="map-detail">Espacio para el mapa</div>
       </div>
     </>
   );

@@ -1,15 +1,11 @@
 import React from "react";
 import "./App.scss";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
 import Register from "./components/Register/Register";
 import Login from "./components/Login/Login";
 import Profile from "./components/Profile/Profile";
-import PostDetail from "./components/PostDetail/PostDetail";
-import Search from "./components/Search/Search";
 import Admin from "./components/Admin/Admin";
-import AddPost from "./components/AddPost/AddPost";
 import Footer from "./components/Footer/Footer";
 import UpdateUser from "./components/UpdateUser/UpdateUser";
 import UpdatePost from "./components/UpdatePost/UpdatePost";
@@ -28,8 +24,7 @@ import CategoriesNav from "./components/CategoriesNav/CategoriesNav";
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Header />
+      <BrowserRouter>       
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
@@ -37,10 +32,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/UpdateUser/:_id" element={<UpdateUser />} />
           <Route path="/wellcome" element={<Wellcome />} />
-          <Route path="/search/:postName" element={<Search />} />
           <Route path="/admin" element={<Admin />} />
-          <Route path="/addPost" element={<AddPost />} />
-          <Route path="/post/:_id" element={<PostDetail />} />
           <Route path="/UpdatePost/:_id" element={<UpdatePost />} />
           <Route path="/addIncident" element={<AddIncident />} />
           <Route path="/addEvent" element={<AddEvent />} />

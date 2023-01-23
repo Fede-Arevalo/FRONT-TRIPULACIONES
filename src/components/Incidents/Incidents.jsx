@@ -37,7 +37,7 @@ const Incidents = () => {
       <SelectMenu />
       <div className="add">
         <Button className="add-incident" href="/addIncident">
-          Publicar Incidencia
+          Publicar incidencia
         </Button>
       </div>
       <Incident />

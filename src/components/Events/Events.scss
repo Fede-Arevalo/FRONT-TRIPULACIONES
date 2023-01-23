@@ -1,7 +1,28 @@
 @import "../../colors.scss";
 
-.incidents {
+.events {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  .add {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+
+    .add-event {
+      min-width: 304px;
+      max-width: 600px;
+      height: 38px;
+      background-color: $terciario1;
+      border-color: $primario;
+      color: white;      
+      font-weight: 500;
+      font-size: 16px;
+      padding-top: 5px;
+      font-family: "Archivo", sans-serif;
+      &:hover {
+        background-color: $secundario;
+      }
+    }
+  }
 }

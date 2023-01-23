@@ -1,0 +1,29 @@
+.user-message {
+    color: blue;
+    text-align: right;
+    float: right;
+    margin-right: 5%;
+}
+
+.bot-response {
+    color: green;
+    text-align: left;
+    float: left;
+    margin-left: 5%;
+}
+
+.messages-container::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+li {
+    list-style: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
