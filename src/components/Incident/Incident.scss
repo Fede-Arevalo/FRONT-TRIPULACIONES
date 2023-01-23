@@ -57,7 +57,7 @@
           height: 33px;
           display: flex;
           justify-content: center;
-          align-items: center;          
+          align-items: center;
           border: 1px solid rgba(15, 23, 42, 0.5);
           border-radius: 5px;
           font-size: 11px;
@@ -80,16 +80,18 @@
 
     .bottom-container {
       display: flex;
+
       .imagen-incidencia {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        
         .img-container {
           width: 138px;
           height: 133px;
           background-size: cover;
           background-position: center;
         }
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
       }
 
       .descripcion-incidencia {
