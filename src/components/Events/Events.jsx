@@ -8,6 +8,8 @@ import "./Events.scss";
 
 const Events = () => {
   const { isLoading } = useSelector((state) => state.events);
+  const { user } = useSelector((state) => state.auth);
+
   const dispatch = useDispatch();
 
   // Función para evitar warning en useEffect
@@ -32,11 +34,17 @@ const Events = () => {
   return (
     <div className="events">
       <SelectMenu />
-      <div className="add">
-        <Button className="add-event" href="/addEvent">
-          Publicar evento
-        </Button>
-      </div>
+
+      {user.user.role === "admin" ? (
+        <div className="add">
+          <Button className="add-event" href="/addEvent">
+            Publicar evento
+          </Button>
+        </div>
+      ) : (
+        ""
+      )}
+
       <Event />
     </div>
   );
