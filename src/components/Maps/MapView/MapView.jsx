@@ -36,7 +36,6 @@ const MapView = ({ address }) => {
         zoom: 15,
         logoPosition: "bottom-left",
         attributionControl: false,
-        maxBounds: bounds,
       });
       setMap(newMap);
 

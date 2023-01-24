@@ -23,9 +23,9 @@ const LocationForm = ({ onLocation, closeModal }) => {
         container: "map-2",
         style: "mapbox://styles/mapbox/outdoors-v12",
         zoom: 15,
+        center: [-0.3810545927, 39.4822317431],
         logoPosition: "bottom-left",
         attributionControl: false,
-        maxBounds: bounds,
       });
       setMap(newMap);
 
@@ -61,22 +61,26 @@ const LocationForm = ({ onLocation, closeModal }) => {
     console.log("Submitting location:", location);
   };
 
- return(
+  return (
     <div className="location-form">
       <form onSubmit={handleSubmit}></form>
       <div id="map-2"></div>
-      <button
-        className="button-map"
-        onClick={() => {
-          onLocation(location);
-        }}>
-        Esta es la dirección
-      </button>
-        <button  className="button-map"
-        onClick={() => {
-          closeModal();}}>
+      <div className="button-container">
+        <button
+          className="button-map"
+          onClick={() => {
+            onLocation(location);
+          }}>
+          Esta es la dirección
+        </button>
+        <button
+          className="button-map-close"
+          onClick={() => {
+            closeModal();
+          }}>
           Cerrar
         </button>
+      </div>
     </div>
   );
 };

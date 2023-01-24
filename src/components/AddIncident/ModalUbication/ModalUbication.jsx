@@ -23,7 +23,6 @@ const ModalUbication = () => {
         placeholder="Ubicación"
         onClick={() => setVisible(true)}
       />
-
       <Modal
         title="Ubicación"
         visible={visible}
