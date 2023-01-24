@@ -64,10 +64,10 @@ const IncidentDetail = () => {
 
           <div className="estado-container">
             <div className="estado-incidencia">
-              Estado:<span>Enviado</span>
+            Estado:<span> {incident?.send_incident?.length === 1 ? "ENVIADO" : "PENDIENTE"} </span>
             </div>
 
-            <div className="fecha">{getDateDetail(incident.createdAt)}</div>
+            <div className="fecha">{getDateDetail(incident?.createdAt)}</div>
           </div>
         </div>
 
