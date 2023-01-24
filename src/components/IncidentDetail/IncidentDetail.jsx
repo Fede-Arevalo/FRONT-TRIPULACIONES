@@ -4,14 +4,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { EnvironmentOutlined } from "@ant-design/icons";
 import "./IncidentDetail.scss";
-import { getIncidentById } from "../../features/incidents/incidentsSlice";
+import { getIncidentById, pendingIncidents, sentIncidents } from "../../features/incidents/incidentsSlice";
 import SelectMenu from "../SelectMenu/SelectMenu";
 import MapView from "../Maps/MapView/MapView";
 
 const IncidentDetail = () => {
+  const { user } = useSelector((state) => state.auth);
+
   const { _id } = useParams();
   const { incident } = useSelector((state) => state.incidents);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -42,6 +43,9 @@ const IncidentDetail = () => {
       .toLowerCase()}. ${dateDetail.getFullYear()} - ${hours}:${minutes}`;
   };
 
+  const address = incident?.locationIncident.split(",");
+  const shortenedAddress = `${address[0]}, ${address[1]}`;
+
   return (
     <>
       <SelectMenu />
@@ -57,17 +61,17 @@ const IncidentDetail = () => {
               {incident.userId?.name}
               <div className="ubicacion">
                 <EnvironmentOutlined />
-                <span> {incident?.locationIncident}</span>
+                <span> {shortenedAddress}</span>
               </div>
             </div>
           </div>
 
           <div className="estado-container">
             <div className="estado-incidencia">
-              Estado:<span>Enviado</span>
+            Estado:<span> {incident?.send_incident?.length === 1 ? "ENVIADO" : "PENDIENTE"} </span>
             </div>
 
-            <div className="fecha">{getDateDetail(incident.createdAt)}</div>
+            <div className="fecha">{getDateDetail(incident?.createdAt)}</div>
           </div>
         </div>
 
@@ -90,12 +94,25 @@ const IncidentDetail = () => {
           <p>{incident?.description}</p>
         </div>
 
-        <div className="sin-controles" style={{ marginTop: "-40px" }}>
+        <div className="sin-controles">
           <MapView
             className="mapa-incidencias"
             address={incident?.locationIncident}
           />
         </div>
+          <div className="space-for-map">
+          </div>
+
+
+        {user.user.role === 'admin' ?
+        // creo que esta invertida la selccion
+        <div>Estado: 
+          
+           <a href=""> <span onClick={() => dispatch(sentIncidents(incident?._id))} >Enviado</span></a>
+
+           <a href=""> <span onClick={() => dispatch(pendingIncidents(incident?._id))} >Pendiente</span></a>
+        </div>
+        :""}
       </div>
     </>
   );

@@ -50,6 +50,26 @@ export const getIncidentById = createAsyncThunk(
     }
   }
 );
+export const getAllIncidentsSent= createAsyncThunk(
+  "incidents/getAllIncidentsSent",
+  async () => {
+    try {
+      return await incidentsService.getAllIncidentsSent();
+    } catch (error) {
+      console.error(error);
+    }
+  }
+);
+export const getAllIncidentsPending= createAsyncThunk(
+  "incidents/getAllIncidentsPending",
+  async () => {
+    try {
+      return await incidentsService.getAllIncidentsPending();
+    } catch (error) {
+      console.error(error);
+    }
+  }
+);
 
 export const updateIncidentById = createAsyncThunk(
   "incidents/updateIncidentById",
@@ -61,6 +81,20 @@ export const updateIncidentById = createAsyncThunk(
     }
   }
 );
+export const sentIncidents = createAsyncThunk("incidents/sendIncidents", async (_id) => {
+  try {
+    return await incidentsService.sentIncidents(_id);
+  } catch (error) {
+    console.error(error);
+  }
+});
+export const pendingIncidents = createAsyncThunk("incidents/pendingIncidents", async (_id) => {
+  try {
+    return await incidentsService.pendingIncidents(_id);
+  } catch (error) {
+    console.error(error);
+  }
+});
 
 export const incidentsSlice = createSlice({
   name: "incidents",
@@ -94,7 +128,25 @@ export const incidentsSlice = createSlice({
       })
       .addCase(updateIncidentById.fulfilled, (state, action) => {
         state.incident = action.payload.incident;
-      });
+      })
+      .addCase(sentIncidents.fulfilled, (state, action) => {
+        const incidents = state.incidents.map((incident) => {
+          if (incident._id === action.payload._id) {
+            incident = action.payload;
+          }
+          return incident;
+        });
+        state.incidents = incidents;
+      })
+      .addCase(pendingIncidents.fulfilled, (state, action) => {
+        const incidents = state.incidents.map((incident) => {
+          if (incident._id === action.payload._id) {
+            incident = action.payload;
+          }
+          return incident;
+        });
+        state.incidents = incidents;
+    })
   },
 });
 
