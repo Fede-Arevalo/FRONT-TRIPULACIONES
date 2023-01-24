@@ -47,6 +47,7 @@
       margin-top: 10px;
 
       .estado-incidencia {
+        padding: 0 5px;
         width: 122px;
         height: 33px;
         display: flex;
@@ -60,6 +61,7 @@
         span {
           color: $secundario;
           margin-left: 15px;
+          text-align: center;
         }
       }
 
