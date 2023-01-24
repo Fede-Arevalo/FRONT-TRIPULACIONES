@@ -40,7 +40,7 @@ const AddEvent = () => {
     formData.set("eventDate", e.target.eventDate.value);
     formData.set("timeEvent", e.target.timeEvent.value);
     formData.set("location", e.target.location.value);
-    formData.set("content", e.target.content.value);
+    
 
     dispatch(createEvent(formData));
     setTimeout(() => {
@@ -68,14 +68,7 @@ const AddEvent = () => {
           <input type="date" name="eventDate" placeholder="Fecha"></input>
           <input type="text" name="timeEvent" placeholder="Horario"></input>
           
-          <ModalUbication />
-
-          <textarea
-            name="content"
-            rows="20"
-            cols="26"
-            placeholder="Detalles del Evento"
-          />
+          <ModalUbication />          
 
           <Button type="primary" block htmlType="submit">
             Publicar
