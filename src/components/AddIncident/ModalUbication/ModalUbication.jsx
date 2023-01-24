@@ -1,6 +1,8 @@
 import { Input, Modal } from "antd";
 import { useState } from "react";
 import LocationForm from "../LocationForm/LocationForm";
+import "./ModalUbication.scss"
+
 
 const ModalUbication = () => {
   const [visible, setVisible] = useState(false);

@@ -3,6 +3,8 @@ import mapboxgl from "mapbox-gl";
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
+import "./LocationForm.scss"
+
 
 mapboxgl.accessToken =
   "pk.eyJ1Ijoic2lmMGRldiIsImEiOiJjbGQwZGdhb3kxNmpnM3J0Z281ZGpwaDNiIn0.4mwFz3BiXuYINpuclHGmIg";
@@ -58,23 +60,15 @@ const LocationForm = ({ onLocation }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Submitting location:", location);
-    // perform submission action here
   };
 
   return (
     <div className="location-form">
       <form onSubmit={handleSubmit}>
-        <label>
-          <input
-            type="text"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
-            placeholder={"Ubication"}
-          />
-        </label>
+
       </form>
       <div id="map"></div>
-      <button onClick={() => onLocation(location)}>Close</button>
+      <button className="button-map" onClick={() => onLocation(location)}>Esta es la dirección</button>
     </div>
   );
 };
