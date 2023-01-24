@@ -6,6 +6,7 @@ import { EnvironmentOutlined } from "@ant-design/icons";
 import "./IncidentDetail.scss";
 import { getIncidentById } from "../../features/incidents/incidentsSlice";
 import SelectMenu from "../SelectMenu/SelectMenu";
+import MapView from "../Maps/MapView/MapView";
 
 const IncidentDetail = () => {
   const { _id } = useParams();
@@ -52,10 +53,8 @@ const IncidentDetail = () => {
               src={"http://localhost:8080/" + incident.userId?.imageUser}
               alt={incident.userId?.name}
             />
-
             <div className="nombre">
               {incident.userId?.name}
-
               <div className="ubicacion">
                 <EnvironmentOutlined />
                 <span> {incident?.locationIncident}</span>
@@ -72,6 +71,14 @@ const IncidentDetail = () => {
           </div>
         </div>
 
+        <div className="mid-container">
+          <div className="category">
+            <span>{incident?.category}</span>
+          </div>
+
+          <div className="fecha">{getDateDetail(incident.createdAt)}</div>
+        </div>
+
         <div className="imagen-incidencia">
           <img
             src={"http://localhost:8080/" + incident?.imageIncident}
@@ -81,16 +88,17 @@ const IncidentDetail = () => {
         </div>
 
         <div className="descripcion-incidencia">
-          <div className="category">
-            <span>{incident?.category}</span>
-          </div>
-
-          <h1>Descripción</h1>
-
+          <h1>{incident?.title}</h1>
           <p>{incident?.description}</p>
         </div>
 
-        <div className="map-detail">Espacio para el mapa</div>
+        <div className="ubicacion">
+          <EnvironmentOutlined />
+          <span> {incident?.locationIncident}</span>
+        </div>
+        <div className="sin-controles">
+          <MapView address={incident?.locationIncident} />
+        </div>
       </div>
     </>
   );
