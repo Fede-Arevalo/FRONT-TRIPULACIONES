@@ -14,13 +14,21 @@ const LocationForm = ({ onLocation, closeModal }) => {
   const [geocoder, setGeocoder] = useState(null);
 
   useEffect(() => {
-    if (!map) {
+    if (!map) 
+      {
+      const bounds = new mapboxgl.LngLatBounds();
+      bounds.extend([-0.42228, 39.480081]);
+      bounds.extend([-0.377543, 39.50308]);
+      bounds.extend([-0.389433, 39.449085]);
+      bounds.extend([-0.42228, 39.480921]);
+
       const newMap = new mapboxgl.Map({
         container: "map-2",
         style: "mapbox://styles/mapbox/outdoors-v12",
-        zoom: 15,
+        zoom: 10,
         logoPosition: "bottom-left",
         attributionControl: false,
+        maxBounds: bounds,
       });
       setMap(newMap);
 
@@ -45,7 +53,7 @@ const LocationForm = ({ onLocation, closeModal }) => {
   useEffect(() => {
     if (geocoder) {
       geocoder.on("result", (e) => {
-        map?.flyTo({ center: e.result.center });
+        map?.flyTo({ center: e.result.center, zoom: 19 });
         setLocation(e.result.place_name);
       });
     }

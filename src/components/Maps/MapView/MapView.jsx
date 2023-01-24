@@ -27,15 +27,19 @@ const MapView = ({ address }) => {
   useEffect(() => {
     if (!map) {
       const bounds = new mapboxgl.LngLatBounds();
-      bounds.extend([-0.3810545927, 39.4822317431]);
-      bounds.extend([-0.3772029387, 39.4772260915]);
+      bounds.extend([-0.42228, 39.480081]);
+      bounds.extend([-0.377543, 39.50308]);
+      bounds.extend([-0.389433, 39.449085]);
+      bounds.extend([-0.42228, 39.480921]);
 
       const newMap = new mapboxgl.Map({
         container: "map",
         style: "mapbox://styles/mapbox/outdoors-v12",
         zoom: 15,
         logoPosition: "bottom-left",
+        center: [-0.398164, 39.482664],
         attributionControl: false,
+        maxBounds: bounds,
       });
       setMap(newMap);
 
@@ -47,21 +51,9 @@ const MapView = ({ address }) => {
           trackUserLocation: true,
           fitBoundsOptions: {
             maxZoom: 15,
-            bounds: bounds,
           },
         })
       );
-      newMap.on("moveend", () => {
-        if (!bounds.contains(newMap.getCenter())) {
-          console.log("Te encuentras fuera del barrio del Campanar");
-        }
-      });
-      const newGeocoder = new MapboxGeocoder({
-        accessToken: mapboxgl.accessToken,
-        mapboxgl: mapboxgl,
-      });
-      newMap.addControl(newGeocoder);
-      setGeocoder(newGeocoder);
     }
   }, [map]);
 
@@ -73,7 +65,7 @@ const MapView = ({ address }) => {
       });
       map.addControl(geocoder);
       geocoder.on("result", (e) => {
-        map?.flyTo({ center: e.result.center });
+        map?.flyTo({ center: e.result.center, zoom:18 });
         const marker = new mapboxgl.Marker()
           .setLngLat(e.result.center)
           .addTo(map);
