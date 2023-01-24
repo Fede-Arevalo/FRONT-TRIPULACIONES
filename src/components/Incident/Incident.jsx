@@ -24,6 +24,9 @@ const Incident = () => {
         .toLowerCase()}. ${dateDetail.getFullYear()} - ${hours}:${minutes}`;
     };
 
+    const address = incident?.locationIncident.split(",");
+    const shortenedAddress = `${address[0]}, ${address[1]}`;
+
     return (
       <div className="card" key={incident?._id}>
         <div className="top-container">
@@ -37,14 +40,14 @@ const Incident = () => {
               {incident.userId?.name}
               <div className="ubicacion">
                 <EnvironmentOutlined />
-                <span> {incident?.locationIncident}</span>
+                <span> {shortenedAddress}</span>
               </div>
             </div>
           </div>
 
           <div className="estado-container">
             <div className="estado-incidencia">
-             Estado:<span> {incident?.send_incident.length === 1 ? "ENVIADO" : "PENDIENTE"} </span>{console.log(incident)}
+              Estado:<span>Enviado</span>
             </div>
 
             <div className="fecha">{getDateDetail(incident.createdAt)}</div>

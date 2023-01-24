@@ -14,12 +14,17 @@ const LocationForm = ({ onLocation }) => {
 
   useEffect(() => {
     if (!map) {
+      const bounds = new mapboxgl.LngLatBounds();
+      bounds.extend([-0.3810545927, 39.4822317431]);
+      bounds.extend([-0.3772029387, 39.4772260915]);
+
       const newMap = new mapboxgl.Map({
         container: "map",
         style: "mapbox://styles/mapbox/outdoors-v12",
         zoom: 15,
         logoPosition: "bottom-left",
         attributionControl: false,
+        maxBounds: bounds,
       });
       setMap(newMap);
 

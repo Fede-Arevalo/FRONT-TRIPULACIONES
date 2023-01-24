@@ -71,8 +71,6 @@ const IncidentDetail = () => {
           </div>
         </div>
 
-       
-
         <div className="imagen-incidencia">
           <img
             src={"http://localhost:8080/" + incident?.imageIncident}
@@ -87,15 +85,16 @@ const IncidentDetail = () => {
           </div>
         </div>
 
-
         <div className="descripcion-incidencia">
           <h1>{incident?.title}</h1>
           <p>{incident?.description}</p>
         </div>
 
-        
-        <div className="sin-controles">
-        <MapView address={incident?.locationIncident} />
+        <div className="sin-controles" style={{ marginTop: "-40px" }}>
+          <MapView
+            className="mapa-incidencias"
+            address={incident?.locationIncident}
+          />
         </div>
       </div>
     </>
