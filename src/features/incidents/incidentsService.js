@@ -47,6 +47,43 @@ const getIncidentsXCategory = async (category ) => {
   });
   return res.data;
 };
+const getIncidents7Days = async () => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const res = await axios.get(API_URL + "/incidents/getIncidents7Days", {
+    headers: {
+      authorization: user?.token,
+    },
+  });
+  return res.data;
+};
+const getIncidents14Days = async () => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const res = await axios.get(API_URL + "/incidents/getIncidents14Days", {
+    headers: {
+      authorization: user?.token,
+    },
+  });
+  return res.data;
+};
+const getIncidents24Days = async () => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const res = await axios.get(API_URL + "/incidents/getIncidents24Days", {
+    headers: {
+      authorization: user?.token,
+    },
+  });
+  return res.data;
+};
+const getIncidents60Days = async () => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const res = await axios.get(API_URL + "/incidents/getIncidents60Days", {
+    headers: {
+      authorization: user?.token,
+    },
+  });
+  return res.data;
+};
+
 const getAllIncidentsSent = async () => {
   const user = JSON.parse(localStorage.getItem("user"));
   const res = await axios.get(API_URL + "/incidents/getAllIncidentsSent", {
@@ -127,6 +164,10 @@ const incidentsService = {
   getAllIncidentsPending,
   getAllIncidentsSent,
   getIncidentsXCategory,
+  getIncidents7Days,
+  getIncidents14Days,
+  getIncidents24Days,
+  getIncidents60Days
 };
 
 export default incidentsService;

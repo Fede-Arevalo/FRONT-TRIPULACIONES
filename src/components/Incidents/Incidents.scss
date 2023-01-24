@@ -11,6 +11,25 @@
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
+
+    .filter-days{
+display: flex;
+      gap: 1rem;
+    }
+    .btn-filter-days{
+      min-width: 2rem;
+      height: 4rem;
+      background-color: #F28517;
+      border-color: #F8FAFC;
+      font-family: "Archivo", sans-serif;
+      color: white;
+      font-weight: 500;
+      font-size: 16px;
+      padding-top: 5px;
+      margin-bottom: 20px;
+      text-align: center;
+      line-height: 1rem;
+    }
     
 
     .add-incident {

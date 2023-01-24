@@ -2,10 +2,15 @@ import React, { useEffect } from "react";
 import SelectMenu from "../SelectMenu/SelectMenu";
 import Incident from "../Incident/Incident";
 import { useDispatch, useSelector } from "react-redux";
+
 import {
   getAllIncidents,
   getAllIncidentsPending,
   getAllIncidentsSent,
+  getIncidents14Days,
+  getIncidents24Days,
+  getIncidents60Days,
+  getIncidents7Days,
   getIncidentsXCategory,
   reset,
 } from "../../features/incidents/incidentsSlice";
@@ -84,6 +89,40 @@ const Incidents = () => {
               <Option value="Pendiente">Pendiente</Option>
               <Option value="Todos">Todos</Option>
             </Select>
+            <div className="filter-days">
+              <Button
+              className="btn-filter-days"
+                onClick={() => {
+                  dispatch(getIncidents7Days());
+                }}
+              >
+                7<br/>días
+              </Button>
+              <Button
+              className="btn-filter-days"
+                onClick={() => {
+                  dispatch(getIncidents14Days());
+                }}
+              >
+                14<br/>días
+              </Button>
+              <Button
+              className="btn-filter-days"
+                onClick={() => {
+                  dispatch(getIncidents24Days());
+                }}
+              >
+                21<br/>días
+              </Button>
+              <Button
+              className="btn-filter-days"
+                onClick={() => {
+                  dispatch(getIncidents60Days());
+                }}
+              >
+                60<br/>días
+              </Button>
+            </div>
           </div>
         ) : (
           ""

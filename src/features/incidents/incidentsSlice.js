@@ -39,6 +39,46 @@ export const getAllIncidents = createAsyncThunk(
     }
   }
 );
+export const getIncidents7Days = createAsyncThunk(
+  "incidents/getIncidents7Days",
+  async () => {
+    try {
+      return await incidentsService.getIncidents7Days();
+    } catch (error) {
+      console.error(error);
+    }
+  }
+);
+export const getIncidents14Days = createAsyncThunk(
+  "incidents/getIncidents14Days",
+  async () => {
+    try {
+      return await incidentsService.getIncidents14Days();
+    } catch (error) {
+      console.error(error);
+    }
+  }
+);
+export const getIncidents24Days = createAsyncThunk(
+  "incidents/getIncidents24Days",
+  async () => {
+    try {
+      return await incidentsService.getIncidents24Days();
+    } catch (error) {
+      console.error(error);
+    }
+  }
+);
+export const getIncidents60Days = createAsyncThunk(
+  "incidents/getIncidents60Days",
+  async () => {
+    try {
+      return await incidentsService.getIncidents60Days();
+    } catch (error) {
+      console.error(error);
+    }
+  }
+);
 export const getIncidentsXCategory = createAsyncThunk(
   "incidents/getIncidentsXCategory",
   async (category) => {
@@ -49,7 +89,6 @@ export const getIncidentsXCategory = createAsyncThunk(
     }
   }
 );
-
 export const getIncidentById = createAsyncThunk(
   "incidents/getIncidentById",
   async (_id) => {
@@ -125,17 +164,40 @@ export const incidentsSlice = createSlice({
       .addCase(createIncident.fulfilled, (state, action) => {
         state.incident = action.payload;
       })
-
       .addCase(getAllIncidents.fulfilled, (state, action) => {
         state.incidents = action.payload;
+      })
+      .addCase(getAllIncidents.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getIncidents7Days.fulfilled, (state, action) => {
+        state.incidents = action.payload;
+      })
+      .addCase(getIncidents7Days.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getIncidents14Days.fulfilled, (state, action) => {
+        state.incidents = action.payload;
+      })
+      .addCase(getIncidents14Days.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getIncidents24Days.fulfilled, (state, action) => {
+        state.incidents = action.payload;
+      })
+      .addCase(getIncidents24Days.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getIncidents60Days.fulfilled, (state, action) => {
+        state.incidents = action.payload;
+      })
+      .addCase(getIncidents60Days.pending, (state) => {
+        state.isLoading = true;
       })
       .addCase(getIncidentsXCategory.fulfilled, (state, action) => {
         state.incidents = action.payload;
       })
       .addCase(getIncidentsXCategory.pending, (state) => {
-        state.isLoading = true;
-      })
-      .addCase(getAllIncidents.pending, (state) => {
         state.isLoading = true;
       })
 
