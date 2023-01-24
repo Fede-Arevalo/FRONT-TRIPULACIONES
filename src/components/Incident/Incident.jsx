@@ -5,10 +5,20 @@ import { EnvironmentOutlined } from "@ant-design/icons";
 import { Avatar } from "antd";
 import "./Incident.scss";
 
-const Incident = () => {
+const Incident = ({ incidentState }) => {
   const { incidents } = useSelector((state) => state.incidents);
 
-  const incident = incidents?.map((incident) => {
+  let filteredIncidents;
+  // incident?.send_incident.length === 1 ? "ENVIADO" : "PENDIENTE"
+  if (incidentState === "enviados") {
+    filteredIncidents = incidents.filter(incident => incident.send_incident.length === 1);
+  } else if (incidentState === "pendientes") {
+    filteredIncidents = incidents.filter(incident => incident.send_incident.length === 0);
+  } else {
+    filteredIncidents = incidents;
+  }
+
+  const incident = filteredIncidents?.map(incident => {
     const getDateDetail = (date) => {
       const dateDetail = new Date(date);
       const hours =
@@ -25,6 +35,7 @@ const Incident = () => {
     };
 
     return (
+      
       <div className="card" key={incident?._id}>
         <div className="top-container">
           <div className="usuario">
@@ -81,3 +92,4 @@ const Incident = () => {
 };
 
 export default Incident;
+

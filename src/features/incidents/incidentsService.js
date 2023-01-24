@@ -38,6 +38,24 @@ const getAllIncidents = async () => {
   });
   return res.data;
 };
+const getAllIncidentsSent = async () => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const res = await axios.get(API_URL + "/incidents/getAllIncidentsSent", {
+    headers: {
+      authorization: user?.token,
+    },
+  });
+  return res.data;
+};
+const getAllIncidentsPending = async () => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const res = await axios.get(API_URL + "/incidents/getAllIncidentsPending", {
+    headers: {
+      authorization: user?.token,
+    },
+  });
+  return res.data;
+};
 
 const getIncidentById = async (_id) => {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -62,6 +80,32 @@ const updateIncidentById = async (data) => {
   );
   return res.data;
 };
+const sentIncidents = async (_id) => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const res = await axios.put(
+    API_URL + "/incidents/sendIncidents/" + _id,
+    {},
+    {
+      headers: {
+        authorization: user?.token,
+      },
+    }
+  );
+  return res.data;
+};
+const pendingIncidents = async (_id) => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const res = await axios.put(
+    API_URL + "/incidents/pendingIncidents/" + _id,
+    {},
+    {
+      headers: {
+        authorization: user?.token,
+      },
+    }
+  );
+  return res.data;
+};
 
 const incidentsService = {
   createIncident,
@@ -69,6 +113,10 @@ const incidentsService = {
   getAllIncidents,
   updateIncidentById,
   getIncidentById,
+  sentIncidents,
+  pendingIncidents,
+  getAllIncidentsPending,
+  getAllIncidentsSent,
 };
 
 export default incidentsService;

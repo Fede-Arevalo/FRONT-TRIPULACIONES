@@ -18,6 +18,7 @@ import IncidentDetail from "./components/IncidentDetail/IncidentDetail";
 import AddEvent from "./components/AddEvent/AddEvent";
 import Events from "./components/Events/Events";
 import CategoriesNav from "./components/CategoriesNav/CategoriesNav";
+import IncidentsAdmin from "./components/IncidentsAdmin/IncidentsAdmin";
 
 
 
@@ -42,6 +43,8 @@ function App() {
           <Route path="/maps" element={<Maps/>} />
           <Route path="/chatbot" element={<Chatbot />} />
           <Route path="/cate" element={<CategoriesNav />} />
+          <Route path="/IncidentsAdmin" element={<IncidentsAdmin />} />
+          
         </Routes>
         <Footer />
       </BrowserRouter>

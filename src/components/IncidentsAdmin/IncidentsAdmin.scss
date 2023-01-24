@@ -1,0 +1,44 @@
+@import "../../colors.scss";
+
+.incidents {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 86px;
+  .add {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 20px;
+    .select-state{
+        width: 40%;
+    }
+    .category-select{
+        width: 40%;
+    }
+
+    // .filter{
+    //     display: flex;
+    //     justify-content: center;
+    //     flex-direction: row;
+    //     gap: 1rem;    
+    //   }
+
+    .add-incident {
+      min-width: 304px;
+      height: 38px;
+      background-color: $terciario1;
+      border-color: $primario;
+      color: white;
+      font-weight: 500;
+      font-size: 16px;
+      padding-top: 5px;
+      font-family: "Archivo", sans-serif;
+      &:hover {
+        background-color: $secundario;
+      }
+      
+     
+    }
+  }
+}
