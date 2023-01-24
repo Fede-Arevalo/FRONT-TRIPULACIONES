@@ -27,18 +27,23 @@
       .usuario {
         display: flex;
         margin-top: 10px;
-        width: 60%;
+        width: 65%;
+
+        .ant-avatar {
+          background-color: none;
+        }
 
         .nombre {
           display: flex;
           flex-direction: column;
-          margin-top: 5px;
-          margin-left: 20px;
+          padding-top: 5px;
+          padding-left: 14px;
           font-size: 17.42px;
           font-weight: 400;
           gap: 5px;
 
           .ubicacion {
+            width: 155px;
             font-size: 12px;
             font-weight: 700;
           }
@@ -65,7 +70,7 @@
           margin-bottom: 10px;
           span {
             color: $secundario;
-            margin-left: 15px;
+            margin-left: 3px;
           }
         }
         .fecha {
@@ -85,7 +90,7 @@
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        
+
         .img-container {
           width: 138px;
           height: 133px;

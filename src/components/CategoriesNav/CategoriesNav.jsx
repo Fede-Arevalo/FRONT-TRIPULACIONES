@@ -1,31 +1,36 @@
-import { Select } from 'antd';
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { getAllCategories } from '../../features/categories/categorySlice';
-import "./CategoriesNav.scss"
+import { Select } from "antd";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllCategories } from "../../features/categories/categorySlice";
+import "./CategoriesNav.scss";
 
 const CategoriesNav = ({ selectedCategory, setSelectedCategory }) => {
   const { Option } = Select;
   const { categories } = useSelector((state) => state.categories);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllCategories())
-  }, [])
-  
+    dispatch(getAllCategories());
+  }, []);
+
   const selectOption = categories?.map((category) => {
-      return (
-        <Option key={category?._id} value={category?.name} >
-          {category?.name}
-        </Option>
-      );
-    });
-return (
-  <div>
-      <Select placeholder="por favor selecione una categoria" className='input-category' value={selectedCategory} onChange={(value) => setSelectedCategory(value)}>
+    return (
+      <Option key={category?._id} value={category?.name}>
+        {category?.name}
+      </Option>
+    );
+  });
+  return (
+    <div>
+      <Select
+        placeholder="por favor selecione una categoria"
+        className="input-category"
+        value={selectedCategory}
+        onChange={(value) => setSelectedCategory(value)}
+      >
         {selectOption}
       </Select>
-  </div>
-)
+    </div>
+  );
 };
-export default CategoriesNav
+export default CategoriesNav;

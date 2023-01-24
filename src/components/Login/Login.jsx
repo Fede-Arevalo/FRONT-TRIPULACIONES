@@ -1,13 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { login, logout, reset } from "../../features/auth/authSlice";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { notification, Button, Form, Input } from "antd";
 import Logo from "../../assets/Logotipo.png";
+import ReCAPTCHA from "react-google-recaptcha";
+
 import "./Login.scss";
 
 const Login = () => {
+  const captcha = useRef(null);
+  const onClick = () => {
+    console.log(captcha.current.getValue());
+    console.log("El Usuario no es un robot");
+  };
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -101,6 +109,13 @@ const Login = () => {
             onChange={onChange}
           />
         </Form.Item>
+        <div>
+          <ReCAPTCHA
+            ref={captcha}
+            sitekey="6Ld3ZiMkAAAAADXG7ux9cd5GnEXB4333mJ1O8Bpe"
+            onClick={onClick}
+          />
+        </div>
         <Form.Item>
           <Button
             type="primary"
@@ -112,6 +127,7 @@ const Login = () => {
           </Button>
         </Form.Item>
       </Form>
+
       <p>¿No tienes cuenta?</p>
       <Link to="/register">
         <span>Regístrate!</span>

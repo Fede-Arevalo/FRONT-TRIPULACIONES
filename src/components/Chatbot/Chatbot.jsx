@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import axios from "axios";
-import "./Chatbot.css"
+import "./Chatbot.scss"
 
 function Chatbot() {
   const [comment, setComment] = useState("");

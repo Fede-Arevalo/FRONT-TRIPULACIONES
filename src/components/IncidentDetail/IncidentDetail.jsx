@@ -108,24 +108,29 @@ const IncidentDetail = () => {
           <span> {incident?.locationIncident}</span>
         </div>
         <div className="sin-controles">
-          <MapView address={incident?.locationIncident} />
-        </div>
+          <MapView
+            className="mapa-incidencias"
+            address={incident?.locationIncident}
+          />
+        </div>        
+        <div className="space-for-map"></div>
+
         {user.user.role === "admin" ? (
           // creo que esta invertida la selccion
           <div>
             Estado:
-            <input
-              type="radio"
-              name="status"
-              onClick={() => dispatch(pendingIncidents(incident?._id))} 
-            />{" "}
-            <span>Enviado</span>
-            <input
-              type="radio"
-              name="status"
-              onClick={() => dispatch(sentIncidents(incident?._id))}
-            />{" "}
-            <span>Pendiente</span>
+            <a>
+              {" "}
+              <span onClick={() => dispatch(sentIncidents(incident?._id))}>
+                Enviado
+              </span>
+            </a>
+            <a>
+              {" "}
+              <span onClick={() => dispatch(pendingIncidents(incident?._id))}>
+                Pendiente
+              </span>
+            </a>
           </div>
         ) : (
           ""

@@ -39,6 +39,16 @@ export const getAllIncidents = createAsyncThunk(
     }
   }
 );
+export const getIncidentsXCategory = createAsyncThunk(
+  "incidents/getIncidentsXCategory",
+  async () => {
+    try {
+      return await incidentsService.getIncidentsXCategory();
+    } catch (error) {
+      console.error(error);
+    }
+  }
+);
 
 export const getIncidentById = createAsyncThunk(
   "incidents/getIncidentById",
@@ -50,7 +60,7 @@ export const getIncidentById = createAsyncThunk(
     }
   }
 );
-export const getAllIncidentsSent= createAsyncThunk(
+export const getAllIncidentsSent = createAsyncThunk(
   "incidents/getAllIncidentsSent",
   async () => {
     try {
@@ -60,7 +70,7 @@ export const getAllIncidentsSent= createAsyncThunk(
     }
   }
 );
-export const getAllIncidentsPending= createAsyncThunk(
+export const getAllIncidentsPending = createAsyncThunk(
   "incidents/getAllIncidentsPending",
   async () => {
     try {
@@ -81,20 +91,26 @@ export const updateIncidentById = createAsyncThunk(
     }
   }
 );
-export const sentIncidents = createAsyncThunk("incidents/sendIncidents", async (_id) => {
-  try {
-    return await incidentsService.sentIncidents(_id);
-  } catch (error) {
-    console.error(error);
+export const sentIncidents = createAsyncThunk(
+  "incidents/sendIncidents",
+  async (_id) => {
+    try {
+      return await incidentsService.sentIncidents(_id);
+    } catch (error) {
+      console.error(error);
+    }
   }
-});
-export const pendingIncidents = createAsyncThunk("incidents/pendingIncidents", async (_id) => {
-  try {
-    return await incidentsService.pendingIncidents(_id);
-  } catch (error) {
-    console.error(error);
+);
+export const pendingIncidents = createAsyncThunk(
+  "incidents/pendingIncidents",
+  async (_id) => {
+    try {
+      return await incidentsService.pendingIncidents(_id);
+    } catch (error) {
+      console.error(error);
+    }
   }
-});
+);
 
 export const incidentsSlice = createSlice({
   name: "incidents",
@@ -113,8 +129,14 @@ export const incidentsSlice = createSlice({
       .addCase(getAllIncidents.fulfilled, (state, action) => {
         state.incidents = action.payload;
       })
+      .addCase(getIncidentsXCategory.fulfilled, (state, action) => {
+        state.incidents = action.payload;
+      })
 
       .addCase(getAllIncidents.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getIncidentsXCategory.pending, (state) => {
         state.isLoading = true;
       })
 
@@ -146,7 +168,7 @@ export const incidentsSlice = createSlice({
           return incident;
         });
         state.incidents = incidents;
-    })
+      });
   },
 });
 

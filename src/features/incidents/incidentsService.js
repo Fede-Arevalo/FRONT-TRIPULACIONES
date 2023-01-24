@@ -38,6 +38,15 @@ const getAllIncidents = async () => {
   });
   return res.data;
 };
+const getIncidentsXCategory = async () => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const res = await axios.get(API_URL + "/incidents/getIncidentsXCategory", {
+    headers: {
+      authorization: user?.token,
+    },
+  });
+  return res.data;
+};
 const getAllIncidentsSent = async () => {
   const user = JSON.parse(localStorage.getItem("user"));
   const res = await axios.get(API_URL + "/incidents/getAllIncidentsSent", {
@@ -117,6 +126,7 @@ const incidentsService = {
   pendingIncidents,
   getAllIncidentsPending,
   getAllIncidentsSent,
+  getIncidentsXCategory,
 };
 
 export default incidentsService;
