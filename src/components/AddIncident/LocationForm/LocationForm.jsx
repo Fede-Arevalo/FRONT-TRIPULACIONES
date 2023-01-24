@@ -19,7 +19,6 @@ const LocationForm = ({ onLocation, closeModal }) => {
         container: "map-2",
         style: "mapbox://styles/mapbox/outdoors-v12",
         zoom: 15,
-        center: [-0.3810545927, 39.4822317431],
         logoPosition: "bottom-left",
         attributionControl: false,
       });
