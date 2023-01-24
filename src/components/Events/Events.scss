@@ -1,9 +1,11 @@
 @import "../../colors.scss";
 
 .events {
+  max-width: 600px;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  align-self: center;
   margin-bottom: 10em;
   .add {
     display: flex;

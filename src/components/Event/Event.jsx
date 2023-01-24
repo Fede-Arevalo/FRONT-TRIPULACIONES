@@ -1,7 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { EnvironmentOutlined, CalendarOutlined, ShareAltOutlined } from "@ant-design/icons";
+import {
+  EnvironmentOutlined,
+  CalendarOutlined,
+  ShareAltOutlined,
+} from "@ant-design/icons";
 import "./Event.scss";
 
 const Event = () => {
@@ -13,40 +17,33 @@ const Event = () => {
 
     return (
       <div className="card-event" key={event._id}>
-
-        <div className="top-container">
+        <div className="top-container-event">
           <h1>{event.title}</h1>
-          <div className="share">
-          <ShareAltOutlined />
-          </div>
         </div>
 
-        <div className="mid-container">
-
+        <div className="mid-container-event">
           <div className="ubicacion">
             <EnvironmentOutlined />
             <span> {event.location}</span>
           </div>
 
           <div className="fecha">
-          <CalendarOutlined />
+            <CalendarOutlined />
             <span> {date} |</span>
             <span> {time} hs</span>
           </div>
-
         </div>
-
-        <Link to={"/event/" + event._id}>
-        <div className="imagen-container">
-          <div className="imagen-event">
-            <img
-              src={"http://localhost:8080/" + event.imageEvent}
-              alt="img"
-              width="100%"
-            />
-          </div>
+        <div className="imagen-event-container">
+          <Link to={"/event/" + event._id}>
+            <div className="imagen-event">
+              <img
+                src={"http://localhost:8080/" + event.imageEvent}
+                alt="img"
+                width="390"
+              />
+            </div>
+          </Link>
         </div>
-        </Link>
       </div>
     );
   });
