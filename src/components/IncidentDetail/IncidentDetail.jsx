@@ -96,8 +96,9 @@ const IncidentDetail = () => {
           <EnvironmentOutlined />
           <span> {incident?.locationIncident}</span>
         </div>
-
+        <div className="sin-controles">
         <MapView address={incident?.locationIncident} />
+        </div>
       </div>
     </>
   );

@@ -7,10 +7,10 @@ import "./MapView.scss";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
 
-mapboxgl.accessToken = 'pk.eyJ1Ijoic2lmMGRldiIsImEiOiJjbGQwZGdhb3kxNmpnM3J0Z281ZGpwaDNiIn0.4mwFz3BiXuYINpuclHGmIg';
+mapboxgl.accessToken =
+  "pk.eyJ1Ijoic2lmMGRldiIsImEiOiJjbGQwZGdhb3kxNmpnM3J0Z281ZGpwaDNiIn0.4mwFz3BiXuYINpuclHGmIg";
 
-
-const MapView = ({address}) => {
+const MapView = ({ address }) => {
   const [map, setMap] = useState(null);
   const [geocoder, setGeocoder] = useState(null);
   const [searchResult, setSearchResult] = useState(null);
@@ -36,6 +36,7 @@ const MapView = ({address}) => {
         zoom: 15,
         logoPosition: "bottom-left",
         attributionControl: false,
+        maxBounds: bounds,
       });
       setMap(newMap);
 
@@ -66,13 +67,22 @@ const MapView = ({address}) => {
   }, [map]);
 
   useEffect(() => {
-    if(address && map){
-      mapboxgl.geocode({address}, (err, res) => {
-        if(err) return console.log(err);
-        const {center} = res.features[0];
-        map.flyTo({center});
-        new mapboxgl.Marker().setLngLat(center).addTo(map);
+    if (address && map) {
+      const geocoder = new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        mapboxgl: mapboxgl,
       });
+      map.addControl(geocoder);
+      geocoder.on("result", (e) => {
+        map?.flyTo({ center: e.result.center });
+        const marker = new mapboxgl.Marker()
+          .setLngLat(e.result.center)
+          .addTo(map);
+        const popup = new mapboxgl.Popup().setHTML(address);
+        marker.setPopup(popup);
+      });
+
+      geocoder.query(address);
     }
   }, [address, map]);
 
@@ -83,7 +93,7 @@ const MapView = ({address}) => {
         setSearchResult(e.result);
         handleSearch(e.result);
       });
-    }// eslint-disable-next-line
+    } // eslint-disable-next-line
   }, [geocoder, map]);
 
   useEffect(() => {
@@ -99,7 +109,7 @@ const MapView = ({address}) => {
         // Naranja: #FFA500
         // Amarillo: #FFFF00
         // Verde: #00FF00
-        draggable: true,
+        draggable: false,
       })
 
         .setLngLat(searchResult.center)
@@ -111,8 +121,6 @@ const MapView = ({address}) => {
       marker.getElement().addEventListener("click", () => {});
     }
   }, [searchResult, map]);
-
-  
 
   return (
     <>
