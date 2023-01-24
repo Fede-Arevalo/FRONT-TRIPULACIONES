@@ -105,3 +105,5 @@ const IncidentDetail = () => {
 };
 
 export default IncidentDetail;
+
+
