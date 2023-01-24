@@ -8,6 +8,24 @@
     height: 32px;
     border-radius: 6px;
     border-color:#e8d1bb ;
-    margin-top: 100%;
     margin-left: 25%;
+}
+
+.custom-map{
+width: 20px;
+}
+
+#map-2{
+  width: 300px;
+  height: 500px;
+  padding: 0%;
+  margin: 0%;
+  border-radius: 10px;
+}
+
+.mapboxgl-ctrl mapboxgl-ctrl-group{
+  background-color: #F28517;
+}
+.mapboxgl-ctrl-logo{
+opacity: 0%;
 }

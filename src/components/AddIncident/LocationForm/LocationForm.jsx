@@ -21,7 +21,7 @@ const LocationForm = ({ onLocation }) => {
       bounds.extend([-0.3772029387, 39.4772260915]);
 
       const newMap = new mapboxgl.Map({
-        container: "map",
+        container: "map-2",
         style: "mapbox://styles/mapbox/outdoors-v12",
         zoom: 15,
         logoPosition: "bottom-left",
@@ -67,7 +67,8 @@ const LocationForm = ({ onLocation }) => {
       <form onSubmit={handleSubmit}>
 
       </form>
-      <div id="map"></div>
+      <div id="map-2">
+      </div>
       <button className="button-map" onClick={() => onLocation(location)}>Esta es la dirección</button>
     </div>
   );
