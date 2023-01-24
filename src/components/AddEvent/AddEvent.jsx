@@ -5,6 +5,9 @@ import { useNavigate } from "react-router-dom";
 import { CloudUploadOutlined } from "@ant-design/icons";
 import "./AddEvent.scss";
 import { createEvent, reset } from "../../features/events/eventsSlice";
+import ModalUbication from "../AddIncident/ModalUbication/ModalUbication";
+
+
 
 const AddEvent = () => {
   const dispatch = useDispatch();
@@ -64,7 +67,8 @@ const AddEvent = () => {
           <input type="text" name="title" placeholder="Título Evento" />
           <input type="date" name="eventDate" placeholder="Fecha"></input>
           <input type="text" name="timeEvent" placeholder="Horario"></input>
-          <input type="text" name="location" placeholder="Ubicación" />
+          
+          <ModalUbication />
 
           <textarea
             name="content"
