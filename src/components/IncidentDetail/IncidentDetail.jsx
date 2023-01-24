@@ -1,10 +1,14 @@
-import { Avatar, Spin } from "antd";
+import { Avatar, Radio, Spin } from "antd";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { EnvironmentOutlined } from "@ant-design/icons";
 import "./IncidentDetail.scss";
-import { getIncidentById, pendingIncidents, sentIncidents } from "../../features/incidents/incidentsSlice";
+import {
+  getIncidentById,
+  pendingIncidents,
+  sentIncidents,
+} from "../../features/incidents/incidentsSlice";
 import SelectMenu from "../SelectMenu/SelectMenu";
 import MapView from "../Maps/MapView/MapView";
 
@@ -65,7 +69,13 @@ const IncidentDetail = () => {
 
           <div className="estado-container">
             <div className="estado-incidencia">
-            Estado:<span> {incident?.send_incident?.length === 1 ? "ENVIADO" : "PENDIENTE"} </span>
+              Estado:
+              <span>
+                {" "}
+                {incident?.send_incident?.length === 1
+                  ? "ENVIADO"
+                  : "PENDIENTE"}{" "}
+              </span>
             </div>
 
             <div className="fecha">{getDateDetail(incident?.createdAt)}</div>
@@ -100,20 +110,29 @@ const IncidentDetail = () => {
         <div className="sin-controles">
           <MapView address={incident?.locationIncident} />
         </div>
-        {user.user.role === 'admin' ?
-        // creo que esta invertida la selccion
-        <div>Estado: 
-          
-           <a href=""> <span onClick={() => dispatch(sentIncidents(incident?._id))} >Enviado</span></a>
-
-           <a href=""> <span onClick={() => dispatch(pendingIncidents(incident?._id))} >Pendiente</span></a>
-        </div>
-        :""}
+        {user.user.role === "admin" ? (
+          // creo que esta invertida la selccion
+          <div>
+            Estado:
+            <input
+              type="radio"
+              name="status"
+              onClick={() => dispatch(pendingIncidents(incident?._id))} 
+            />{" "}
+            <span>Enviado</span>
+            <input
+              type="radio"
+              name="status"
+              onClick={() => dispatch(sentIncidents(incident?._id))}
+            />{" "}
+            <span>Pendiente</span>
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     </>
   );
 };
 
 export default IncidentDetail;
-
-
