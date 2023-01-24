@@ -18,7 +18,6 @@ const Incidents = () => {
   const { isLoading } = useSelector((state) => state.incidents);
   const dispatch = useDispatch();
 
-  // Función para evitar warning en useEffect
   async function getAllIncidentsAndReset() {
     dispatch(getAllIncidents());
     dispatch(reset());
@@ -39,37 +38,37 @@ const Incidents = () => {
 
   return (
     <div className="incidents">
-      <SelectMenu />
-      <div className="add">
-        <Button className="add-incident" href="/addIncident">
-          Publicar incidencia
-        </Button>
-        {user.user.role === "admin" ? (          
-            <div className="filter">
-              <CategoriesNav className="category-select" />
-              <Select
-                placeholder="Estado"
-                name=""
-                id=""
-                className="select-state"
-                onChange={(value) => {
-                  if (value === "Enviado") {
-                    dispatch(getAllIncidentsSent());
-                  } else if (value === "Pendiente") {
-                    dispatch(getAllIncidentsPending());
-                  } else {
-                    dispatch(getAllIncidents());
-                  }
-                }}
-              >
-                <Option value="Enviado">Enviado</Option>
-                <Option value="Pendiente">Pendiente</Option>
-                <Option value="Todos">Todos</Option>
-              </Select>
-            </div>          
-        ) : (
-          ""
-        )}
+    <SelectMenu />
+    <div className="add">
+      <Button className="add-incident" href="/addIncident">
+        Publicar incidencia
+      </Button>
+      {user.user.role === "admin" ? (          
+          <div className="filter">
+            <CategoriesNav className="category-select" />
+            <Select
+              placeholder="Estado"
+              name=""
+              id=""
+              className="select-state"
+              onChange={(value) => {
+                if (value === "Enviado") {
+                  dispatch(getAllIncidentsSent());
+                } else if (value === "Pendiente") {
+                  dispatch(getAllIncidentsPending());
+                } else {
+                  dispatch(getAllIncidents());
+                }
+              }}
+            >
+              <Option value="Enviado">Enviado</Option>
+              <Option value="Pendiente">Pendiente</Option>
+              <Option value="Todos">Todos</Option>
+            </Select>
+          </div>          
+      ) : (
+        ""
+      )}
       </div>
       <Incident />
     </div>
