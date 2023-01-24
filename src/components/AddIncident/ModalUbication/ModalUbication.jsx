@@ -16,6 +16,7 @@ const ModalUbication = () => {
       <input
         type="text"
         name="locationIncident"
+        id="location"
         value={location}
         placeholder="Ubicación"
         onClick={() => setVisible(true)}

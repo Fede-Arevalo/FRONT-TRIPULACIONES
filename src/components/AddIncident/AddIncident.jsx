@@ -64,7 +64,7 @@ const AddIncident = () => {
               <option value="otros">Otros</option>
             </select>
           </div>
-    
+
           <div className="custom-input-file">
             <input
               className="input-file"
@@ -75,9 +75,7 @@ const AddIncident = () => {
             <CloudUploadOutlined /> Subir imágen
           </div>
 
-    <ModalUbication/>
-
-          
+          <ModalUbication />
 
           <input type="text" name="title" placeholder="Título" />
 
@@ -92,8 +90,7 @@ const AddIncident = () => {
             type="primary"
             block
             htmlType="submit"
-            className="addincident-form-button"
-          >
+            className="addincident-form-button">
             Publicar
           </Button>
         </form>
