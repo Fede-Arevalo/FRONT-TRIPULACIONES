@@ -83,7 +83,7 @@ const AddIncident = () => {
             name="description"
             rows="20"
             cols="26"
-            placeholder="Descripción del reporte"
+            placeholder="Descripción"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
