@@ -1,13 +1,71 @@
 .hide {
-    display: none;
-  }
+  display: none;
+}
 
-.button-map{
-    background-color: #F28517;
-    font-size: 14px;
-    height: 32px;
-    border-radius: 6px;
-    border-color:#e8d1bb ;
-    margin-top: 100%;
-    margin-left: 25%;
+.button-map {
+  width: 200px;
+  height: 35px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  background: #f28517;
+  border: 2px solid #f28517;
+  border-radius: 5px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: #f8fafc;
+}
+
+.button-map-close {
+  width: 90px;
+  height: 35px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background: #a80710;
+  border: 2px solid #a80710;
+  border-radius: 5px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: #f8fafc;
+}
+
+
+#map-2 {
+  width: 320px;
+  height: 407px;
+  padding: 0%;
+  margin: 0%;
+  border-radius: 8px;
+}
+
+.mapboxgl-ctrl mapboxgl-ctrl-group {
+  background-color: #f28517;
+}
+.mapboxgl-ctrl-logo {
+  opacity: 0%;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.mapboxgl-ctrl-geocoder--input{
+font-family: "Inter";
+text-decoration: none;
+
+}
+
+.mapboxgl-ctrl-icon{
+  width: 50px;
+  height: 50px;
 }

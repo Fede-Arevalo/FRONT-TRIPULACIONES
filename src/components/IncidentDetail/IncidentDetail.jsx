@@ -1,4 +1,4 @@
-import { Avatar, Radio, Spin } from "antd";
+import { Avatar, Button, Spin } from "antd";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -14,9 +14,9 @@ import MapView from "../Maps/MapView/MapView";
 
 const IncidentDetail = () => {
   const { user } = useSelector((state) => state.auth);
-
   const { _id } = useParams();
   const { incident } = useSelector((state) => state.incidents);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -47,28 +47,50 @@ const IncidentDetail = () => {
       .toLowerCase()}. ${dateDetail.getFullYear()} - ${hours}:${minutes}`;
   };
 
+  const address =
+    incident && incident.locationIncident
+      ? incident.locationIncident.split(",")
+      : ["No hay ubicación"];
+
+  const shortenedAddress =
+    address[0] && address[1]
+      ? `${address[0]}, ${address[1]}`
+      : "No hay ubicación";
+
+  const pending = () => {
+    dispatch(pendingIncidents(incident?._id));
+    dispatch(getIncidentById(_id));
+  };
+
+  const sent = () => {
+    dispatch(sentIncidents(incident?._id));
+    dispatch(getIncidentById(_id));
+  };
+
   return (
     <>
       <SelectMenu />
       <div className="cardDetail" key={incident?._id}>
-        <div className="top-container">
-          <div className="usuario">
+        <div className="top-container-detail">
+          <div className="usuario-detail">
             <Avatar
               size={54}
               src={"http://localhost:8080/" + incident.userId?.imageUser}
               alt={incident.userId?.name}
             />
-            <div className="nombre">
+
+            <div className="nombre-detail">
               {incident.userId?.name}
-              <div className="ubicacion">
+
+              <div className="ubicacion-detail">
                 <EnvironmentOutlined />
-                <span> {incident?.locationIncident}</span>
+                <span> {shortenedAddress}</span>
               </div>
             </div>
           </div>
 
-          <div className="estado-container">
-            <div className="estado-incidencia">
+          <div className="estado-container-detail">
+            <div className="estado-incidencia-detail">
               Estado:
               <span>
                 {" "}
@@ -78,19 +100,13 @@ const IncidentDetail = () => {
               </span>
             </div>
 
-            <div className="fecha">{getDateDetail(incident?.createdAt)}</div>
+            <div className="fecha-detail">
+              {getDateDetail(incident?.createdAt)}
+            </div>
           </div>
         </div>
 
-        <div className="mid-container">
-          <div className="category">
-            <span>{incident?.category}</span>
-          </div>
-
-          <div className="fecha">{getDateDetail(incident.createdAt)}</div>
-        </div>
-
-        <div className="imagen-incidencia">
+        <div className="imagen-incidencia-detail">
           <img
             src={"http://localhost:8080/" + incident?.imageIncident}
             alt="img"
@@ -98,39 +114,48 @@ const IncidentDetail = () => {
           />
         </div>
 
-        <div className="descripcion-incidencia">
-          <h1>{incident?.title}</h1>
+        <div className="descripcion-incidencia-detail">
+          <div className="category">
+            <span>{incident?.category}</span>
+          </div>
+          <h1>Descripción</h1>
           <p>{incident?.description}</p>
         </div>
 
-        <div className="ubicacion">
-          <EnvironmentOutlined />
-          <span> {incident?.locationIncident}</span>
-        </div>
         <div className="sin-controles">
           <MapView
             className="mapa-incidencias"
             address={incident?.locationIncident}
           />
-        </div>        
+        </div>
         <div className="space-for-map"></div>
 
         {user.user.role === "admin" ? (
           // creo que esta invertida la selccion
-          <div>
-            Estado:
-            <a>
-              {" "}
-              <span onClick={() => dispatch(sentIncidents(incident?._id))}>
-                Enviado
+          <div className="cambiar-estado">
+            <p>Estado:</p>
+
+            <Button onClick={() => pending()}>
+              <span>
+                {incident?.send_incident?.length === 1 ? (
+                  <div className="gris" />
+                ) : (
+                  <div className="naranja" />
+                )}
               </span>
-            </a>
-            <a>
-              {" "}
-              <span onClick={() => dispatch(pendingIncidents(incident?._id))}>
-                Pendiente
-              </span>
-            </a>
+              Pendiente
+            </Button>
+
+            <Button onClick={() => sent()}>
+              <span>
+                {incident?.send_incident?.length === 1 ? (
+                  <div className="naranja" />
+                ) : (
+                  <div className="gris" />
+                )}
+              </span>{" "}
+              Enviado
+            </Button>
           </div>
         ) : (
           ""

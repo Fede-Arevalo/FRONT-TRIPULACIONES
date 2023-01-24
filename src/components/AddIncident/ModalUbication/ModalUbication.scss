@@ -9,3 +9,20 @@
     opacity: 0%;
     display: none;
 }
+
+
+.ant-modal-body{
+    margin: 0px;
+    padding: 0px;
+    
+}
+:where(.css-dev-only-do-not-override-26rdvq).ant-modal .ant-modal-content{
+    margin: 12px;
+    padding: 0px;
+    border-radius: 2%;
+    margin-top: 20px;
+}
+
+.ant-modal-close{
+   display: none;
+}

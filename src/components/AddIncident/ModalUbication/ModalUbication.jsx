@@ -23,13 +23,12 @@ const ModalUbication = () => {
         placeholder="Ubicación"
         onClick={() => setVisible(true)}
       />
-
       <Modal
         title="Ubicación"
         visible={visible}
         onCancel={() => setVisible(false)}
         onOk={() => setVisible(false)}>
-        <LocationForm onLocation={handleLocation} />
+<LocationForm onLocation={handleLocation} closeModal={() => setVisible(false)} />
       </Modal>
     </>
   );

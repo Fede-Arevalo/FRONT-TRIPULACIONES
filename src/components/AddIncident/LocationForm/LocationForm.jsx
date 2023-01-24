@@ -3,13 +3,12 @@ import mapboxgl from "mapbox-gl";
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
-import "./LocationForm.scss"
-
+import "./LocationForm.scss";
 
 mapboxgl.accessToken =
   "pk.eyJ1Ijoic2lmMGRldiIsImEiOiJjbGQwZGdhb3kxNmpnM3J0Z281ZGpwaDNiIn0.4mwFz3BiXuYINpuclHGmIg";
 
-const LocationForm = ({ onLocation }) => {
+const LocationForm = ({ onLocation, closeModal }) => {
   const [map, setMap] = useState(null);
   const [location, setLocation] = useState("");
   const [geocoder, setGeocoder] = useState(null);
@@ -17,9 +16,10 @@ const LocationForm = ({ onLocation }) => {
   useEffect(() => {
     if (!map) {
       const newMap = new mapboxgl.Map({
-        container: "map",
+        container: "map-2",
         style: "mapbox://styles/mapbox/outdoors-v12",
         zoom: 15,
+        center: [-0.3810545927, 39.4822317431],
         logoPosition: "bottom-left",
         attributionControl: false,
       });
@@ -59,11 +59,24 @@ const LocationForm = ({ onLocation }) => {
 
   return (
     <div className="location-form">
-      <form onSubmit={handleSubmit}>
-
-      </form>
-      <div id="map"></div>
-      <button className="button-map" onClick={() => onLocation(location)}>Esta es la dirección</button>
+      <form onSubmit={handleSubmit}></form>
+      <div id="map-2"></div>
+      <div className="button-container">
+        <button
+          className="button-map"
+          onClick={() => {
+            onLocation(location);
+          }}>
+          Esta es la dirección
+        </button>
+        <button
+          className="button-map-close"
+          onClick={() => {
+            closeModal();
+          }}>
+          Cerrar
+        </button>
+      </div>
     </div>
   );
 };
