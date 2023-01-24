@@ -1,4 +1,4 @@
-import { Avatar, Spin } from "antd";
+import { Avatar, Button, Spin } from "antd";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -14,9 +14,9 @@ import MapView from "../Maps/MapView/MapView";
 
 const IncidentDetail = () => {
   const { user } = useSelector((state) => state.auth);
-
   const { _id } = useParams();
   const { incident } = useSelector((state) => state.incidents);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -51,10 +51,21 @@ const IncidentDetail = () => {
     incident && incident.locationIncident
       ? incident.locationIncident.split(",")
       : ["No hay ubicación"];
+
   const shortenedAddress =
     address[0] && address[1]
       ? `${address[0]}, ${address[1]}`
       : "No hay ubicación";
+
+  const pending = () => {
+    dispatch(pendingIncidents(incident?._id));
+    dispatch(getIncidentById(_id));
+  };
+
+  const sent = () => {
+    dispatch(sentIncidents(incident?._id));
+    dispatch(getIncidentById(_id));
+  };
 
   return (
     <>
@@ -121,20 +132,30 @@ const IncidentDetail = () => {
 
         {user.user.role === "admin" ? (
           // creo que esta invertida la selccion
-          <div>
-            Estado:
-            <a>
-              {" "}
-              <span onClick={() => dispatch(sentIncidents(incident?._id))}>
-                Enviado
+          <div className="cambiar-estado">
+            <p>Estado:</p>
+
+            <Button onClick={() => pending()}>
+              <span>
+                {incident?.send_incident?.length === 1 ? (
+                  <div className="gris" />
+                ) : (
+                  <div className="naranja" />
+                )}
               </span>
-            </a>
-            <a>
-              {" "}
-              <span onClick={() => dispatch(pendingIncidents(incident?._id))}>
-                Pendiente
-              </span>
-            </a>
+              Pendiente
+            </Button>
+
+            <Button onClick={() => sent()}>
+              <span>
+                {incident?.send_incident?.length === 1 ? (
+                  <div className="naranja" />
+                ) : (
+                  <div className="gris" />
+                )}
+              </span>{" "}
+              Enviado
+            </Button>
           </div>
         ) : (
           ""
