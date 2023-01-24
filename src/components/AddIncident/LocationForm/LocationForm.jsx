@@ -3,13 +3,12 @@ import mapboxgl from "mapbox-gl";
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
-import "./LocationForm.scss"
-
+import "./LocationForm.scss";
 
 mapboxgl.accessToken =
   "pk.eyJ1Ijoic2lmMGRldiIsImEiOiJjbGQwZGdhb3kxNmpnM3J0Z281ZGpwaDNiIn0.4mwFz3BiXuYINpuclHGmIg";
 
-const LocationForm = ({ onLocation }) => {
+const LocationForm = ({ onLocation, closeModal }) => {
   const [map, setMap] = useState(null);
   const [location, setLocation] = useState("");
   const [geocoder, setGeocoder] = useState(null);
@@ -62,14 +61,22 @@ const LocationForm = ({ onLocation }) => {
     console.log("Submitting location:", location);
   };
 
-  return (
+ return(
     <div className="location-form">
-      <form onSubmit={handleSubmit}>
-
-      </form>
-      <div id="map-2">
-      </div>
-      <button className="button-map" onClick={() => onLocation(location)}>Esta es la dirección</button>
+      <form onSubmit={handleSubmit}></form>
+      <div id="map-2"></div>
+      <button
+        className="button-map"
+        onClick={() => {
+          onLocation(location);
+        }}>
+        Esta es la dirección
+      </button>
+        <button  className="button-map"
+        onClick={() => {
+          closeModal();}}>
+          Cerrar
+        </button>
     </div>
   );
 };
