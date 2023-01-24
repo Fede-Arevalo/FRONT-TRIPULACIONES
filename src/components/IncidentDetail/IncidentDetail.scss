@@ -115,6 +115,8 @@
 
 .sin-controles .mapboxgl-ctrl {
   display: none;
+  padding: 0%;
+  margin: 0%;
 }
 
 
@@ -125,4 +127,7 @@
 
 .space-for-map {
   height: 150px;
+}
+#map{
+  width: 400px;
 }
