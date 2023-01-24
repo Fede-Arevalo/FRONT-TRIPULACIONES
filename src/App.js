@@ -40,7 +40,6 @@ function App() {
           <Route path="/maps" element={<Maps/>} />
           <Route path="/chatbot" element={<Chatbot />} />
           <Route path="/cate" element={<CategoriesNav />} />
-          
         </Routes>
         <Footer />
       </BrowserRouter>
