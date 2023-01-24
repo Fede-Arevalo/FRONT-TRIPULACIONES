@@ -1,5 +1,10 @@
-.input-category{
-    width: 100%;
-    margin-bottom: 0.5rem;
+.filters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.input-category {
+  width: 200px;
+  margin-bottom: 0.5rem;
 }

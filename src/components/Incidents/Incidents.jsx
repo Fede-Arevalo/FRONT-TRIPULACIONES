@@ -44,7 +44,7 @@ const Incidents = () => {
         <Button className="add-incident" href="/addIncident">
           Publicar incidencia
         </Button>
-        {user.user.role === "admin" ? (          
+        {/* {user.user.role === "admin" ? (          
             <div className="filter">
               <CategoriesNav className="category-select" />
               <Select
@@ -69,7 +69,7 @@ const Incidents = () => {
             </div>          
         ) : (
           ""
-        )}
+        )} */}
       </div>
       <Incident />
     </div>

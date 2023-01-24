@@ -115,20 +115,20 @@ const IncidentDetail = () => {
             className="mapa-incidencias"
             address={incident?.locationIncident}
           />
-        </div>
+        </div>        
         <div className="space-for-map"></div>
 
         {user.user.role === "admin" ? (
           // creo que esta invertida la selccion
           <div>
             Estado:
-            <a href="">
+            <a>
               {" "}
               <span onClick={() => dispatch(sentIncidents(incident?._id))}>
                 Enviado
               </span>
             </a>
-            <a href="">
+            <a>
               {" "}
               <span onClick={() => dispatch(pendingIncidents(incident?._id))}>
                 Pendiente
