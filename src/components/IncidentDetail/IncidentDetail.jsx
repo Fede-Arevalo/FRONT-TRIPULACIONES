@@ -4,7 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { EnvironmentOutlined } from "@ant-design/icons";
 import "./IncidentDetail.scss";
-import { getIncidentById, pendingIncidents, sentIncidents } from "../../features/incidents/incidentsSlice";
+import {
+  getIncidentById,
+  pendingIncidents,
+  sentIncidents,
+} from "../../features/incidents/incidentsSlice";
 import SelectMenu from "../SelectMenu/SelectMenu";
 import MapView from "../Maps/MapView/MapView";
 
@@ -43,8 +47,14 @@ const IncidentDetail = () => {
       .toLowerCase()}. ${dateDetail.getFullYear()} - ${hours}:${minutes}`;
   };
 
-  const address = incident?.locationIncident.split(",");
-  const shortenedAddress = `${address[0]}, ${address[1]}`;
+  const address =
+    incident && incident.locationIncident
+      ? incident.locationIncident.split(",")
+      : ["Sin especificar"];
+  const shortenedAddress =
+    address[0] && address[1]
+      ? `${address[0]}, ${address[1]}`
+      : "Sin especificar";
 
   return (
     <>
@@ -68,7 +78,13 @@ const IncidentDetail = () => {
 
           <div className="estado-container">
             <div className="estado-incidencia">
-            Estado:<span> {incident?.send_incident?.length === 1 ? "ENVIADO" : "PENDIENTE"} </span>
+              Estado:
+              <span>
+                {" "}
+                {incident?.send_incident?.length === 1
+                  ? "ENVIADO"
+                  : "PENDIENTE"}{" "}
+              </span>
             </div>
 
             <div className="fecha">{getDateDetail(incident?.createdAt)}</div>
@@ -100,19 +116,28 @@ const IncidentDetail = () => {
             address={incident?.locationIncident}
           />
         </div>
-          <div className="space-for-map">
+        <div className="space-for-map"></div>
+
+        {user.user.role === "admin" ? (
+          // creo que esta invertida la selccion
+          <div>
+            Estado:
+            <a href="">
+              {" "}
+              <span onClick={() => dispatch(sentIncidents(incident?._id))}>
+                Enviado
+              </span>
+            </a>
+            <a href="">
+              {" "}
+              <span onClick={() => dispatch(pendingIncidents(incident?._id))}>
+                Pendiente
+              </span>
+            </a>
           </div>
-
-
-        {user.user.role === 'admin' ?
-        // creo que esta invertida la selccion
-        <div>Estado: 
-          
-           <a href=""> <span onClick={() => dispatch(sentIncidents(incident?._id))} >Enviado</span></a>
-
-           <a href=""> <span onClick={() => dispatch(pendingIncidents(incident?._id))} >Pendiente</span></a>
-        </div>
-        :""}
+        ) : (
+          ""
+        )}
       </div>
     </>
   );
