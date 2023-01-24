@@ -50,11 +50,11 @@ const IncidentDetail = () => {
   const address =
     incident && incident.locationIncident
       ? incident.locationIncident.split(",")
-      : ["Sin especificar"];
+      : ["No hay ubicación"];
   const shortenedAddress =
     address[0] && address[1]
       ? `${address[0]}, ${address[1]}`
-      : "Sin especificar";
+      : "No hay ubicación";
 
   return (
     <>

@@ -29,6 +29,12 @@
         margin-top: 10px;
         width: 60%;
 
+        .avatar {
+          width: 100px;
+          height: 100px;
+          object-fit: cover;
+          }
+
         .nombre {
           display: flex;
           flex-direction: column;
@@ -53,6 +59,7 @@
         margin-bottom: 30px;
 
         .estado-incidencia {
+          padding: 0 5px;
           width: 122px;
           height: 33px;
           display: flex;

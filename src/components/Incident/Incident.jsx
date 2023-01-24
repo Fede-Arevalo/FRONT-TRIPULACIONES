@@ -38,8 +38,14 @@ const Incident = ({ incidentState }) => {
         .toLowerCase()}. ${dateDetail.getFullYear()} - ${hours}:${minutes}`;
     };
 
-    const address = incident?.locationIncident.split(",");
-    const shortenedAddress = `${address[0]}, ${address[1]}`;
+    const address =
+      incident && incident.locationIncident
+        ? incident.locationIncident.split(",")
+        : ["Fuera del barrio del campanar"];
+    const shortenedAddress =
+      address[0] && address[1]
+        ? `${address[0]}, ${address[1]}`
+        : "Fuera del barrio del campanar";
 
     return (
       <div className="card" key={incident?._id}>
