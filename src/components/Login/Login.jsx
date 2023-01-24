@@ -70,8 +70,7 @@ const Login = () => {
         initialValues={{
           remember: true,
         }}
-        onFinish={onFinish}
-      >
+        onFinish={onFinish}>
         <Form.Item
           name="email"
           rules={[
@@ -79,8 +78,7 @@ const Login = () => {
               required: true,
               message: "Please input your email!",
             },
-          ]}
-        >
+          ]}>
           <Input
             prefix={<UserOutlined className="site-form-item-icon" />}
             type="email"
@@ -98,8 +96,7 @@ const Login = () => {
               required: true,
               message: "Please input your Password!",
             },
-          ]}
-        >
+          ]}>
           <Input
             prefix={<LockOutlined className="site-form-item-icon" />}
             type="password"
@@ -109,20 +106,20 @@ const Login = () => {
             onChange={onChange}
           />
         </Form.Item>
-        <div>
+        <div className="recaptcha-container">
           <ReCAPTCHA
             ref={captcha}
             sitekey="6Ld3ZiMkAAAAADXG7ux9cd5GnEXB4333mJ1O8Bpe"
             onClick={onClick}
           />
         </div>
+
         <Form.Item>
           <Button
             type="primary"
             block
             htmlType="submit"
-            className="login-form-button"
-          >
+            className="login-form-button">
             Ingresar
           </Button>
         </Form.Item>
