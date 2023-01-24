@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { CloudUploadOutlined } from "@ant-design/icons";
 import "./AddIncident.scss";
 import { createIncident, reset } from "../../features/incidents/incidentsSlice";
+import ModalUbication from "./ModalUbication/ModalUbication";
 import CategoriesNav from "../CategoriesNav/CategoriesNav";
 
 const AddIncident = () => {
@@ -67,7 +68,7 @@ const AddIncident = () => {
             <CloudUploadOutlined /> Subir imágen
           </div>
 
-          <input type="text" name="locationIncident" placeholder="Ubicación" />
+          <ModalUbication />
 
           <input type="text" name="title" placeholder="Título" />
 
@@ -82,8 +83,7 @@ const AddIncident = () => {
             type="primary"
             block
             htmlType="submit"
-            className="addincident-form-button"
-          >
+            className="addincident-form-button">
             Publicar
           </Button>
         </form>

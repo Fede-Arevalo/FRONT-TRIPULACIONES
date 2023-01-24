@@ -7,7 +7,10 @@ import "./MapView.scss";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
 
-const MapView = () => {
+mapboxgl.accessToken =
+  "pk.eyJ1Ijoic2lmMGRldiIsImEiOiJjbGQwZGdhb3kxNmpnM3J0Z281ZGpwaDNiIn0.4mwFz3BiXuYINpuclHGmIg";
+
+const MapView = ({ address }) => {
   const [map, setMap] = useState(null);
   const [geocoder, setGeocoder] = useState(null);
   const [searchResult, setSearchResult] = useState(null);
@@ -33,6 +36,7 @@ const MapView = () => {
         zoom: 15,
         logoPosition: "bottom-left",
         attributionControl: false,
+        maxBounds: bounds,
       });
       setMap(newMap);
 
@@ -63,13 +67,33 @@ const MapView = () => {
   }, [map]);
 
   useEffect(() => {
+    if (address && map) {
+      const geocoder = new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        mapboxgl: mapboxgl,
+      });
+      map.addControl(geocoder);
+      geocoder.on("result", (e) => {
+        map?.flyTo({ center: e.result.center });
+        const marker = new mapboxgl.Marker()
+          .setLngLat(e.result.center)
+          .addTo(map);
+        const popup = new mapboxgl.Popup().setHTML(address);
+        marker.setPopup(popup);
+      });
+
+      geocoder.query(address);
+    }
+  }, [address, map]);
+
+  useEffect(() => {
     if (geocoder) {
       geocoder.on("result", (e) => {
         map?.flyTo({ center: e.result.center });
         setSearchResult(e.result);
         handleSearch(e.result);
       });
-    }// eslint-disable-next-line
+    } // eslint-disable-next-line
   }, [geocoder, map]);
 
   useEffect(() => {
@@ -85,7 +109,7 @@ const MapView = () => {
         // Naranja: #FFA500
         // Amarillo: #FFFF00
         // Verde: #00FF00
-        draggable: true,
+        draggable: false,
       })
 
         .setLngLat(searchResult.center)
