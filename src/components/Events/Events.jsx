@@ -34,7 +34,6 @@ const Events = () => {
   return (
     <div className="events">
       <SelectMenu />
-
       {user.user.role === "admin" ? (
         <div className="add">
           <Button className="add-event" href="/addEvent">

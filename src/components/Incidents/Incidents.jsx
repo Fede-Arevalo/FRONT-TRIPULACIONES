@@ -41,37 +41,34 @@ const Incidents = () => {
     <div className="incidents">
       <SelectMenu />
       <div className="add">
-      {user.user.role === 'admin' ? (
-      <> 
-      <div className="filter">
-          <CategoriesNav className="category-select" />
-          <Select
-            placeholder="Estado"
-            name=""
-            id=""
-            className="select-state"
-            onChange={(value) => {
-              if (value === "Enviado") {
-                dispatch(getAllIncidentsSent());
-              } else if (value === "Pendiente") {
-                dispatch(getAllIncidentsPending());
-              } else {
-                dispatch(getAllIncidents());
-              }
-            }}
-          >
-            <Option value="Enviado">Enviado</Option>
-            <Option value="Pendiente">Pendiente</Option>
-            <Option value="Todos">Todos</Option>
-          </Select>
-        </div>
-        </>
-        ) : (
-        <>
         <Button className="add-incident" href="/addIncident">
           Publicar incidencia
         </Button>
-        </>
+        {user.user.role === "admin" ? (          
+            <div className="filter">
+              <CategoriesNav className="category-select" />
+              <Select
+                placeholder="Estado"
+                name=""
+                id=""
+                className="select-state"
+                onChange={(value) => {
+                  if (value === "Enviado") {
+                    dispatch(getAllIncidentsSent());
+                  } else if (value === "Pendiente") {
+                    dispatch(getAllIncidentsPending());
+                  } else {
+                    dispatch(getAllIncidents());
+                  }
+                }}
+              >
+                <Option value="Enviado">Enviado</Option>
+                <Option value="Pendiente">Pendiente</Option>
+                <Option value="Todos">Todos</Option>
+              </Select>
+            </div>          
+        ) : (
+          ""
         )}
       </div>
       <Incident />
