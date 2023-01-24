@@ -6,6 +6,7 @@ import { Avatar } from "antd";
 import "./Incident.scss";
 
 const Incident = ({ incidentState }) => {
+
   const { incidents } = useSelector((state) => state.incidents);
 
   let filteredIncidents;

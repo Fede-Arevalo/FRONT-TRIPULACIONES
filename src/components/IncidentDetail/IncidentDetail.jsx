@@ -4,14 +4,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { EnvironmentOutlined } from "@ant-design/icons";
 import "./IncidentDetail.scss";
-import { getIncidentById } from "../../features/incidents/incidentsSlice";
+import { getIncidentById, pendingIncidents, sentIncidents } from "../../features/incidents/incidentsSlice";
 import SelectMenu from "../SelectMenu/SelectMenu";
 import MapView from "../Maps/MapView/MapView";
 
 const IncidentDetail = () => {
+  const { user } = useSelector((state) => state.auth);
+
   const { _id } = useParams();
   const { incident } = useSelector((state) => state.incidents);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -99,6 +100,15 @@ const IncidentDetail = () => {
         <div className="sin-controles">
           <MapView address={incident?.locationIncident} />
         </div>
+        {user.user.role === 'admin' ?
+        // creo que esta invertida la selccion
+        <div>Estado: 
+          
+           <a href=""> <span onClick={() => dispatch(sentIncidents(incident?._id))} >Enviado</span></a>
+
+           <a href=""> <span onClick={() => dispatch(pendingIncidents(incident?._id))} >Pendiente</span></a>
+        </div>
+        :""}
       </div>
     </>
   );
