@@ -38,9 +38,9 @@ const getAllIncidents = async () => {
   });
   return res.data;
 };
-const getIncidentsXCategory = async () => {
+const getIncidentsXCategory = async (category ) => {
   const user = JSON.parse(localStorage.getItem("user"));
-  const res = await axios.get(API_URL + "/incidents/getIncidentsXCategory", {
+  const res = await axios.get(API_URL + "/incidents/getIncidentsXCategory/" + category, {
     headers: {
       authorization: user?.token,
     },

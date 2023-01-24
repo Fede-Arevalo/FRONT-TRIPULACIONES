@@ -41,9 +41,9 @@ export const getAllIncidents = createAsyncThunk(
 );
 export const getIncidentsXCategory = createAsyncThunk(
   "incidents/getIncidentsXCategory",
-  async () => {
+  async (category) => {
     try {
-      return await incidentsService.getIncidentsXCategory();
+      return await incidentsService.getIncidentsXCategory(category);
     } catch (error) {
       console.error(error);
     }
@@ -132,11 +132,10 @@ export const incidentsSlice = createSlice({
       .addCase(getIncidentsXCategory.fulfilled, (state, action) => {
         state.incidents = action.payload;
       })
-
-      .addCase(getAllIncidents.pending, (state) => {
+      .addCase(getIncidentsXCategory.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(getIncidentsXCategory.pending, (state) => {
+      .addCase(getAllIncidents.pending, (state) => {
         state.isLoading = true;
       })
 
