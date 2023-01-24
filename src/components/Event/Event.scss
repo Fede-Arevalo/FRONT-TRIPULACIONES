@@ -2,60 +2,56 @@
 
 .event {
   margin-top: 1em;
-  max-width: 600px;
   display: flex;
   justify-content: center;
-  align-self: center;
   flex-wrap: wrap-reverse;
-  gap: 20px;
+  align-self: center;
+  gap: 10px;
 
   .card-event {
+    background-color: white;
     font-family: "Archivo", sans-serif;
-    border-top: 1px solid rgba(128, 128, 128, 0.5);
 
-    a {
-      all: unset;
-      cursor: pointer;
-    }
-
-    .top-container {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      margin-top: 10px;
+    .top-container-event {
+      padding: 0px 16px;
       h1 {
-        font-size: 16px;
-      }
-      .share{
-        font-size: 19px;
+        text-transform: capitalize;
+        font-weight: 700;
+        font-size: 16.5px;
+        line-height: 24px;
       }
     }
-
-    .mid-container {
-      height: 40px;
+    .mid-container-event {
+      padding: 0px 11px;
       display: flex;
-      flex-direction: column;   
-      justify-content: space-around;        
+      flex-direction: column;
+      gap: 11px;
+      margin-bottom: 10px;
 
-      .ubicacion {       
-        font-size: 12px;
-        font-weight: 700;        
+      .ubicacion {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16px;
+        text-align: justify;
+        span {
+          margin-left: 5px;
+        }
       }
 
-      .fecha {       
-        font-size: 12px;        
+      .fecha {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16px;
+        span {
+          margin-left: 5px;
+        }
       }
     }
 
-    .imagen-container {
-      width: 100%;
-      .imagen-event {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        
-        margin-top: 5px;
-      }
+    .imagen-event-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
   }
 }
