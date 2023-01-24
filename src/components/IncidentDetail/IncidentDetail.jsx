@@ -60,24 +60,26 @@ const IncidentDetail = () => {
     <>
       <SelectMenu />
       <div className="cardDetail" key={incident?._id}>
-        <div className="top-container">
-          <div className="usuario">
+        <div className="top-container-detail">
+          <div className="usuario-detail">
             <Avatar
               size={54}
               src={"http://localhost:8080/" + incident.userId?.imageUser}
               alt={incident.userId?.name}
             />
-            <div className="nombre">
+
+            <div className="nombre-detail">
               {incident.userId?.name}
-              <div className="ubicacion">
+
+              <div className="ubicacion-detail">
                 <EnvironmentOutlined />
                 <span> {shortenedAddress}</span>
               </div>
             </div>
           </div>
 
-          <div className="estado-container">
-            <div className="estado-incidencia">
+          <div className="estado-container-detail">
+            <div className="estado-incidencia-detail">
               Estado:
               <span>
                 {" "}
@@ -87,11 +89,13 @@ const IncidentDetail = () => {
               </span>
             </div>
 
-            <div className="fecha">{getDateDetail(incident?.createdAt)}</div>
+            <div className="fecha-detail">
+              {getDateDetail(incident?.createdAt)}
+            </div>
           </div>
         </div>
 
-        <div className="imagen-incidencia">
+        <div className="imagen-incidencia-detail">
           <img
             src={"http://localhost:8080/" + incident?.imageIncident}
             alt="img"
@@ -99,14 +103,11 @@ const IncidentDetail = () => {
           />
         </div>
 
-        <div className="mid-container">
+        <div className="descripcion-incidencia-detail">
           <div className="category">
             <span>{incident?.category}</span>
           </div>
-        </div>
-
-        <div className="descripcion-incidencia">
-          <h1>{incident?.title}</h1>
+          <h1>Descripción</h1>
           <p>{incident?.description}</p>
         </div>
 
@@ -115,7 +116,7 @@ const IncidentDetail = () => {
             className="mapa-incidencias"
             address={incident?.locationIncident}
           />
-        </div>        
+        </div>
         <div className="space-for-map"></div>
 
         {user.user.role === "admin" ? (
