@@ -9,17 +9,18 @@
   font-family: "Archivo", sans-serif;
   border-top: 1px solid rgba(128, 128, 128, 0.239);
   margin-top: 19px;
+  margin-bottom: 6em;
   a {
     all: unset;
     cursor: pointer;
   }
 
   .top-container-detail {
-    margin: 18px 16px  12px 16px;
+    margin: 18px 16px 12px 16px;
     display: flex;
     justify-content: space-between;
 
-    .usuario-detail {      
+    .usuario-detail {
       display: flex;
       margin-top: 10px;
       width: 65%;
@@ -105,24 +106,54 @@
       text-align: justify;
     }
   }
-
-  .map-detail {
-    width: 100%;
-    height: 190px;
-    background-color: rgb(180, 178, 178);
-  }
 }
 
 .sin-controles .mapboxgl-ctrl {
   display: none;
 }
 
-
-
 .mapa-incidencias {
-  margin-bottom: 200px;
+  margin-bottom: 20px;
 }
 
 .space-for-map {
-  height: 150px;
+  margin-bottom: 10px;
+}
+
+.cambiar-estado {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-left: 20px;
+  p {
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .ant-btn {
+    all: unset;
+    cursor: pointer;
+    height: 30px;
+    width: 100px;
+    font-weight: 400;
+    font-size: 12px;
+    margin-bottom: 5px;
+    span {
+      margin-right: 8px;
+    }
+  }
+}
+
+.gris {
+  background-color: gray;
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+}
+
+.naranja {
+  background-color: $terciario1;
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
 }
