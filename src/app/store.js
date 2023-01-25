@@ -11,7 +11,6 @@ import chatbot from "../features/chatbot/chatbotSlice";
 export const store = configureStore({
   reducer: {
     auth,
-    posts,
     incidents,
     events,
     places,

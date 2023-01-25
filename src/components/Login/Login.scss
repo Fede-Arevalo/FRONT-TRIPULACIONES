@@ -32,7 +32,7 @@
 
   .logo {
     height: 140px;
-    margin-bottom: 30px;    
+    margin-bottom: 30px;
   }
   a {
     text-decoration: none;
@@ -46,12 +46,10 @@
 
 .ant-input {
   font-family: "Archivo", sans-serif;
-  
 }
 
-.recaptcha-container {
-  margin-left: -40px;
-  margin-bottom: 20px;
+.rc-inline-block {
+  background-color: red;
+  width: 100px;
+  margin-bottom: 60px;
 }
-
-
