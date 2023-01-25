@@ -7,7 +7,6 @@ import Login from "./components/Login/Login";
 import Profile from "./components/Profile/Profile";
 import Footer from "./components/Footer/Footer";
 import UpdateUser from "./components/UpdateUser/UpdateUser";
-import UpdatePost from "./components/UpdatePost/UpdatePost";
 import Maps from "./components/Maps/Maps";
 import Incidents from "./components/Incidents/Incidents";
 import Wellcome from "./components/Wellcome/Wellcome";
@@ -31,7 +30,6 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/UpdateUser/:_id" element={<UpdateUser />} />
           <Route path="/wellcome" element={<Wellcome />} />
-          <Route path="/UpdatePost/:_id" element={<UpdatePost />} />
           <Route path="/addIncident" element={<AddIncident />} />
           <Route path="/addEvent" element={<AddEvent />} />
           <Route path="/incident/:_id" element={<IncidentDetail />} />
