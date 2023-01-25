@@ -1,29 +1,32 @@
 .user-message {
-    color: blue;
-    text-align: right;
-    float: right;
-    margin-right: 5%;
+  color: blue;
+  text-align: right;
+  margin-right: 5%;
 }
 
 .bot-response {
-    color: green;
-    text-align: left;
-    float: left;
-    margin-left: 5%;
+  color: green;
+  text-align: left;
+  margin-left: 5%;
 }
 
-.messages-container::after {
-    content: "";
-    clear: both;
-    display: table;
+.messages-container {
+  display: flex;
+  flex-direction: column;
 }
 
 li {
-    list-style: none;
+  list-style: none;
 }
 
 ul {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
+.formulario-chatbot {
+  margin-left: 18%;
+  position: absolute;
+  bottom: 120px;
+
+}

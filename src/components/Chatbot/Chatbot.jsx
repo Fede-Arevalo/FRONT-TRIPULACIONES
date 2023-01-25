@@ -1,11 +1,11 @@
 import React, { useState, useRef } from "react";
 import axios from "axios";
-import "./Chatbot.scss"
+import "./Chatbot.scss";
 
 function Chatbot() {
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState([]);
-  const commentsEndRef = useRef(null);
+  const messagesRef = useRef(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,42 +20,41 @@ function Chatbot() {
         { comment: comment, response: res.data.response },
       ]);
       setComment("");
-      scrollToBottom();
+      setTimeout(() => {
+        scrollToBottom();
+      }, 0);
     } catch (err) {
       console.error(err);
     }
   };
 
   const scrollToBottom = () => {
-    commentsEndRef.current.scrollIntoView({ behavior: "smooth" });
+    messagesRef.current.scrollTop = messagesRef.current.scrollHeight;
   };
 
   return (
     <div>
-      <ul >
-        {comments.map((c, i) => (
-          <li key={i}>
-            <p className="user-message">{c.comment}</p>
-            <p className="bot-response">{c.response}</p>
-          </li>
-        ))}
-        <div ref={commentsEndRef} />
-      </ul>
-      <form
-        style={{
-          position: "fixed",
-          bottom: 70,
-          width: "100%",
-          height: "70px",
-          background: "white",
-          border: "1px solid gray",
-        }}
+      <div className="chat-container">
+        <ul
+          className="messages-container"
+          ref={messagesRef}
+          style={{ overflowY: "scroll", height: "80vh" }}>
+          {comments.map((c, i) => (
+            <li key={i}>
+              <p className="user-message">{c.comment}</p>
+              <p className="bot-response">{c.response}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <form className="formulario-chatbot"
+       
         onSubmit={handleSubmit}>
         <input
           type="text"
           value={comment}
           onChange={(e) => setComment(e.target.value)}
-        /> 
+        />
         <button type="submit">Enviar</button>
       </form>
     </div>
@@ -63,4 +62,3 @@ function Chatbot() {
 }
 
 export default Chatbot;
-
