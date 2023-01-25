@@ -6,12 +6,15 @@ import "./AddIncident.scss";
 import { createIncident, reset } from "../../features/incidents/incidentsSlice";
 import ModalUbication from "./ModalUbication/ModalUbication";
 import CategoriesNav from "../CategoriesNav/CategoriesNav";
+import Censor from "../Censorship/Censor";
 import Upload from "../../assets/upload-image.png";
 
 const AddIncident = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { censorText } = Censor();
+  const [description, setDescription] = useState("");
 
   const { isSuccess, message, isError } = useSelector((state) => state.auth);
 
@@ -30,16 +33,17 @@ const AddIncident = () => {
     // eslint-disable-next-line
   }, [isSuccess, isError, message]);
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
-
     if (e.target.imageIncident.files[0])
       formData.set("imageIncident", e.target.imageIncident.files[0]);
     formData.set("category", selectedCategory);
     formData.set("locationIncident", e.target.locationIncident.value);
     formData.set("title", e.target.title.value);
-    formData.set("description", e.target.description.value);
+    let description = e.target.description.value;
+    description = await censorText(description);
+    formData.set("description", description);
 
     dispatch(createIncident(formData));
     setTimeout(() => {
@@ -80,7 +84,9 @@ const AddIncident = () => {
             name="description"
             rows="20"
             cols="26"
-            placeholder="Descripción reporte"
+            placeholder="Descripción"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
           />
 
           <Button

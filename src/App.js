@@ -18,7 +18,6 @@ import Events from "./components/Events/Events";
 import CategoriesNav from "./components/CategoriesNav/CategoriesNav";
 
 
-
 function App() {
   return (
     <div className="App">
@@ -38,7 +37,6 @@ function App() {
           <Route path="/maps" element={<Maps/>} />
           <Route path="/chatbot" element={<Chatbot />} />
           <Route path="/cate" element={<CategoriesNav />} />
-          
         </Routes>
         <Footer />
       </BrowserRouter>
