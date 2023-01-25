@@ -34,11 +34,12 @@ function Chatbot() {
 
   return (
     <div>
+      <div className="asistencia-virtual">Asistencia Virtual</div>
       <div className="chat-container">
         <ul
           className="messages-container"
           ref={messagesRef}
-          style={{ overflowY: "scroll", height: "80vh" }}>
+          style={{ overflowY: "scroll", height: "70vh" }}>
           {comments.map((c, i) => (
             <li key={i}>
               <p className="user-message">{c.comment}</p>
