@@ -53,7 +53,7 @@ const Incident = ({ incidentState }) => {
           <div className="usuario">
             <Avatar
               size={54}
-              src={"http://localhost:8080/" + incident.userId?.imageUser}
+              src={"https://back-tripulaciones-production-e793.up.railway.app/" + incident.userId?.imageUser}
               alt={incident.userId?.name}
             />
             <div className="nombre">
@@ -87,7 +87,7 @@ const Incident = ({ incidentState }) => {
                 className="img-container"
                 style={{
                   backgroundImage: `url(${
-                    "http://localhost:8080/" + incident?.imageIncident
+                    "https://back-tripulaciones-production-e793.up.railway.app/" + incident?.imageIncident
                   })`,
                 }}
               />

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8080";
+const API_URL = "https://back-tripulaciones-production-e793.up.railway.app/";
 
 const getAllCategories = async () => {
   const res = await axios.get(API_URL + "/categories/getAllCategory");
