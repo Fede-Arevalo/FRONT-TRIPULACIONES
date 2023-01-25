@@ -1,4 +1,4 @@
-.user-message {
+.bot-response {
   padding: 0.8rem;
   width: 80%;
   text-align: start;
@@ -10,7 +10,7 @@
   -webkit-border-top-left-radius: 0;
   -moz-border-radius: 15px;
   -moz-border-radius-topleft: 0;
-  border-radius: 15px;
+  border-radius: 10px;
   border-top-left-radius: 0;
   margin-left: 0.5rem;
   margin-right: auto;
@@ -19,10 +19,9 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
-  border-color: #f28517;
 }
 
-.bot-response {
+.user-message {
   width: 80%;
   margin: 0.5rem;
   padding: 0.8rem;
@@ -34,8 +33,8 @@
   -webkit-border-bottom-right-radius: 0;
   -moz-border-radius: 15px;
   -moz-border-radius-bottomright: 0;
-  border-radius: 15px;
-  border-bottom-right-radius: 0;
+  border-radius: 10px;
+  border-top-right-radius: 0;
   float: right;
   margin-left: auto;
   margin-right: 0.5rem;
@@ -44,7 +43,10 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
+  border-color: #f28517;
 }
+
+
 .messages-container {
   display: flex;
   flex-direction: column;
