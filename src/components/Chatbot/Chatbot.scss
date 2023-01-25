@@ -1,29 +1,115 @@
+.header-chatboot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e26210;
+  border-radius: 10px 10px 0px 0px;
+  position: relative;
+  width: 100%;
+  height: 68px;
+  left: 0px;
+  top: 1rem;
+  margin-bottom: 0.3rem;
+
+  .text-header {
+    font-family: "Helvetica";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 20px;
+    color: #f8fafc;
+  }
+}
+
 .user-message {
-    color: blue;
-    text-align: right;
-    float: right;
-    margin-right: 5%;
+  padding: 0.8rem;
+  width: 80%;
+  text-align: start;
+  float: left;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.15);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  -webkit-border-radius: 15px;
+  -webkit-border-top-left-radius: 0;
+  -moz-border-radius: 15px;
+  -moz-border-radius-topleft: 0;
+  border-radius: 15px;
+  border-top-left-radius: 0;
+  margin-left: 0.5rem;
+  margin-right: auto;
+  font-family: "Helvetica";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
 }
 
 .bot-response {
-    color: green;
-    text-align: left;
-    float: left;
-    margin-left: 5%;
+  width: 80%;
+  margin: 0.5rem;
+  padding: 0.8rem;
+  text-align: start;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.15);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  -webkit-border-radius: 15px;
+  -webkit-border-bottom-right-radius: 0;
+  -moz-border-radius: 15px;
+  -moz-border-radius-bottomright: 0;
+  border-radius: 15px;
+  border-bottom-right-radius: 0;
+  float: right;
+  margin-left: auto;
+  margin-right: 0.5rem;
+  font-family: "Helvetica";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.container-input {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .input-chat {
+    background: rgba(15, 23, 42, 0.25);
+    border-radius: 10px;
+    width: 75%;
+    height: 4rem;
+    display: inline-block;
+    border: none;
+    margin-right: 0.5rem;
+    font-family: "Helvetica";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 20px;
+    padding-left: 1rem;
+  }
+
+  .btn-chat-boot {
+    font-size: 2.8rem;
+    line-height: 2rem;
+    border: none;
+    background-color: transparent;
+    color: rgba(15, 23, 42, 0.25);
+  }
 }
 
 .messages-container::after {
-    content: "";
-    clear: both;
-    display: table;
+  content: "";
+  clear: both;
+  display: table;
 }
 
 li {
-    list-style: none;
+  list-style: none;
 }
 
 ul {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
-

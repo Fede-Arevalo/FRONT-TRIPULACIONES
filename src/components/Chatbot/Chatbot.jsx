@@ -1,5 +1,8 @@
 import React, { useState, useRef } from "react";
+import { IoIosNavigate } from "react-icons/io";
+
 import axios from "axios";
+
 import "./Chatbot.scss"
 
 function Chatbot() {
@@ -32,11 +35,14 @@ function Chatbot() {
 
   return (
     <div>
+      <div className="header-chatboot">
+        <p className="text-header">Asistencia virtual</p>
+      </div>
       <ul >
         {comments.map((c, i) => (
           <li key={i}>
-            <p className="user-message">{c.comment}</p>
-            <p className="bot-response">{c.response}</p>
+            <div><p className="user-message">{c.comment}</p></div>
+            <div><p className="bot-response">{c.response}</p></div>
           </li>
         ))}
         <div ref={commentsEndRef} />
@@ -48,15 +54,20 @@ function Chatbot() {
           width: "100%",
           height: "70px",
           background: "white",
-          border: "1px solid gray",
+          marginBottom: 30
         }}
         onSubmit={handleSubmit}>
+          <div className="container-input">
+
         <input
+        placeholder="Escribe tu pregunte aqui..."
+        className="input-chat"
           type="text"
           value={comment}
           onChange={(e) => setComment(e.target.value)}
         /> 
-        <button type="submit">Enviar</button>
+        <button type="submit" className="btn-chat-boot"> <IoIosNavigate/> </button>
+          </div>
       </form>
     </div>
   );
