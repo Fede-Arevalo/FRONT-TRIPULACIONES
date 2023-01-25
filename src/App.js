@@ -19,7 +19,6 @@ import Events from "./components/Events/Events";
 import CategoriesNav from "./components/CategoriesNav/CategoriesNav";
 
 
-
 function App() {
   return (
     <div className="App">

@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Footer.scss";
 import Home from "../../assets/home.png";
 import Chat from "../../assets/Chat.png";
 import User from "../../assets/User.png";
+import { Modal } from "antd";
+import Chatbot from "../Chatbot/Chatbot";
 
 const Footer = () => {
   let location = useLocation();
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const handleClick = () => {
+    setIsModalVisible(true);
+  };
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
 
   return (
     <div className="footer">
@@ -22,9 +32,12 @@ const Footer = () => {
           </div>
 
           <div className="chat">
-            <Link to="/chatbot">
-              <img src={Chat} alt="Chat" className="icon-chat" />
-            </Link>
+            <img
+              src={Chat}
+              alt="Chat"
+              className="icon-chat"
+              onClick={handleClick}
+            />
             Chat
           </div>
 
@@ -38,6 +51,15 @@ const Footer = () => {
       ) : (
         ""
       )}
+      <Modal
+        title="Asistencia Virtual"
+        visible={isModalVisible}
+        onCancel={handleCancel}
+        wrapClassName={
+          isModalVisible ? "animated-modal-up" : "animated-modal-down"
+        }>
+        <Chatbot />
+      </Modal>
     </div>
   );
 };

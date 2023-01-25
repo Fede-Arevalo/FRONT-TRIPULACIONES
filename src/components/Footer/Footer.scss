@@ -8,7 +8,7 @@
   height: 86px;
   display: flex;
   justify-content: center;
-  flex-direction: column;  
+  flex-direction: column;
   border-top: 1px solid #dddedf;
 
   nav {
@@ -17,7 +17,7 @@
     align-items: center;
     font-family: "Work Sans", sans-serif;
     font-weight: 600;
-    
+
     .inicio {
       display: flex;
       justify-content: flex-end;
@@ -62,7 +62,32 @@
       align-items: center;
       height: 50px;
       font-size: 12px;
-      
     }
+  }
+}
+
+.animated-modal-up {
+  animation: slideUp 0.5s;
+}
+
+.animated-modal-down {
+  animation: slideDown 0.5s;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
   }
 }

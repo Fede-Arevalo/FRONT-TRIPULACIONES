@@ -34,7 +34,7 @@ function Chatbot() {
 
   return (
     <div>
-      <div className="asistencia-virtual">Asistencia Virtual</div>
+      <div className="chatbot-header">Asistencia Virtual</div>
       <div className="chat-container">
         <ul
           className="messages-container"
