@@ -2,12 +2,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  FormOutlined,
-  MoreOutlined,
-  EditOutlined,
-  LogoutOutlined,
-} from "@ant-design/icons";
+import { MoreOutlined, EditOutlined, LogoutOutlined } from "@ant-design/icons";
 import { Avatar, Spin, Dropdown, Space } from "antd";
 import "./UserInfo.scss";
 import { logout } from "../../../features/auth/authSlice";
@@ -36,14 +31,14 @@ const UserInfo = () => {
     {
       label: (
         <a href={"/UpdateUser/" + user._id}>
-          <EditOutlined /> Edit profile
+          <EditOutlined /> Editar
         </a>
       ),
     },
     {
       label: (
         <Link to="/" onClick={onLogout}>
-          <LogoutOutlined /> Log out
+          <LogoutOutlined /> Salir
         </Link>
       ),
     },
@@ -68,17 +63,12 @@ const UserInfo = () => {
       <div className="user">
         <Link to={"/UpdateUser/" + user._id}>
           <Avatar
-            size={180}
+            size={196}
             src={"http://localhost:8080/" + user.user.imageUser}
             alt={user.user.name}
           />
         </Link>
-        <h1>{user.user.name}</h1>
-        <div className="icons">
-          <p>
-            <FormOutlined /> {user.incidents?.length}
-          </p>
-        </div>
+        <h1>Foto de Perfil</h1>
       </div>
     </div>
   );

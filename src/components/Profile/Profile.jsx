@@ -1,24 +1,26 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { getAllIncidents, reset } from "../../features/incidents/incidentsSlice";
-import { EnvironmentOutlined } from "@ant-design/icons";
-import { Avatar, Divider, Spin } from "antd";
+import {
+  getAllIncidents,
+  reset,
+} from "../../features/incidents/incidentsSlice";
+import { RightOutlined } from "@ant-design/icons";
+import { Button, Spin } from "antd";
 import "./Profile.scss";
 import UserInfo from "./UserInfo/UserInfo";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   const dispatch = useDispatch();
-  const { incidents, isLoading } = useSelector((state) => state.incidents);
-
+  const { isLoading } = useSelector((state) => state.incidents);
 
   async function getAllIncidentsAndReset() {
     await dispatch(getAllIncidents());
     dispatch(reset());
   }
 
-  useEffect(() => {    
+  useEffect(() => {
     getAllIncidentsAndReset();
     // eslint-disable-next-line
   }, []);
@@ -31,61 +33,46 @@ const Profile = () => {
     );
   }
 
-  const userIncident = incidents?.map((incident) => {
-    
-    if (user?._id === incident?.userId._id) {
-      return (
-        <div className="card" key={incident._id}>
-          <div className="top-container">
-            <div className="estado-container">
-              <div className="estado-incidencia">
-                Estado:<span>Enviado AYTO</span>
-              </div>
-            </div>
-            <div className="usuario">
-              <Avatar
-                size={70}
-                src={"http://localhost:8080/" + incident.userId?.imageUser}
-                alt={incident.userId?.name}
-              />
-              <div className="nombre">{incident.userId?.name}</div>
-            </div>
-
-            <div className="ubicacion-incidencia">
-              <EnvironmentOutlined />
-              <span> Calle camino nuevo 6</span>
-            </div>
-
-            <p>{incident.description}</p>
-
-            <div className="fecha">
-              <span>02/03/2023 22:52</span>
-            </div>
-          </div>
-
-          <div className="imagen-incidencia">
-            <Link to={"/incident/" + incident._id}>
-              <img
-                src={"http://localhost:8080/" + incident.imageIncident}
-                alt={incident.title}
-                width="100%"
-              />
-            </Link>
-          </div>
-        </div>
-      );
-    }
-    return <div key={incident._id}></div>;
-  });
-
   return (
     <div className="profile">
       <UserInfo />
-      <Divider />
-      <div className="userIncident">
-        {userIncident}
-        <h1>Mis Incidencias</h1>
+
+      <div className="container-principal">
+        <div className="container-left">
+          <span className="label">NOMBRE</span>
+          <span className="dato">{user.user.name}</span>
+        </div>
+        <div className="container-right">
+          <Link to={"/UpdateUser/" + user._id}>
+            <RightOutlined />
+          </Link>
+        </div>
       </div>
+      <div className="container-principal">
+        <div className="container-left">
+          <span className="label">E-MAIL</span>
+          <span className="dato">{user.user.email}</span>
+        </div>
+        <div className="container-right">
+          <Link to={"/UpdateUser/" + user._id}>
+            <RightOutlined />
+          </Link>
+        </div>
+      </div>
+      <div className="container-principal">
+        <div className="container-left">
+          <span className="label">CONTRASEÑA</span>
+          <span className="dato">**********</span>
+        </div>
+        <div className="container-right">
+          <Link to={"/UpdateUser/" + user._id}>
+            <RightOutlined />
+          </Link>
+        </div>
+      </div>
+      <Button className="btn-edit-user" href={"/UpdateUser/" + user._id}>
+        Editar
+      </Button>
     </div>
   );
 };

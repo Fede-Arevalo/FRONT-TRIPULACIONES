@@ -9,7 +9,7 @@
 
   .saludo {
     height: 179px;
-    width: 100%;
+    width: 358px;
     span.nombre {
       text-transform: uppercase;
       color: $terciario1;
@@ -28,7 +28,7 @@
   }
 
   .botones {
-    background-color: white;
+    
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -39,6 +39,7 @@
     }
 
     .btn-incidencias {
+      background-color: white;
       border-style: solid;
       border-width: 2px;
       border-color: rgb(185, 185, 185);
@@ -65,6 +66,7 @@
     }
 
     .btn-eventos {
+      background-color: white;
       border-style: solid;
       border-width: 2px;
       border-color: rgb(185, 185, 185);
