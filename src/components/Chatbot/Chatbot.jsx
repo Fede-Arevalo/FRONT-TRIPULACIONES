@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import axios from "axios";
 import "./Chatbot.scss";
+import { IoIosNavigate } from "react-icons/io";
 
 function Chatbot() {
   const [comment, setComment] = useState("");
@@ -39,24 +40,30 @@ function Chatbot() {
         <ul
           className="messages-container"
           ref={messagesRef}
-          style={{ overflowY: "scroll", height: "70vh" }}>
+          style={{ overflowY: "scroll", height: "60vh", paddingBottom: "25%" }}>
           {comments.map((c, i) => (
             <li key={i}>
-              <p className="user-message">{c.comment}</p>
-              <p className="bot-response">{c.response}</p>
+              <div>
+                <p className="user-message">{c.comment}</p>
+              </div>
+              <div>
+                <p className="bot-response">{c.response}</p>
+              </div>
             </li>
           ))}
         </ul>
       </div>
-      <form className="formulario-chatbot"
-       
-        onSubmit={handleSubmit}>
+      <form className="formulario-chatbot" onSubmit={handleSubmit}>
         <input
+          placeholder="Escribe aquí"
           type="text"
           value={comment}
           onChange={(e) => setComment(e.target.value)}
+          className="input-chat"
         />
-        <button type="submit">Enviar</button>
+        <button type="submit" className="btn-chat-boot"> <IoIosNavigate/> </button>
+
+        
       </form>
     </div>
   );

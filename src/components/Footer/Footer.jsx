@@ -57,7 +57,8 @@ const Footer = () => {
         onCancel={handleCancel}
         wrapClassName={
           isModalVisible ? "animated-modal-up" : "animated-modal-down"
-        }>
+        }
+        className="border-radius-modal">
         <Chatbot />
       </Modal>
     </div>
