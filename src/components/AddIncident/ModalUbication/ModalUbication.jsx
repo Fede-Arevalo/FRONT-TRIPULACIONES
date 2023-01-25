@@ -2,7 +2,6 @@ import { Modal } from "antd";
 import { useState } from "react";
 import LocationForm from "../LocationForm/LocationForm";
 import "./ModalUbication.scss";
-import Pin from "../../../assets/Location.png";
 
 const ModalUbication = () => {
   const [visible, setVisible] = useState(false);

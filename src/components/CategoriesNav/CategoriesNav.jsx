@@ -11,6 +11,7 @@ const CategoriesNav = ({ selectedCategory, setSelectedCategory }) => {
 
   useEffect(() => {
     dispatch(getAllCategories());
+    // eslint-disable-next-line
   }, []);
 
   const selectOption = categories?.map((category) => {

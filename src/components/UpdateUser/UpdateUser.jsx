@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import {  resetPassword, updateUserById } from "../../features/auth/authSlice";
-// loggedIn
 import { CloudUploadOutlined } from "@ant-design/icons";
 import "./UpdateUser.scss";
 
@@ -46,7 +45,6 @@ const UpdateUser = () => {
 
   useEffect(() => {
     // setFormData(user);
-    // dispatch(loggedIn());
     dispatch(resetPassword());
     // eslint-disable-next-line
   }, []);

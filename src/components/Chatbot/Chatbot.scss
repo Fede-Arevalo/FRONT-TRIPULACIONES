@@ -14,7 +14,7 @@
   border-top-left-radius: 0;
   margin-left: 0.5rem;
   margin-right: auto;
-  font-family: "Helvetica";
+  font-family: "Archivo", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -38,14 +38,13 @@
   float: right;
   margin-left: auto;
   margin-right: 0.5rem;
-  font-family: "Helvetica";
+  font-family: "Archivo", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
   border-color: #f28517;
 }
-
 
 .messages-container {
   display: flex;
@@ -79,8 +78,7 @@ ul {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   color: #f8fafc;
-  font-family: "Helvetica";
-  font-size: 17.4194px;
+  font-family: "Archivo", sans-serif;
 }
 
 .formulario-chatbot input {
@@ -93,7 +91,7 @@ ul {
   border-radius: 10px;
   height: 40px;
   width: 200px;
-  font-family: "Helvetica";
+  font-family: "Archivo", sans-serif;
 }
 
 .formulario-chatbot button {
@@ -112,7 +110,7 @@ ul {
   display: inline-block;
   border: none;
   margin-right: 0.5rem;
-  font-family: "Helvetica";
+  font-family: "Archivo", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 1rem;

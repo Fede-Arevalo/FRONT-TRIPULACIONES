@@ -12,7 +12,7 @@ mapboxgl.accessToken =
 
 const MapView = ({ address }) => {
   const [map, setMap] = useState(null);
-  const [geocoder, setGeocoder] = useState(null);
+  const [geocoder] = useState(null);
   const [searchResult, setSearchResult] = useState(null);
   const dispatch = useDispatch();
 
@@ -65,7 +65,7 @@ const MapView = ({ address }) => {
       });
       map.addControl(geocoder);
       geocoder.on("result", (e) => {
-        map?.flyTo({ center: e.result.center, zoom:18 });
+        map?.flyTo({ center: e.result.center, zoom: 18 });
         const marker = new mapboxgl.Marker()
           .setLngLat(e.result.center)
           .addTo(map);
@@ -85,12 +85,7 @@ const MapView = ({ address }) => {
         handleSearch(e.result);
       });
     } // eslint-disable-next-line
-  }, [geocoder, map]);
-
-  useEffect(() => {
-    if (geocoder) {
-    }
-  }, [geocoder, map]);
+  }, [geocoder, map]);  
 
   useEffect(() => {
     if (searchResult) {
