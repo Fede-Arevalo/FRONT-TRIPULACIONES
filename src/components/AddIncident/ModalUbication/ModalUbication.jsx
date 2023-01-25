@@ -1,8 +1,8 @@
-import { Input, Modal } from "antd";
+import { Modal } from "antd";
 import { useState } from "react";
 import LocationForm from "../LocationForm/LocationForm";
-import "./ModalUbication.scss"
-
+import "./ModalUbication.scss";
+import Pin from "../../../assets/Location.png";
 
 const ModalUbication = () => {
   const [visible, setVisible] = useState(false);
@@ -23,12 +23,17 @@ const ModalUbication = () => {
         placeholder="Ubicación"
         onClick={() => setVisible(true)}
       />
+
       <Modal
         title="Ubicación"
         visible={visible}
         onCancel={() => setVisible(false)}
-        onOk={() => setVisible(false)}>
-<LocationForm onLocation={handleLocation} closeModal={() => setVisible(false)} />
+        onOk={() => setVisible(false)}
+      >
+        <LocationForm
+          onLocation={handleLocation}
+          closeModal={() => setVisible(false)}
+        />
       </Modal>
     </>
   );
