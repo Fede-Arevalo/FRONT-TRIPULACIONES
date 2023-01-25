@@ -34,7 +34,7 @@ const Event = () => {
         <div className="imagen-event-container">
           <div className="imagen-event">
             <img
-              src={"https://back-tripulaciones-production-e793.up.railway.app" + event.imageEvent}
+              src={"https://back-tripulaciones-production-e793.up.railway.app/" + event.imageEvent}
               alt="img"
               width="390"
             />

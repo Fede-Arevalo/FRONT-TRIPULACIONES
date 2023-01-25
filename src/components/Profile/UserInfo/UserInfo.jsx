@@ -64,7 +64,7 @@ const UserInfo = () => {
         <Link to={"/UpdateUser/" + user._id}>
           <Avatar
             size={196}
-            src={"https://back-tripulaciones-production-e793.up.railway.app" + user.user.imageUser}
+            src={"https://back-tripulaciones-production-e793.up.railway.app/" + user.user.imageUser}
             alt={user.user.name}
           />
         </Link>
