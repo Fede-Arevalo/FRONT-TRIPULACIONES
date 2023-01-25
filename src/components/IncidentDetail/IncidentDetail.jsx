@@ -75,7 +75,7 @@ const IncidentDetail = () => {
           <div className="usuario-detail">
             <Avatar
               size={54}
-              src={"https://back-tripulaciones-production-e793.up.railway.app/" + incident.userId?.imageUser}
+              src={"https://back-tripulaciones-production-e793.up.railway.app" + incident.userId?.imageUser}
               alt={incident.userId?.name}
             />
 
@@ -108,7 +108,7 @@ const IncidentDetail = () => {
 
         <div className="imagen-incidencia-detail">
           <img
-            src={"https://back-tripulaciones-production-e793.up.railway.app/" + incident?.imageIncident}
+            src={"https://back-tripulaciones-production-e793.up.railway.app" + incident?.imageIncident}
             alt="img"
             width="100%"
           />

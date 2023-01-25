@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://back-tripulaciones-production-e793.up.railway.app/";
+const API_URL = "https://back-tripulaciones-production-e793.up.railway.app";
 
 const createEvent = async (eventData) => {
   const user = JSON.parse(localStorage.getItem("user"));

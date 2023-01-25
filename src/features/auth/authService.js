@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://back-tripulaciones-production-e793.up.railway.app/";
+const API_URL = "https://back-tripulaciones-production-e793.up.railway.app";
 
 const register = async (userData) => {
   const res = await axios.post(API_URL + "/users/register", userData);
