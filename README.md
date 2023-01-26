@@ -11,7 +11,7 @@
   - Tecnologias Usadas
   - Requerimientos
 
-## Sobre el prueba
+## Sobre el proyecto
 
 Demandas vecinales de los barrios de Valencia
 
