@@ -74,11 +74,15 @@ ul {
   padding: 10px 0;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   color: #f8fafc;
   font-family: "Archivo", sans-serif;
+  .face-chatbot{
+    margin-right: 15px;
+    margin-left: 15px;
+  }
 }
 
 .formulario-chatbot input {

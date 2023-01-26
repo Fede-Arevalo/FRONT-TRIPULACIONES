@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import axios from "axios";
 import "./Chatbot.scss";
 import { IoIosNavigate } from "react-icons/io";
+import faceChat from "../../assets/circle.png";
 
 function Chatbot() {
   const [comment, setComment] = useState("");
@@ -35,7 +36,9 @@ function Chatbot() {
 
   return (
     <div>
-      <div className="chatbot-header">Asistencia Virtual</div>
+      <div className="chatbot-header">
+      <img src={faceChat} alt="Home" className="face-chatbot" />
+      Asistencia Virtual</div>
       <div className="chat-container">
         <ul
           className="messages-container"
