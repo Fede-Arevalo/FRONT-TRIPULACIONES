@@ -58,7 +58,7 @@ const AddIncident = () => {
           <h1>RELLENE LOS DATOS PARA PODER PUBLICAR</h1>
 
           <div className="category">
-            <label>Seleccionar categoría </label>
+            <label>Seleccionar categoría: </label>
             <CategoriesNav
               selectedCategory={selectedCategory}
               setSelectedCategory={setSelectedCategory}
