@@ -13,10 +13,7 @@
 
 ## Sobre el proyecto
 
-Demandas vecinales de los barrios de Valencia
-
-Herramienta con la que canalizar rápida, eficaz y visualmente las demandas vecinales
-de los barrios de Valencia.
+Herramienta para canalizar rápida, eficaz y visualmente las demandas vecinales del barrio de Campanar en la ciudad de Valencia.
 
 ¿Cómo podemos empoderar al vecino/a mapeando su barrio con una herramienta digital que agilice la resolución de estas peticiones?
 
