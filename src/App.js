@@ -16,6 +16,7 @@ import IncidentDetail from "./components/IncidentDetail/IncidentDetail";
 import AddEvent from "./components/AddEvent/AddEvent";
 import Events from "./components/Events/Events";
 import CategoriesNav from "./components/CategoriesNav/CategoriesNav";
+import NotFound from "./components/NotFound/NotFound";
 
 
 function App() {
@@ -37,6 +38,8 @@ function App() {
           <Route path="/maps" element={<Maps/>} />
           <Route path="/chatbot" element={<Chatbot />} />
           <Route path="/cate" element={<CategoriesNav />} />
+          <Route path="/*" element={<NotFound />} />
+
         </Routes>
         <Footer />
       </BrowserRouter>

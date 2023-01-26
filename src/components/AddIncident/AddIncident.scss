@@ -32,19 +32,23 @@
         font-size: 15px;
         line-height: 18px;
         position: absolute;
-        top: 134px;
-        left: 39px;
+        top: 93px;
+        left: 25px;
         z-index: 999;
       }
       .ant-select.input-category {
-        width: 350px;
+        // background-color: red;        
+        width: 360px;
+        
         .ant-select-selector {
-          width: 358px;
-          height: 50px;
+          // background-color: #4096ff;          
+          height: 50px; 
+          padding-top: 8px;
           border: 2px solid rgba(15, 23, 42, 0.15);
         }
         span {
-          font-size: 20px;
+          font-size: 18px;
+          
         }
       }
     }
