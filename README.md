@@ -121,7 +121,8 @@ Backend $ npm run dev
 
 ### 💻 Tecnologias usadas
 
-![2](https://user-images.githubusercontent.com/105200893/214846690-cacbabd8-283c-4511-970b-6ed58844fa88.png)
+![2](https://user-images.githubusercontent.com/105200893/214846935-99497e2c-a5c9-440e-911d-7daea69b830a.png)
+
 
 ![3](https://user-images.githubusercontent.com/105200893/214846721-10c75b31-1838-4706-86df-0d65ba9e744a.png)
 
