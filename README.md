@@ -116,7 +116,8 @@ Backend $ npm run dev
 
 ### Flujo de procesos
 
-![foto]()
+![Sin título](https://user-images.githubusercontent.com/105200893/214846139-8c29c586-7947-403a-9cea-582a007db663.png)
+
 
 ### 💻 Tecnologias usadas
 
