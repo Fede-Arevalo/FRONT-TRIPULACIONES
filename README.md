@@ -121,22 +121,10 @@ Backend $ npm run dev
 
 ### 💻 Tecnologias usadas
 
-<p align="center">
-<img align="center" height="30" width="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg">
-<img align="center"  height="30" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg">
-<img align="center"  height="30" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg">
-<img align="center" height="30" width="30" src="https://cdn.svgporn.com/logos/visual-studio-code.svg">
-<img align="center"  height="30" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg">
-<img align="center" alt="Rafa-React" height="30" width="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg">
-<img align="center" alt="Rafa-React" height="30" width="30" src="https://raw.githubusercontent.com/reduxjs/redux/master/logo/logo.png">
-<img align="center" height="30" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg">
-<img align="center" alt="Rafa-Mongodb" height="30" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original-wordmark.svg">
-<img align="center" alt="sass" height="30" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg">
-<img align="center"  height="40" width="40" src="https://cdn.worldvectorlogo.com/logos/postman.svg">
-<img align="center"  height="30" width="30" src="https://raw.githubusercontent.com/andris9/Nodemailer/master/assets/nm_logo_200x136.png">
-<img align="center"  height="30" width="30" src="https://railway.app/brand/logo-dark.svg">
-<img align="center"  height="20" width="65" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Vercel_logo_black.svg/2560px-Vercel_logo_black.svg.png">
-      </p>
+![2](https://user-images.githubusercontent.com/105200893/214846690-cacbabd8-283c-4511-970b-6ed58844fa88.png)
+
+![3](https://user-images.githubusercontent.com/105200893/214846721-10c75b31-1838-4706-86df-0d65ba9e744a.png)
+
 
 <p align="right">(<a href="#readme-top">volver arriba</a>)</p>
 
